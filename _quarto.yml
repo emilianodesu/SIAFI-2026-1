@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: _site
 
 website:
   title: "SIAFI Data Science and Machine Learning Handbook 2026-1"
@@ -25,3 +26,4 @@ format:
     theme: cosmo
     toc: true
     code-fold: true
+  
