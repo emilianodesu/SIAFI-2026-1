@@ -20,17 +20,12 @@ jobs:
         with:
           version: '1.8.24'
 
-      # 3. Instalar dependencias si las hay
-      - name: Install dependencies
-        run: |
-          quarto install
-
-      # 4. Renderizar el sitio
+      # 3. Renderizar el sitio
       - name: Render Quarto site
         run: |
           quarto render
 
-      # 5. Desplegar a GitHub Pages
+      # 4. Desplegar a GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
