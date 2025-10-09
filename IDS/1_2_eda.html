@@ -140,7 +140,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link active" data-scroll-target="#exploratory-data-analysis-eda">1.3 Exploratory Data Analysis (EDA)</a></li>
+  <li><a href="#end-to-end-machine-learning-project" id="toc-end-to-end-machine-learning-project" class="nav-link active" data-scroll-target="#end-to-end-machine-learning-project">1.3 End-to-End Machine Learning Project</a>
+  <ul class="collapse">
+  <li><a href="#working-with-real-data" id="toc-working-with-real-data" class="nav-link" data-scroll-target="#working-with-real-data">1.3.1 Working with Real Data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -166,10 +169,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="exploratory-data-analysis-eda" class="level2">
-<h2 class="anchored" data-anchor-id="exploratory-data-analysis-eda">1.3 Exploratory Data Analysis (EDA)</h2>
+<section id="end-to-end-machine-learning-project" class="level2">
+<h2 class="anchored" data-anchor-id="end-to-end-machine-learning-project">1.3 End-to-End Machine Learning Project</h2>
+<p>In this section, you will work through an example project end to end, pretending to be a recently hired data scientist at a real estate company. The goal of this example is to illustrate the main steps of a machine learning project, not to learn everything about the real estate business. Here are the main steps we will go through:</p>
+<ol type="1">
+<li><strong>Look at the big picture</strong>: What is the business problem we are trying to solve? How can we measure success? What is the current solution?</li>
+<li><strong>Get the data</strong>: Where does the data come from? How can we get it?</li>
+<li><strong>Explore and visualize the data to gain insights</strong>: What is in the data? What are the main characteristics of the data? What are the relationships between different attributes?</li>
+<li><strong>Prepare the data for machine learning algorithms</strong>: How can we clean the data? How can we transform the data into a format that is suitable for machine learning algorithms?</li>
+<li><strong>Select and train a model</strong>: What are the different types of machine learning algorithms? How can we select the best algorithm for our problem? How can we train the model?</li>
+<li><strong>Fine-tune the model</strong>: How can we improve the model’s performance? How can we select the best hyperparameters?</li>
+<li><strong>Present the solution</strong>: How can we communicate the results to stakeholders? How can we present the solution in a way that is easy to understand?</li>
+<li><strong>Launch, monitor, and maintain the system</strong>: How can we deploy the model in a production environment? How can we monitor the model’s performance over time? How can we update the model as new data becomes available?</li>
+</ol>
+<section id="working-with-real-data" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-real-data">1.3.1 Working with Real Data</h3>
+<p>When learning about machine learning, it is best to experiment with real-world data, not artificial datasets. Fortunately, there are thousands of open datasets to choose from, ranging across all sorts of domains. Here are a few places you can look to get data:</p>
+<ul>
+<li>Popular open data repositories:
+<ul>
+<li><a href="https://www.openml.org/">OpenML.org</a></li>
+<li><a href="https://www.kaggle.com/datasets">Kaggle.com</a></li>
+<li><a href="https://archive.ics.uci.edu/ml/index.php">UCI Machine Learning Repository</a></li>
+<li><a href="https://registry.opendata.aws/">Amazon AWS Open Data Registry</a></li>
+<li><a href="https://datasetsearch.research.google.com/">Google Dataset Search</a></li>
+<li><a href="https://www.tensorflow.org/datasets">TensorFlow Datasets</a></li>
+<li><a href="https://pytorch.org/vision/stable/datasets.html">PyTorch Datasets</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html">Scikit-learn Datasets</a></li>
+</ul></li>
+<li>Meta portals that list many datasets:
+<ul>
+<li><a href="https://dataportals.org/">DataPortals.org</a></li>
+<li><a href="https://github.com/awesomedata/awesome-public-datasets">Awesome Public Datasets</a></li>
+</ul></li>
+<li>Other pages listing many popular data repositories:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research">Wikipedia: List of datasets for machine-learning research</a></li>
+<li><a href="https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public">Quora.com</a></li>
+<li><a href="https://www.reddit.com/r/datasets/">The datasets subreddit</a></li>
+</ul></li>
+</ul>
+<p>In this example, we will use the California housing dataset, which contains information about various districts in California, including features such as median income, average house age, and average number of rooms. This dataset is available in the <a href="http://lib.stat.cmu.edu/datasets/">StatLib repository</a> and is also included in the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html">Scikit-learn library</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="im/california.png" class="img-fluid figure-img"></p>
+<figcaption>California housing prices</figcaption>
+</figure>
+</div>
+<p>Our first task is to use California census data to build a model of housing prices in the state. This model should learn from this data and be able to predict the median housing price in any district, given all the other metrics.</p>
+<p>** Frame the problem.**</p>
+<p>The first question to ask your boss is what exactly the business objective is. Building a model is probably not the end goal. How does the company expect to use and benefit from this model? Knowing the objective is important because it will determine how you frame the problem, which algorithms you will select, which performance measure you will use to evaluate your model, and how much effort you will spend tweaking it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="im/ml_re_pl.png" class="img-fluid figure-img"></p>
+<figcaption>Machine learning real estate pipeline</figcaption>
+</figure>
+</div>
+<hr>
+<p><strong>References:</strong></p>
+<p>Disclaimer: Some of the material in this notebook is adapted from other sources. These references are provided for further reading and to acknowledge the original authors.</p>
+<ul>
+<li>Chapter 2 Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron, <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/">3rd edition</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -263,7 +327,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/emilianodesu\.github\.io\/SIAFI-2026-1\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

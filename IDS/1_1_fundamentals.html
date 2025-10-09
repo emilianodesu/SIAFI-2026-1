@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Introduction to Data Science – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
+<title>fundamentals – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,8 +160,8 @@ window.Quarto = {
  <span class="dropdown-text">Fundamentals</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../IDS/1_2_eda.html">
- <span class="dropdown-text">Exploratory Data Analysis</span></a>
+    <a class="dropdown-item" href="../IDS/1_2_end_to_end_ml_project.html">
+ <span class="dropdown-text">End to End Machine Learning Project</span></a>
   </li>  
     </ul>
   </li>
@@ -203,7 +203,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-concepts-and-definitions" id="toc-basic-concepts-and-definitions" class="nav-link active" data-scroll-target="#basic-concepts-and-definitions">1.1 Basic Concepts and Definitions</a>
+  <li><a href="#introduction-to-data-science" id="toc-introduction-to-data-science" class="nav-link active" data-scroll-target="#introduction-to-data-science">1. Introduction to Data Science</a>
+  <ul class="collapse">
+  <li><a href="#basic-concepts-and-definitions" id="toc-basic-concepts-and-definitions" class="nav-link" data-scroll-target="#basic-concepts-and-definitions">1.1 Basic Concepts and Definitions</a>
   <ul class="collapse">
   <li><a href="#what-is-data-science" id="toc-what-is-data-science" class="nav-link" data-scroll-target="#what-is-data-science">1.1.1 What is Data Science?</a></li>
   <li><a href="#methodology-of-data-science" id="toc-methodology-of-data-science" class="nav-link" data-scroll-target="#methodology-of-data-science">1.1.1 Methodology of Data Science</a></li>
@@ -214,31 +216,24 @@ window.Quarto = {
   <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link" data-scroll-target="#linear-algebra">1.2.2 Linear Algebra</a></li>
   <li><a href="#probability-and-statistics" id="toc-probability-and-statistics" class="nav-link" data-scroll-target="#probability-and-statistics">1.2.3 Probability and Statistics</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">1. Introduction to Data Science</h1>
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/emilianodesu/SIAFI-2026-1/blob/main/IDS/1_1_fundamentals.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img" alt="Open In Colab"></a></p>
+<figcaption>Open In Colab</figcaption>
+</figure>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="introduction-to-data-science" class="level1">
+<h1>1. Introduction to Data Science</h1>
 <section id="basic-concepts-and-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="basic-concepts-and-definitions">1.1 Basic Concepts and Definitions</h2>
 <section id="what-is-data-science" class="level3">
@@ -247,14 +242,14 @@ window.Quarto = {
 <p>Still, the attempt at definition is worthwhile. At its core, we can say that data science is about extracting insight from messy, real-world data. The people who do this go by many titles—data scientist, data analyst, machine learning engineer, statistician, or business intelligence analyst. Even software engineers, researchers, and domain experts frequently find themselves doing the work of data science, whether or not it appears in their job description.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/data_science_venn.png" class="img-fluid figure-img"></p>
+<p><img src="im/1_1/data_science_venn.png" class="img-fluid figure-img"></p>
 <figcaption>Venn diagram showing overlap of skills in Data Science</figcaption>
 </figure>
 </div>
 <p>The first diagram helps explain why data science is so difficult to define. It shows that data science sits at the intersection of computer science, mathematics &amp; statistics, and domain knowledge. A successful data scientist combines all three: they need programming and software skills to manipulate data at scale, statistical and mathematical understanding to interpret results rigorously, and domain expertise to make those results meaningful in context. Add in machine learning, and you see how easily the field overlaps with multiple other disciplines.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/data_venn.jpg" class="img-fluid figure-img"></p>
+<p><img src="im/1_1/data_venn.jpg" class="img-fluid figure-img"></p>
 <figcaption>Venn diagram showing overlap of skills in Data Roles</figcaption>
 </figure>
 </div>
@@ -283,11 +278,15 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="fundamentals-for-data-scientists">1.2 Fundamentals for Data Scientists</h2>
 <section id="visualizing-data" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-data">1.2.1 Visualizing Data</h3>
-<p>A fundamental part of the data scientist’s toolkit is data visualization. Although it is very easy to create visualizations, it’s much harder to produce good ones. There are two primary uses for data visualization: * To explore the data and find patterns, trends, and anomalies. * To communicate results to others.</p>
+<p>A fundamental part of the data scientist’s toolkit is data visualization. Although it is very easy to create visualizations, it’s much harder to produce good ones. There are two primary uses for data visualization:</p>
+<ul>
+<li>To explore the data and find patterns, trends, and anomalies.</li>
+<li>To communicate results to others.</li>
+</ul>
 <p>A wide variety of tools exist for visualizing data. We will be using <strong>matplotlib</strong>, which is a popular Python library for creating visualizations. It provides a wide range of tools and functions to create various types of plots and charts. To install Matplotlib, you can use pip, the Python package manager. Open your terminal or command prompt and run the following command:</p>
 <pre class="shell"><code>pip install matplotlib</code></pre>
 <p>We will be using the <code>matplotlib.pyplot</code> module. In it’s simplest use, <code>pyplot</code> maintains an internal state in which you build up a visualization step by step. Once you’re done, you can save it with <code>savefig</code> or display it with <code>show</code>. For example, making simple plots is pretty simple:</p>
-<div id="e617b330" class="cell" data-execution_count="1">
+<div id="e617b330" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -305,7 +304,7 @@ window.Quarto = {
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Billions of $"</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_gdp.png'</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_gdp.png')</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -320,7 +319,7 @@ window.Quarto = {
 <section id="bar-charts" class="level4">
 <h4 class="anchored" data-anchor-id="bar-charts"><strong>Bar Charts</strong></h4>
 <p>A bar chart is a good choice when you want to show how some quantity varies among some discrete set of items. For instance, the next figure shows how many Academy Awards were won by each of a variety of movies:</p>
-<div id="ef732a23" class="cell" data-execution_count="2">
+<div id="ef732a23" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> [<span class="st">"Annie Hall"</span>, <span class="st">"Ben-Hur"</span>, <span class="st">"Casablanca"</span>, <span class="st">"Gandhi"</span>, <span class="st">"West Side Story"</span>]</span>
@@ -336,7 +335,7 @@ window.Quarto = {
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="bu">len</span>(movies)), movies)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_movies.png'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_movies.png')</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -348,7 +347,7 @@ window.Quarto = {
 </div>
 </div>
 <p>A bar chart can also be a good choice for plotting histograms of bucketed numeric values, as in the next figure , in order to visually explore how the values are distributed:</p>
-<div id="1bdb7c7d" class="cell" data-execution_count="3">
+<div id="1bdb7c7d" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
@@ -371,7 +370,7 @@ window.Quarto = {
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Exam 1 Grades"</span>)</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_grades.png'</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_grades.png')</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -384,7 +383,7 @@ window.Quarto = {
 </div>
 <p>The third argument to <code>plt.bar</code> specifies the bar width. Here we chose a width of 10, to fill the entire decile. We also shifted the bars right by 5, so that, for example, the “10” bar (which corresponds to the decile 10–20) would have its center at 15 and hence occupy the correct range. We also added a black edge to eacch bar to make them visually distinct.</p>
 <p>The call to <code>plt.axis</code> indicates that we want the x-axis to range from –5 to 105 (just to leave a little space on the left and right), and that the y-axis should range from 0 to 5. And the call to <code>plt.xticks</code> puts x-axis labels at 0, 10, 20, …, 100. Be judicious when using <code>plt.axis</code>. When creating bar charts it is considered especially bad form for your y-axis not to start at 0, since this is an easy way to mislead people:</p>
-<div id="ab5be5e8" class="cell" data-execution_count="4">
+<div id="ab5be5e8" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mentions <span class="op">=</span> [<span class="dv">500</span>, <span class="dv">505</span>]</span>
@@ -403,7 +402,7 @@ window.Quarto = {
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Look at the 'Huge' Increase!"</span>)</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_misleading_y_axis.png'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_misleading_y_axis.png')</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -415,7 +414,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here we use more sensible axes, and it looks far less impressive:</p>
-<div id="a4c6cc82" class="cell" data-execution_count="5">
+<div id="a4c6cc82" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.bar(years, mentions, <span class="fl">0.8</span>)</span>
@@ -427,7 +426,7 @@ window.Quarto = {
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Not So Huge Anymore"</span>)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_non_misleading_y_axis.png'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_non_misleading_y_axis.png')</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -442,7 +441,7 @@ window.Quarto = {
 <section id="line-charts" class="level4">
 <h4 class="anchored" data-anchor-id="line-charts"><strong>Line Charts</strong></h4>
 <p>As we saw already, we can make line charts using <code>plt.plot</code>. These are a good choice for showing trends:</p>
-<div id="fe5d0de6" class="cell" data-execution_count="6">
+<div id="fe5d0de6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>variance <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">64</span>, <span class="dv">128</span>, <span class="dv">256</span>]</span>
@@ -464,7 +463,7 @@ window.Quarto = {
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"The Bias-Variance Tradeoff"</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_line_chart.png'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_line_chart.png')</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -479,7 +478,7 @@ window.Quarto = {
 <section id="scatterplots" class="level4">
 <h4 class="anchored" data-anchor-id="scatterplots"><strong>Scatterplots</strong></h4>
 <p>A scatterplot is the right choice for visualizing the relationship between two paired sets of data. For example, the next visualization illustrates the relationship between the number of friends your users have and the number of minutes they spend on the site every day:</p>
-<div id="5ec566f2" class="cell" data-execution_count="7">
+<div id="5ec566f2" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>friends <span class="op">=</span> [ <span class="dv">70</span>,  <span class="dv">65</span>,  <span class="dv">72</span>,  <span class="dv">63</span>,  <span class="dv">71</span>,  <span class="dv">64</span>,  <span class="dv">60</span>,  <span class="dv">64</span>,  <span class="dv">67</span>]</span>
@@ -500,7 +499,7 @@ window.Quarto = {
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"daily minutes spent on the site"</span>)</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_scatterplot.png'</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot.png')</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -512,7 +511,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If you’re scattering comparable variables, you might get a misleading picture if you let matplotlib choose the scale.</p>
-<div id="4c2176ee" class="cell" data-execution_count="8">
+<div id="4c2176ee" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_1_grades <span class="op">=</span> [ <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">97</span>, <span class="dv">80</span>]</span>
@@ -524,7 +523,7 @@ window.Quarto = {
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"test 2 grade"</span>)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_scatterplot_axes_not_comparable.png'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot_axes_not_comparable.png')</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -536,7 +535,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If we include a call to <code>plt.axis("equal")</code>, the plot more accurately shows that most of the variation occurs on test 2.</p>
-<div id="b66df963" class="cell" data-execution_count="9">
+<div id="b66df963" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test_1_grades <span class="op">=</span> [<span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">97</span>, <span class="dv">80</span>]</span>
@@ -549,7 +548,7 @@ window.Quarto = {
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"test 2 grade"</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/viz_scatterplot_axes_comparable.png'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot_axes_comparable.png')</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -577,7 +576,13 @@ window.Quarto = {
 <section id="vectors" class="level4">
 <h4 class="anchored" data-anchor-id="vectors"><strong>Vectors</strong></h4>
 <p>A vector is a mathematical object that represents both magnitude (size) and direction. In data science, we think of vectors as ordered lists of numbers that can represent data points, features, or measurements. Geometrically, a vector can be visualized as an arrow pointing from the origin to a specific point in space.</p>
-<p>Vectors are fundamental building blocks in linear algebra and essential for: - Storing and manipulating data - Representing features in machine learning - Performing mathematical operations on datasets - Computing distances and similarities between data points</p>
+<p>Vectors are fundamental building blocks in linear algebra and essential for:</p>
+<ul>
+<li>Storing and manipulating data</li>
+<li>Representing features in machine learning</li>
+<li>Performing mathematical operations on datasets</li>
+<li>Computing distances and similarities between data points</li>
+</ul>
 <p>A vector has countless practical applications. In physics, a vector is often thought of as a direction and magnitude. In math, it is a direction and scale on an XY plane, kind of like a movement. In computer science, it is an array of numbers storing data. The computer science context is the one we will become the most familiar with as data science professionals.</p>
 <p><strong>Mathematical Notation:</strong></p>
 <p>We represent vectors using lowercase letters with arrows: <span class="math inline">\(\vec{v}\)</span>, <span class="math inline">\(\vec{w}\)</span>, or in column form:</p>
@@ -1168,10 +1173,26 @@ History: 88.50</code></pre>
 <section id="determinants" class="level4">
 <h4 class="anchored" data-anchor-id="determinants"><strong>Determinants</strong></h4>
 <p>A determinant is a scalar value that can be calculated from a square matrix. It provides important information about the matrix’s properties and has numerous applications in linear algebra, geometry, and data science. The determinant tells us whether a matrix is invertible, how it transforms areas and volumes, and is crucial for solving systems of linear equations.</p>
-<p><strong>Mathematical Notation:</strong> For a square matrix <span class="math inline">\(A\)</span>, we denote its determinant as <span class="math inline">\(\det(A)\)</span> or <span class="math inline">\(|A|\)</span>.</p>
-<p><strong>Key Properties of Determinants:</strong> - Only square matrices have determinants - If <span class="math inline">\(\det(A) = 0\)</span>, the matrix is singular (non-invertible) - If <span class="math inline">\(\det(A) \neq 0\)</span>, the matrix is invertible - The determinant represents the scaling factor of the linear transformation - For a 2D matrix, it represents the area scaling factor; for 3D, the volume scaling factor</p>
-<p><strong>Geometric Interpretation:</strong> The absolute value of the determinant tells us how much the matrix scales areas (in 2D) or volumes (in 3D). A negative determinant indicates that the transformation reverses orientation.</p>
-<p><strong>Applications in Data Science:</strong> - Checking if a system of equations has a unique solution - Computing matrix inverses - Principal Component Analysis (PCA) - Measuring multicollinearity in regression analysis - Volume calculations in high-dimensional spaces</p>
+<p><strong>Mathematical Notation:</strong></p>
+<p>For a square matrix <span class="math inline">\(A\)</span>, we denote its determinant as <span class="math inline">\(\det(A)\)</span> or <span class="math inline">\(|A|\)</span>.</p>
+<p><strong>Key Properties of Determinants:</strong></p>
+<ul>
+<li>Only square matrices have determinants</li>
+<li>If <span class="math inline">\(\det(A) = 0\)</span>, the matrix is singular (non-invertible)</li>
+<li>If <span class="math inline">\(\det(A) \neq 0\)</span>, the matrix is invertible</li>
+<li>The determinant represents the scaling factor of the linear transformation</li>
+<li>For a 2D matrix, it represents the area scaling factor; for 3D, the volume scaling factor</li>
+</ul>
+<p><strong>Geometric Interpretation:</strong></p>
+<p>The absolute value of the determinant tells us how much the matrix scales areas (in 2D) or volumes (in 3D). A negative determinant indicates that the transformation reverses orientation.</p>
+<p><strong>Applications in Data Science:</strong></p>
+<ul>
+<li>Checking if a system of equations has a unique solution</li>
+<li>Computing matrix inverses</li>
+<li>Principal Component Analysis (PCA)</li>
+<li>Measuring multicollinearity in regression analysis</li>
+<li>Volume calculations in high-dimensional spaces</li>
+</ul>
 <div id="81424f69" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1386,8 +1407,22 @@ System has infinite solutions</code></pre>
 <p>Where: - <span class="math inline">\(\vec{v}\)</span> is the eigenvector (direction that doesn’t change) - <span class="math inline">\(\lambda\)</span> (lambda) is the eigenvalue (scaling factor) - <span class="math inline">\(A\)</span> is the square matrix</p>
 <p><strong>Geometric Interpretation:</strong></p>
 <p>When a matrix transforms a vector, most vectors change both direction and magnitude. However, eigenvectors are special - they only change in magnitude (scaled by the eigenvalue) but maintain their direction. Think of it as finding the “natural” directions of a transformation.</p>
-<p><strong>Key Properties:</strong> - A matrix can have multiple eigenvector-eigenvalue pairs - Eigenvectors corresponding to different eigenvalues are orthogonal - The eigenvalues tell us how much the matrix stretches or shrinks in each eigenvector direction - If eigenvalue λ &gt; 1: stretching, if 0 &lt; λ &lt; 1: shrinking, if λ &lt; 0: reflection</p>
-<p><strong>Applications in Data Science:</strong> - <strong>Principal Component Analysis (PCA)</strong>: Finding directions of maximum variance - <strong>Dimensionality Reduction</strong>: Identifying most important features - <strong>Google PageRank</strong>: Ranking web pages using eigenvectors - <strong>Image Compression</strong>: Using eigenfaces for face recognition - <strong>Stability Analysis</strong>: Determining system behavior in dynamic models - <strong>Spectral Clustering</strong>: Graph-based clustering algorithms</p>
+<p><strong>Key Properties:</strong></p>
+<ul>
+<li>A matrix can have multiple eigenvector-eigenvalue pairs</li>
+<li>Eigenvectors corresponding to different eigenvalues are orthogonal</li>
+<li>The eigenvalues tell us how much the matrix stretches or shrinks in each eigenvector direction</li>
+<li>If eigenvalue λ &gt; 1: stretching, if 0 &lt; λ &lt; 1: shrinking, if λ &lt; 0: reflection</li>
+</ul>
+<p><strong>Applications in Data Science:</strong></p>
+<ul>
+<li><strong>Principal Component Analysis (PCA)</strong>: Finding directions of maximum variance</li>
+<li><strong>Dimensionality Reduction</strong>: Identifying most important features</li>
+<li><strong>Google PageRank</strong>: Ranking web pages using eigenvectors</li>
+<li><strong>Image Compression</strong>: Using eigenfaces for face recognition</li>
+<li><strong>Stability Analysis</strong>: Determining system behavior in dynamic models</li>
+<li><strong>Spectral Clustering</strong>: Graph-based clustering algorithms</li>
+</ul>
 <div id="a74f4798" class="cell" data-execution_count="37">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1563,19 +1598,51 @@ Second PC explains 2.5% of variance</code></pre>
 <section id="probability-and-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="probability-and-statistics">1.2.3 Probability and Statistics</h3>
 <p>Probability and statistics form the mathematical foundation of data science. While probability helps us model uncertainty and make predictions about future events, statistics provides tools to analyze data, test hypotheses, and draw meaningful conclusions. These concepts are essential for exploratory data analysis, hypothesis testing, and building robust machine learning models.</p>
-<p><strong>Key Areas We’ll Cover:</strong> - Basic probability concepts and distributions - Descriptive statistics and data summarization - Statistical inference and hypothesis testing - Bayes’ theorem and its applications - Correlation and causation - Statistical distributions commonly used in data science</p>
-<p>Understanding these concepts is crucial for: - <strong>Exploratory Data Analysis (EDA)</strong>: Summarizing and visualizing data patterns - <strong>Statistical Inference</strong>: Making conclusions about populations from samples - <strong>Machine Learning</strong>: Understanding model assumptions and uncertainty - <strong>Risk Assessment</strong>: Quantifying uncertainty in business decisions</p>
+<p><strong>Key Areas We’ll Cover:</strong></p>
+<ul>
+<li>Basic probability concepts and distributions</li>
+<li>Descriptive statistics and data summarization</li>
+<li>Statistical inference and hypothesis testing</li>
+<li>Bayes’ theorem and its applications</li>
+<li>Correlation and causation</li>
+<li>Statistical distributions commonly used in data science</li>
+</ul>
+<p>Understanding these concepts is crucial for:</p>
+<ul>
+<li><strong>Exploratory Data Analysis (EDA)</strong>: Summarizing and visualizing data patterns</li>
+<li><strong>Statistical Inference</strong>: Making conclusions about populations from samples</li>
+<li><strong>Machine Learning</strong>: Understanding model assumptions and uncertainty</li>
+<li><strong>Risk Assessment</strong>: Quantifying uncertainty in business decisions</li>
+</ul>
 <section id="basic-probability-concepts" class="level4">
 <h4 class="anchored" data-anchor-id="basic-probability-concepts"><strong>Basic Probability Concepts</strong></h4>
-<p><strong>Probability</strong> is a measure of the likelihood that an event will occur, expressed as a number between 0 and 1, where: - 0 means the event is impossible - 1 means the event is certain - 0.5 means the event has equal chances of occurring or not</p>
+<p><strong>Probability</strong> is a measure of the likelihood that an event will occur, expressed as a number between 0 and 1, where:</p>
+<ul>
+<li>0 means the event is impossible</li>
+<li>1 means the event is certain</li>
+<li>0.5 means the event has equal chances of occurring or not</li>
+</ul>
 <p><strong>Key Definitions:</strong></p>
-<p><strong>Sample Space (S)</strong>: The set of all possible outcomes of an experiment - Rolling a dice: S = <span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span> - Flipping a coin: S = <span class="math inline">\(\{Heads, Tails\}\)</span></p>
-<p><strong>Event (E)</strong>: A subset of the sample space - Rolling an even number: E = <span class="math inline">\(\{2, 4, 6\}\)</span> - Getting heads: E = <span class="math inline">\(\{Heads\}\)</span></p>
+<p><strong>Sample Space (S)</strong>: The set of all possible outcomes of an experiment</p>
+<ul>
+<li>Rolling a dice: S = <span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span></li>
+<li>Flipping a coin: S = <span class="math inline">\(\{Heads, Tails\}\)</span></li>
+</ul>
+<p><strong>Event (E)</strong>: A subset of the sample space</p>
+<ul>
+<li>Rolling an even number: E = <span class="math inline">\(\{2, 4, 6\}\)</span></li>
+<li>Getting heads: E = <span class="math inline">\(\{Heads\}\)</span></li>
+</ul>
 <p><strong>Probability of an Event</strong>: P(E) = (Number of favorable outcomes) / (Total number of possible outcomes)</p>
-<p><strong>Fundamental Rules:</strong> 1. <strong>Addition Rule</strong>: P(A ∪ B) = P(A) + P(B) - P(A ∩ B) 2. <strong>Multiplication Rule</strong>: P(A ∩ B) = P(A) × P(B|A) 3. <strong>Complement Rule</strong>: P(A’) = 1 - P(A)</p>
+<p><strong>Fundamental Rules:</strong></p>
+<ol type="1">
+<li><strong>Addition Rule</strong>: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</li>
+<li><strong>Multiplication Rule</strong>: P(A ∩ B) = P(A) × P(B|A)</li>
+<li><strong>Complement Rule</strong>: P(A’) = 1 - P(A)</li>
+</ol>
 <p><strong>Conditional Probability</strong>: P(A|B) = P(A ∩ B) / P(B) The probability of event A given that event B has occurred.</p>
 <p><strong>Independence</strong>: Two events A and B are independent if P(A|B) = P(A) Or equivalently: P(A ∩ B) = P(A) × P(B)</p>
-<div id="f8ab1f4e" class="cell" data-execution_count="41">
+<div id="f8ab1f4e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1615,7 +1682,7 @@ Second PC explains 2.5% of variance</code></pre>
 <span id="cb73-35"><a href="#cb73-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Law of Large Numbers: Coin Flip Convergence'</span>)</span>
 <span id="cb73-36"><a href="#cb73-36" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb73-37"><a href="#cb73-37" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb73-38"><a href="#cb73-38" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/probability_convergence.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb73-38"><a href="#cb73-38" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/probability_convergence.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb73-39"><a href="#cb73-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -1634,7 +1701,7 @@ Expected Probability: 0.500</code></pre>
 </div>
 </div>
 </div>
-<div id="c795de21" class="cell" data-execution_count="42">
+<div id="c795de21" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dice rolling example - multiple events</span></span>
@@ -1679,7 +1746,7 @@ Expected Probability: 0.500</code></pre>
 <span id="cb75-40"><a href="#cb75-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb75-41"><a href="#cb75-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-42"><a href="#cb75-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/dice_probability.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/dice_probability.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb75-44"><a href="#cb75-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb75-45"><a href="#cb75-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-46"><a href="#cb75-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate P(sum = 7)</span></span>
@@ -1712,16 +1779,32 @@ P(Sum = 7 with two dice): 0.167</code></pre>
 <p>Descriptive statistics help us summarize and understand the main characteristics of a dataset. They provide insight into the center, spread, and shape of data distributions.</p>
 <p><strong>Measures of Central Tendency:</strong></p>
 <p><strong>Mean (μ or x̄)</strong>: The arithmetic average <span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\]</span></p>
-<p><strong>Median</strong>: The middle value when data is ordered - Robust to outliers - Better than mean for skewed distributions</p>
+<p><strong>Median</strong>: The middle value when data is ordered</p>
+<ul>
+<li>Robust to outliers</li>
+<li>Better than mean for skewed distributions</li>
+</ul>
 <p><strong>Mode</strong>: The most frequently occurring value(s)</p>
 <p><strong>Measures of Dispersion:</strong></p>
 <p><strong>Variance (σ² or s²)</strong>: Average of squared differences from the mean <span class="math display">\[\sigma^2 = \frac{1}{n}\sum_{i=1}^{n} (x_i - \mu)^2\]</span></p>
 <p><strong>Standard Deviation (σ or s)</strong>: Square root of variance <span class="math display">\[\sigma = \sqrt{\sigma^2}\]</span></p>
 <p><strong>Range</strong>: Difference between maximum and minimum values</p>
-<p><strong>Interquartile Range (IQR)</strong>: Difference between 75th and 25th percentiles - Q3 - Q1 - Measures spread of middle 50% of data</p>
+<p><strong>Interquartile Range (IQR)</strong>: Difference between 75th and 25th percentiles</p>
+<ul>
+<li>Q3 - Q1</li>
+<li>Measures spread of middle 50% of data</li>
+</ul>
 <p><strong>Measures of Shape:</strong></p>
-<p><strong>Skewness</strong>: Measure of asymmetry - Positive skew: tail extends to the right - Negative skew: tail extends to the left</p>
-<p><strong>Kurtosis</strong>: Measure of tail heaviness - High kurtosis: heavy tails, more outliers - Low kurtosis: light tails, fewer outliers</p>
+<p><strong>Skewness</strong>: Measure of asymmetry</p>
+<ul>
+<li>Positive skew: tail extends to the right</li>
+<li>Negative skew: tail extends to the left</li>
+</ul>
+<p><strong>Kurtosis</strong>: Measure of tail heaviness</p>
+<ul>
+<li>High kurtosis: heavy tails, more outliers</li>
+<li>Low kurtosis: light tails, fewer outliers</li>
+</ul>
 <div id="e36133ed" class="cell" data-execution_count="43">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1798,7 +1881,7 @@ Uniform Distribution:
   IQR: 48.21</code></pre>
 </div>
 </div>
-<div id="88e393b5" class="cell" data-execution_count="44">
+<div id="88e393b5" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize distributions and their statistics</span></span>
@@ -1825,7 +1908,7 @@ Uniform Distribution:
 <span id="cb80-22"><a href="#cb80-22" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb80-23"><a href="#cb80-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb80-24"><a href="#cb80-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb80-25"><a href="#cb80-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/descriptive_stats_distributions.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb80-25"><a href="#cb80-25" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/descriptive_stats_distributions.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb80-26"><a href="#cb80-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -1840,9 +1923,21 @@ Uniform Distribution:
 <section id="statistical-distributions" class="level4">
 <h4 class="anchored" data-anchor-id="statistical-distributions"><strong>Statistical Distributions</strong></h4>
 <p>Statistical distributions are mathematical functions that describe the probability of different outcomes in a dataset. Understanding common distributions is crucial for data analysis and modeling.</p>
-<p><strong>Normal Distribution (Gaussian)</strong> - Bell-shaped, symmetric distribution - Defined by mean (μ) and standard deviation (σ) - 68-95-99.7 rule (empirical rule) - Many natural phenomena follow normal distribution</p>
-<p><strong>Properties:</strong> - Mean = Median = Mode - 68% of data within 1σ of mean - 95% of data within 2σ of mean<br>
-- 99.7% of data within 3σ of mean</p>
+<p><strong>Normal Distribution (Gaussian)</strong></p>
+<ul>
+<li>Bell-shaped, symmetric distribution</li>
+<li>Defined by mean (μ) and standard deviation (σ)</li>
+<li>68-95-99.7 rule (empirical rule)</li>
+<li>Many natural phenomena follow normal distribution</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Mean = Median = Mode</li>
+<li>68% of data within 1σ of mean</li>
+<li>95% of data within 2σ of mean<br>
+</li>
+<li>99.7% of data within 3σ of mean</li>
+</ul>
 <p><strong>Other Important Distributions:</strong></p>
 <ul>
 <li><strong>Uniform Distribution</strong>: All outcomes equally likely</li>
@@ -1852,7 +1947,7 @@ Uniform Distribution:
 <li><strong>Chi-square Distribution</strong>: Used in hypothesis testing</li>
 <li><strong>t-Distribution</strong>: Used when sample size is small</li>
 </ul>
-<div id="57d014f5" class="cell" data-execution_count="45">
+<div id="57d014f5" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate various statistical distributions</span></span>
@@ -1958,7 +2053,7 @@ Uniform Distribution:
 <span id="cb81-101"><a href="#cb81-101" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb81-102"><a href="#cb81-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb81-103"><a href="#cb81-103" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb81-104"><a href="#cb81-104" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/statistical_distributions.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb81-104"><a href="#cb81-104" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/statistical_distributions.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb81-105"><a href="#cb81-105" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -1969,7 +2064,7 @@ Uniform Distribution:
 </div>
 </div>
 </div>
-<div id="938ab355" class="cell" data-execution_count="46">
+<div id="938ab355" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Real-world applications of distributions with simulated data</span></span>
@@ -2051,7 +2146,7 @@ Uniform Distribution:
 <span id="cb82-77"><a href="#cb82-77" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb82-78"><a href="#cb82-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-79"><a href="#cb82-79" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb82-80"><a href="#cb82-80" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/distribution_applications.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb82-80"><a href="#cb82-80" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/distribution_applications.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb82-81"><a href="#cb82-81" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2089,8 +2184,14 @@ A/B Test Conversions (Binomial Distribution):
 <p>Bayes’ theorem is a fundamental principle in probability theory that describes how to update the probability of a hypothesis based on new evidence. It’s the foundation of Bayesian statistics and has numerous applications in machine learning, medical diagnosis, spam filtering, and decision-making.</p>
 <p><strong>Mathematical Formula:</strong></p>
 <p><span class="math display">\[P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}\]</span></p>
-<p>Where: - <strong>P(A|B)</strong>: Posterior probability - probability of A given B - <strong>P(B|A)</strong>: Likelihood - probability of B given A<br>
-- <strong>P(A)</strong>: Prior probability - initial probability of A - <strong>P(B)</strong>: Marginal probability - total probability of B</p>
+<p>Where:</p>
+<ul>
+<li><strong>P(A|B)</strong>: Posterior probability - probability of A given B</li>
+<li><strong>P(B|A)</strong>: Likelihood - probability of B given A<br>
+</li>
+<li><strong>P(A)</strong>: Prior probability - initial probability of A</li>
+<li><strong>P(B)</strong>: Marginal probability - total probability of B</li>
+</ul>
 <p><strong>In words:</strong> <em>Posterior = (Likelihood × Prior) / Evidence</em></p>
 <p><strong>Key Components:</strong></p>
 <ol type="1">
@@ -2099,7 +2200,12 @@ A/B Test Conversions (Binomial Distribution):
 <li><strong>Evidence P(B)</strong>: Total probability of observing evidence B</li>
 <li><strong>Posterior P(A|B)</strong>: Updated probability of A after observing evidence B</li>
 </ol>
-<p><strong>Applications in Data Science:</strong> - <strong>Medical Diagnosis</strong>: Update disease probability based on test results - <strong>Spam Detection</strong>: Classify emails based on word patterns - <strong>Machine Learning</strong>: Naive Bayes classifier</p>
+<p><strong>Applications in Data Science:</strong></p>
+<ul>
+<li><strong>Medical Diagnosis</strong>: Update disease probability based on test results</li>
+<li><strong>Spam Detection</strong>: Classify emails based on word patterns</li>
+<li><strong>Machine Learning</strong>: Naive Bayes classifier</li>
+</ul>
 <div id="493d013c" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2181,11 +2287,31 @@ P(spam | 'free'): 77.4%</code></pre>
 <p>Understanding the relationship between variables is crucial in data analysis. Correlation measures the strength and direction of a linear relationship between two variables, while causation implies that one variable directly influences another.</p>
 <p><strong>Key Principle: “Correlation does not imply causation”</strong></p>
 <p><strong>Correlation Coefficient (Pearson’s r):</strong> <span class="math display">\[r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \sum_{i=1}^{n}(y_i - \bar{y})^2}}\]</span></p>
-<p><strong>Interpretation:</strong> - r = +1: Perfect positive correlation - r = 0: No linear correlation<br>
-- r = -1: Perfect negative correlation - |r| &gt; 0.7: Strong correlation - 0.3 &lt; |r| &lt; 0.7: Moderate correlation - |r| &lt; 0.3: Weak correlation</p>
-<p><strong>Types of Relationships:</strong> 1. <strong>No relationship</strong>: Variables are independent 2. <strong>Linear relationship</strong>: Variables change at a constant rate 3. <strong>Non-linear relationship</strong>: Variables are related but not linearly 4. <strong>Spurious correlation</strong>: Variables appear related due to confounding factors</p>
-<p><strong>Establishing Causation:</strong> 1. <strong>Temporal precedence</strong>: Cause must precede effect 2. <strong>Covariation</strong>: Cause and effect must be correlated 3. <strong>Non-spuriousness</strong>: Relationship isn’t due to third variable 4. <strong>Mechanism</strong>: Logical explanation for how cause leads to effect</p>
-<div id="31e97e87" class="cell" data-execution_count="48">
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>r = +1: Perfect positive correlation</li>
+<li>r = 0: No linear correlation<br>
+</li>
+<li>r = -1: Perfect negative correlation</li>
+<li>|r| &gt; 0.7: Strong correlation</li>
+<li>0.3 &lt; |r| &lt; 0.7: Moderate correlation</li>
+<li>|r| &lt; 0.3: Weak correlation</li>
+</ul>
+<p><strong>Types of Relationships:</strong></p>
+<ol type="1">
+<li><strong>No relationship</strong>: Variables are independent</li>
+<li><strong>Linear relationship</strong>: Variables change at a constant rate</li>
+<li><strong>Non-linear relationship</strong>: Variables are related but not linearly</li>
+<li><strong>Spurious correlation</strong>: Variables appear related due to confounding factors</li>
+</ol>
+<p><strong>Establishing Causation:</strong></p>
+<ol type="1">
+<li><strong>Temporal precedence</strong>: Cause must precede effect</li>
+<li><strong>Covariation</strong>: Cause and effect must be correlated</li>
+<li><strong>Non-spuriousness</strong>: Relationship isn’t due to third variable</li>
+<li><strong>Mechanism</strong>: Logical explanation for how cause leads to effect</li>
+</ol>
+<div id="31e97e87" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data to demonstrate correlation vs causation</span></span>
@@ -2308,7 +2434,7 @@ P(spam | 'free'): 77.4%</code></pre>
 <span id="cb86-118"><a href="#cb86-118" aria-hidden="true" tabindex="-1"></a>               <span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb86-119"><a href="#cb86-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-120"><a href="#cb86-120" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb86-121"><a href="#cb86-121" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'im/correlation_causation_analysis.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb86-121"><a href="#cb86-121" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/correlation_causation_analysis.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb86-122"><a href="#cb86-122" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb86-123"><a href="#cb86-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-124"><a href="#cb86-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Print correlation analysis</span></span>
@@ -2356,8 +2482,16 @@ Test_Score vs Stress_Level: r = -0.600</code></pre>
 <li><a href="https://youtu.be/9wCnvr7Xw4E?si=Eu4O0Mk9kAVRmtKJ">Bayes’ Theorem</a></li>
 <li><a href="https://youtu.be/YAlJCEDH2uY?si=_1ODfIwHycYs-0VN">Central Limit Theorem</a></li>
 </ul>
+<hr>
+<p><strong>References:</strong></p>
+<p>Disclaimer: Some of the material in this notebook is adapted from other sources. These references are provided for further reading and to acknowledge the original authors.</p>
+<ul>
+<li><p>Chapters 3-6 Data Science from Scratch by Joel Grus, <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">2nd edition</a></p></li>
+<li><p>Chapters 2-4 Essential Math for Data Science by Thomas Nield, <a href="https://www.oreilly.com/library/view/essential-math-for/9781098102920/">1st edition</a></p></li>
+</ul>
 
 
+</section>
 </section>
 </section>
 </section>
