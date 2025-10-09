@@ -10,8 +10,8 @@ website:
         menu:
           - file: IDS/1_1_fundamentals.ipynb
             text: "Fundamentals"
-          - file: IDS/1_2_eda.ipynb
-            text: "Exploratory Data Analysis"
+          - file: IDS/1_2_end_to_end_ml_project.ipynb
+            text: "End to End Machine Learning Project"
       - text: "Machine Learning"
         menu:
           - file: ML/2_1_fundamentals.ipynb
