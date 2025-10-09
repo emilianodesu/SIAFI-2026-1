@@ -1,11 +1,17 @@
 ---
-title: "Welcome"
+title: "Welcome Gen. 2026-1!"
 ---
+
+![](images/SIAFI.png)
 
 # SIAFI Data Science and Machine Learning Handbook
 
-Welcome! Use the navigation bar to explore topics:
+This handbook will guide you through the main concepts and tools used in this course. It is organized as follows:
 
 - Introduction to Data Science
 - Machine Learning
 - Deep Learning
+
+Please feel free to explore the contents and never stop learning.
+
+You can find the source code for this handbook in the [GitHub repository](https://github.com/emilianodesu/SIAFI-2026-1).
