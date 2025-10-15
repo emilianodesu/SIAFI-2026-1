@@ -23,7 +23,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: zephyr
     toc: true
     code-fold: false
   
