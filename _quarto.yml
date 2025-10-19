@@ -10,11 +10,13 @@ website:
         menu:
           - file: IDS/1_1_fundamentals.ipynb
             text: "Fundamentals"
-          - file: IDS/1_2_end_to_end_ml_project.ipynb
+          - file: IDS/1_3_end_to_end_ml_project.ipynb
             text: "End to End Machine Learning Project"
+          - file: IDS/1_4_dimensionality_reduction.ipynb
+            text: "Dimensionality Reduction"
       - text: "Machine Learning"
         menu:
-          - file: ML/2_1_fundamentals.ipynb
+          - file: ML/2_1_fundamentals.qmd
             text: "Fundamentals"
       - text: "Deep Learning"
         menu:
