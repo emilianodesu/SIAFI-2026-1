@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Introduction to Data Science – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
+<title>dimensionality_reduction – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -210,7 +210,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link active" data-scroll-target="#dimensionality-reduction">1.4 Dimensionality Reduction</a>
+  <li><a href="#introduction-to-data-science" id="toc-introduction-to-data-science" class="nav-link active" data-scroll-target="#introduction-to-data-science">1. Introduction to Data Science</a>
+  <ul class="collapse">
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">1.4 Dimensionality Reduction</a>
   <ul class="collapse">
   <li><a href="#the-curse-of-dimensionality" id="toc-the-curse-of-dimensionality" class="nav-link" data-scroll-target="#the-curse-of-dimensionality">1.4.1 The Curse of Dimensionality</a></li>
   <li><a href="#unsupervised-dimensionality-reduction-principal-component-analysis-pca" id="toc-unsupervised-dimensionality-reduction-principal-component-analysis-pca" class="nav-link" data-scroll-target="#unsupervised-dimensionality-reduction-principal-component-analysis-pca">1.4.2 Unsupervised dimensionality reduction: Principal Component Analysis (PCA)</a></li>
@@ -219,31 +221,19 @@ window.Quarto = {
   <li><a href="#supervised-dimensionality-reduction-linear-discriminant-analysis-lda" id="toc-supervised-dimensionality-reduction-linear-discriminant-analysis-lda" class="nav-link" data-scroll-target="#supervised-dimensionality-reduction-linear-discriminant-analysis-lda">1.4.5 Supervised dimensionality reduction: Linear Discriminant Analysis (LDA)</a></li>
   <li><a href="#nonlinear-dimensionality-reduction-kernel-principal-component-analysis-kpca" id="toc-nonlinear-dimensionality-reduction-kernel-principal-component-analysis-kpca" class="nav-link" data-scroll-target="#nonlinear-dimensionality-reduction-kernel-principal-component-analysis-kpca">1.4.6 Nonlinear dimensionality reduction: Kernel Principal Component Analysis (KPCA)</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">1. Introduction to Data Science</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<p><a href="https://colab.research.google.com/github/emilianodesu/SIAFI-2026-1/blob/main/IDS/1_4_dimensionality_reduction.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<section id="introduction-to-data-science" class="level1">
+<h1>1. Introduction to Data Science</h1>
 <section id="dimensionality-reduction" class="level2">
 <h2 class="anchored" data-anchor-id="dimensionality-reduction">1.4 Dimensionality Reduction</h2>
 <div id="716b5d65" class="cell" data-execution_count="1">
@@ -260,7 +250,7 @@ window.Quarto = {
 <p>We are so used to living in three dimensions⁠1 that our intuition fails us when we try to imagine a high-dimensional space. Even a basic 4D hypercube is incredibly hard to picture in our minds, let alone a 200-dimensional ellipsoid bent in a 1,000-dimensional space.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_4/hmls_0701.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/IDS/im/1_4/hmls_0701.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Point, segment, square, cube, and tesseract (0D to 4D hypercubes)</figcaption>
 </figure>
 </div>
@@ -282,8 +272,8 @@ window.Quarto = {
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> Rotation.from_rotvec([np.pi <span class="op">/</span> <span class="dv">29</span>, <span class="op">-</span>np.pi <span class="op">/</span> <span class="dv">20</span>, np.pi <span class="op">/</span> <span class="dv">4</span>]).<span class="bu">apply</span>(X)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>X <span class="op">+=</span> [<span class="fl">0.2</span>, <span class="dv">0</span>, <span class="fl">0.2</span>]  <span class="co"># shift a bit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b0f4610f" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code </span></span>
+<div id="b0f4610f" class="cell" data-outputid="43c3bff6-a753-48ea-dac5-0e674185c991" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
@@ -351,8 +341,8 @@ window.Quarto = {
 </div>
 </div>
 <p>Notice that all training instances lie close to a plane: this is a lower-dimensional (2D) subspace of the higher-dimensional (3D) space. If we project every training instance perpendicularly onto this subspace (as represented by the short dashed lines connecting the instances to the plane), we get a new 2D dataset. Ta-da! We have just reduced the dataset’s dimensionality from 3D to 2D. Note that the axes correspond to new features <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span>: they are the coordinates of the projections on the plane.</p>
-<div id="3a00e1ca" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code </span></span>
+<div id="3a00e1ca" class="cell" data-outputid="486f3474-de9d-4ee5-d1dd-17e659ef62ef" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, aspect<span class="op">=</span><span class="st">'equal'</span>)</span>
@@ -380,7 +370,7 @@ window.Quarto = {
 <section id="unsupervised-dimensionality-reduction-principal-component-analysis-pca" class="level3">
 <h3 class="anchored" data-anchor-id="unsupervised-dimensionality-reduction-principal-component-analysis-pca">1.4.2 Unsupervised dimensionality reduction: Principal Component Analysis (PCA)</h3>
 <p>Principal component analysis (PCA) is by far the most popular dimensionality reduction algorithm. First it identifies the hyperplane that lies closest to the data, and then it projects the data onto it. PCA (<em>Principal Component Analysis</em>) is a feature <em>extraction</em> algorithm. The main difference is that in a selection algorithm, the original features are <em>preserved</em>, whereas in an extraction algorithm, the data is transformed or projected onto a new feature space.</p>
-<div id="476afa57" class="cell" data-execution_count="5">
+<div id="476afa57" class="cell" data-outputid="5fd0d214-70e0-4343-88b8-939cc6a47d2a" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>angle <span class="op">=</span> np.pi <span class="op">/</span> <span class="dv">5</span></span>
@@ -475,7 +465,7 @@ window.Quarto = {
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>X2D <span class="op">=</span> pca.fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After fitting the PCA transformer to the dataset, its <code>components_</code> attribute holds the transpose of <span class="math inline">\(\mathbf{W_d}\)</span>: it contains one row for each of the first <span class="math inline">\(d\)</span> principal components.</p>
-<div id="f7552764" class="cell" data-execution_count="7">
+<div id="f7552764" class="cell" data-outputid="7e4c6100-2e3b-4b84-ec61-2cb9034aa921" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pca.components_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([[ 0.66824153,  0.73208333,  0.13231495],
@@ -483,7 +473,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Another useful piece of information is the explained variance ratio of each principal component, available via the <code>explained_variance_ratio_</code> variable. The ratio indicates the proportion of the dataset’s variance that lies along each principal component. For example, let’s look at the explained variance ratios of the first two components of the 3D dataset</p>
-<div id="5e3ac1c3" class="cell" data-execution_count="8">
+<div id="5e3ac1c3" class="cell" data-outputid="26774b39-fcdd-4f7e-88b1-91b1832e6935" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pca.explained_variance_ratio_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([0.82279334, 0.10821224])</code></pre>
@@ -507,7 +497,7 @@ window.Quarto = {
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>cumsum <span class="op">=</span> np.cumsum(pca.explained_variance_ratio_)</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.argmax(cumsum <span class="op">&gt;=</span> <span class="fl">0.95</span>) <span class="op">+</span> <span class="dv">1</span>  <span class="co"># d equals 154</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f01200cd" class="cell" data-execution_count="10">
+<div id="f01200cd" class="cell" data-outputid="5bd5e337-3da6-4609-dc62-425fe706d4fd" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of dimensions to preserve 95% of the variance: </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of dimensions to preserve 95% of the variance: 154</code></pre>
@@ -518,20 +508,20 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="fl">0.95</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>X_reduced <span class="op">=</span> pca.fit_transform(X_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0da5b723" class="cell" data-execution_count="12">
+<div id="0da5b723" class="cell" data-outputid="3c208c58-c461-428a-8bc6-9e9e57b99043" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pca.n_components_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>np.int64(154)</code></pre>
 </div>
 </div>
-<div id="7632acfe" class="cell" data-execution_count="13">
+<div id="7632acfe" class="cell" data-outputid="4ea79eea-8d30-4f04-db18-df2e047ef849" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pca.explained_variance_ratio_.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>np.float64(0.9501960192613034)</code></pre>
 </div>
 </div>
 <p>Yet another option is to plot the explained variance as a function of the number of dimensions (simply plot cumsum). There will usually be an elbow in the curve, where the explained variance stops growing fast. In this case, you can see that reducing the dimensionality down to about 100 dimensions wouldn’t lose too much explained variance.</p>
-<div id="55ed99de" class="cell" data-execution_count="14">
+<div id="55ed99de" class="cell" data-outputid="4dad62fa-513c-4f3b-ebf8-2666d9898a0e" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -556,7 +546,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Alternatively, if you are using dimensionality reduction as a preprocessing step for a supervised learning task (e.g., classification), then you can tune the number of dimensions as you would any other hyperparameter. For example, the following code example creates a two-step pipeline, first reducing dimensionality using PCA, then classifying using a random forest. Next, it uses <code>RandomizedSearchCV</code> to find a good combination of hyperparameters for both PCA and the random forest classifier. This example does a quick search, tuning only 2 hyperparameters, training on just 1,000 instances, and running for just 10 iterations, but feel free to do a more thorough search if you have the time:</p>
-<div id="36d11cd3" class="cell" data-execution_count="15">
+<div id="36d11cd3" class="cell" data-outputid="fdc8ce4e-4626-4072-be46-3c778faba945" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RandomizedSearchCV</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
@@ -1344,7 +1334,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </script>
 </div>
 </div>
-<div id="23fdd9df" class="cell" data-execution_count="16">
+<div id="23fdd9df" class="cell" data-outputid="e6fae1d0-6320-41e6-db59-bbbc81cf7aec" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rnd_search.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>{'randomforestclassifier__n_estimators': np.int64(475),
@@ -1365,7 +1355,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <div id="0f1ba9b1" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>X_recovered <span class="op">=</span> pca.inverse_transform(X_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="309821db" class="cell" data-execution_count="19">
+<div id="309821db" class="cell" data-outputid="4871aa46-88e8-4e12-eae1-f2757a15b3f0" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
@@ -1450,7 +1440,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 <section id="example-pca-vs-kernel-pca-rbf-on-make_moons-and-make_circles" class="level4">
 <h4 class="anchored" data-anchor-id="example-pca-vs-kernel-pca-rbf-on-make_moons-and-make_circles">Example: PCA vs Kernel PCA (RBF) on <code>make_moons</code> and <code>make_circles</code></h4>
 <p>Let’s look at a couple classic non-linear problems: concentric circles. Linear PCA will fail to separate these, as there is no linear projection that can place the two circles apart. Kernel PCA, by mapping the data to a higher dimension, can effectively “unroll” the circles.</p>
-<div id="1a78fb6f" class="cell" data-execution_count="20">
+<div id="1a78fb6f" class="cell" data-outputid="18ba5576-1535-495f-ccfd-3b09d40ea738" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_moons</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_moons(n_samples<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[y<span class="op">==</span><span class="dv">0</span>,<span class="dv">0</span>], X[y<span class="op">==</span><span class="dv">0</span>,<span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, marker<span class="op">=</span><span class="st">'^'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -1464,7 +1454,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </div>
 </div>
 </div>
-<div id="9413a022" class="cell" data-execution_count="21">
+<div id="9413a022" class="cell" data-outputid="3fd0d5bd-58f3-45e0-a956-7958efc1de87" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># It is not necessary to standardize because the axes have similar ranges but it is a good practice to do so</span></span>
@@ -1489,7 +1479,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </div>
 </div>
 </div>
-<div id="21d89ba3" class="cell" data-execution_count="22">
+<div id="21d89ba3" class="cell" data-outputid="fb547d45-1291-4f29-b481-3a40f53b9c85" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> KernelPCA</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_moons(n_samples<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
@@ -1513,7 +1503,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </div>
 </div>
 </div>
-<div id="e85697cf" class="cell" data-execution_count="23">
+<div id="e85697cf" class="cell" data-outputid="4bd03352-d1b4-40c3-a343-a3533d7afa7d" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_circles</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_circles(n_samples<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">123</span>, noise<span class="op">=</span><span class="fl">0.1</span>, factor<span class="op">=</span><span class="fl">0.2</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[y<span class="op">==</span><span class="dv">0</span>,<span class="dv">0</span>], X[y<span class="op">==</span><span class="dv">0</span>,<span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, marker<span class="op">=</span><span class="st">'^'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -1527,7 +1517,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </div>
 </div>
 </div>
-<div id="ac74a828" class="cell" data-execution_count="24">
+<div id="ac74a828" class="cell" data-outputid="2519739d-a7d1-47a1-d42b-f4f7772af94f" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1549,7 +1539,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </div>
 </div>
 </div>
-<div id="d11eb81c" class="cell" data-execution_count="25">
+<div id="d11eb81c" class="cell" data-outputid="6a0c884c-3e6a-43fc-b4ea-c8853a4d9f75" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>kpca <span class="op">=</span> KernelPCA(n_components<span class="op">=</span><span class="dv">2</span>, kernel<span class="op">=</span><span class="st">'rbf'</span>, gamma<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>X_kpca <span class="op">=</span> kpca.fit_transform(X)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1591,6 +1581,7 @@ k\bigl(x^{(n)}, x^{(1)}\bigr) &amp; k\bigl(x^{(n)}, x^{(2)}\bigr) &amp; \cdots &
 </ul>
 
 
+</section>
 </section>
 </section>
 </section>
