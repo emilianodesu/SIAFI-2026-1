@@ -6,7 +6,7 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
   <title>SIAFI Data Science and Machine Learning Handbook 2026-1 – What is Machine Learning?</title>
@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-949fcd71989a651394be00d684876026.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0c22b6e252e162282a19289aa8a4686d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -121,7 +121,7 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
@@ -132,26 +132,8 @@
 </div>
 
 </section>
-<section id="what-is-ml" class="title-slide slide level1 center">
-<h1>What is ML?</h1>
-<p>ML offers a new way to solve problems, answer complex questions, and create new content. ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images.</p>
-<p>In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.</p>
-</section>
+<section class="slide level2">
 
-<section id="what-is-ml-1" class="title-slide slide level1 center">
-<h1>What is ML?</h1>
-<p>For example, suppose we wanted to create an app to predict rainfall. We could use either a traditional approach or an ML approach. Using a traditional approach, we’d create a physics-based representation of the Earth’s atmosphere and surface, computing massive amounts of fluid dynamics equations. This is incredibly difficult.</p>
-</section>
-
-<section id="what-is-ml-2" class="title-slide slide level1 center">
-<h1>What is ML?</h1>
-<p>Using an ML approach, we would give an ML model enormous amounts of weather data until the ML model eventually learned the mathematical relationship between weather patterns that produce differing amounts of rain. We would then give the model the current weather data, and it would predict the amount of rain.</p>
-</section>
-
-<section id="video-explanation" class="title-slide slide level1 center">
-<h1>Video Explanation</h1>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/RdC7KZ6OFPA?si=g9WUEHE5ZxLiA1zn" title="What is ML?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
 
 
 </section>
@@ -457,7 +439,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/emilianodesu\.github\.io\/SIAFI-2026-1\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
