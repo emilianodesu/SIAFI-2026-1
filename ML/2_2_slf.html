@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>SIAFI Data Science and Machine Learning Handbook 2026-1 – What is Machine Learning?</title>
+  <title>SIAFI Data Science and Machine Learning Handbook 2026-1 – Supervised Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -126,125 +126,111 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">What is Machine Learning?</h1>
+  <h1 class="title">Supervised Learning</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="what-is-ml" class="slide level2">
-<h2>What is ML?</h2>
-<p>ML offers a new way to solve problems, answer complex questions, and create new content. ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images.</p>
-<p>In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.</p>
-</section>
-<section id="what-is-ml-1" class="slide level2">
-<h2>What is ML?</h2>
-<p>For example, suppose we wanted to create an app to predict rainfall. We could use either a traditional approach or an ML approach. Using a traditional approach, we’d create a physics-based representation of the Earth’s atmosphere and surface, computing massive amounts of fluid dynamics equations. This is incredibly difficult.</p>
-</section>
-<section id="what-is-ml-2" class="slide level2">
-<h2>What is ML?</h2>
-<p>Using an ML approach, we would give an ML model enormous amounts of weather data until the ML model eventually learned the mathematical relationship between weather patterns that produce differing amounts of rain. We would then give the model the current weather data, and it would predict the amount of rain.</p>
-</section>
-<section id="video-explanation" class="slide level2">
-<h2>Video Explanation</h2>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/RdC7KZ6OFPA?si=g9WUEHE5ZxLiA1zn" title="What is ML?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
-</section>
-<section id="types-of-ml-systems" class="slide level2">
-<h2>Types of ML Systems</h2>
-<p>ML systems fall into one or more of the following categories based on how they learn to make predictions or generate content:</p>
+<section id="foundational-supervised-learning-concepts" class="slide level2">
+<h2>Foundational supervised learning concepts</h2>
+<p>Supervised machine learning is based on the following core concepts:</p>
 <ul>
-<li>Supervised learning</li>
-<li>Unsupervised learning</li>
-<li>Reinforcement learning</li>
-<li>Generative AI</li>
+<li>Data</li>
+<li>Model</li>
+<li>Training</li>
+<li>Evaluating</li>
+<li>Inference</li>
 </ul>
 </section>
-<section id="supervised-learning" class="slide level2">
-<h2>Supervised Learning</h2>
-<p>Supervised learning models can make predictions after seeing lots of data with the correct answers and then discovering the connections between the elements in the data that produce the correct answers. This is like a student learning new material by studying old exams that contain both questions and answers. Once the student has trained on enough old exams, the student is well prepared to take a new exam. These ML systems are “supervised” in the sense that a human gives the ML system data with the known correct results.</p>
-<p>Two of the most common use cases for supervised learning are regression and classification.</p>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<p>Data is the driving force of ML. Data comes in the form of words and numbers stored in tables, or as the values of pixels and waveforms captured in images and audio files. We store related data in datasets. For example, we might have a dataset of the following:</p>
+<ul>
+<li>Images of cats</li>
+<li>Housing prices</li>
+<li>Weather information</li>
+</ul>
 </section>
-<section id="regression" class="slide level2">
-<h2>Regression</h2>
-<p>A regression model predicts a numeric value. For example, a weather model that predicts the amount of rain, in inches or millimeters, is a regression model.</p>
+<section id="data-1" class="slide level2">
+<h2>Data</h2>
+<p>Datasets are made up of individual examples that contain features and a label. You could think of an example as analogous to a single row in a spreadsheet. Features are the values that a supervised model uses to predict the label. The label is the “answer,” or the value we want the model to predict. In a weather model that predicts rainfall, the features could be latitude, longitude, temperature, humidity, cloud coverage, wind direction, and atmospheric pressure. The label would be rainfall amount.</p>
 </section>
-<section id="regression-1" class="slide level2">
-<h2>Regression</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 39%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Scenario</th>
-<th>Possible Input Data</th>
-<th>Numeric Prediction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Future ride time</td>
-<td>Historical traffic conditions (gathered from smartphones, traffic sensors, ride-hailing and other navigation applications), distance from destination, and weather conditions.</td>
-<td>The time in minutes and seconds to arrive at a destination</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="regression-2" class="slide level2">
-<h2>Regression</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 39%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Scenario</th>
-<th>Possible Input Data</th>
-<th>Numeric Prediction</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Future house price</td>
-<td>Square footage, zip code, number of bedrooms and bathrooms, lot size, mortgage interest rate, property tax rate, construction costs, and number of homes for sale in the area</td>
-<td>The price of the home</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="classification" class="slide level2">
-<h2>Classification</h2>
-<p>Classification models predict the likelihood that something belongs to a category. Unlike regression models, whose output is a number, classification models output a value that states whether or not something belongs to a particular category. For example, classification models are used to predict if an email is spam or if a photo contains a cat.</p>
-</section>
-<section id="classification-1" class="slide level2">
-<h2>Classification</h2>
-<p>Classification models are divided into two groups: binary classification and multiclass classification. Binary classification models output a value from a class that contains only two values, for example, a model that outputs either rain or no rain. Multiclass classification models output a value from a class that contains more than two values, for example, a model that can output either <code>rain</code>, <code>hail</code>, <code>snow</code>, or <code>sleet</code>.</p>
-</section>
-<section id="supervised-machine-learning" class="slide level2">
-<h2>Supervised Machine Learning</h2>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/NNue6rkDrws?si=J9OoHpZfdMeQGop2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
-</section>
-<section id="unsupervised-learning" class="slide level2">
-<h2>Unsupervised Learning</h2>
-<p>Unsupervised learning models make predictions by being given data that does not contain any correct answers. An unsupervised learning model’s goal is to identify meaningful patterns among the data. In other words, the model has no hints on how to categorize each piece of data, but instead it must infer its own rules.</p>
-<p>A commonly used unsupervised learning model employs a technique called clustering. The model finds data points that demarcate natural groupings.</p>
-</section>
-<section id="unsupervised-learning-1" class="slide level2">
-<h2>Unsupervised Learning</h2>
+<section id="labeled-examples" class="slide level2">
+<h2>Labeled examples</h2>
+<p>Examples that contain both features and a label are called labeled examples.</p>
 
-<img data-src="..\ML/img/clustering-02.png" class="r-stretch quarto-figure-center"><p class="caption">Figure 1. An ML model clustering similar data point</p></section>
-<section id="unsupervised-learning-2" class="slide level2">
-<h2>Unsupervised Learning</h2>
+<img data-src="..\ML/img/labeled_example.png" class="r-stretch"></section>
+<section id="unlabeled-examples" class="slide level2">
+<h2>Unlabeled examples</h2>
+<p>In contrast, unlabeled examples contain features, but no label. After you create a model, the model predicts the label from the features.</p>
+
+<img data-src="..\ML/img/unlabeled_example.png" class="r-stretch"></section>
+<section id="dataset-characteristics" class="slide level2">
+<h2>Dataset characteristics</h2>
+<p>A dataset is characterized by its size and diversity. Size indicates the number of examples. Diversity indicates the range those examples cover. Good datasets are both large and highly diverse.</p>
+<p>Datasets can be large and diverse, or large but not diverse, or small but highly diverse. In other words, a large dataset doesn’t guarantee sufficient diversity, and a dataset that is highly diverse doesn’t guarantee sufficient examples.</p>
+</section>
+<section id="dataset-characteristics-1" class="slide level2">
+<h2>Dataset characteristics</h2>
+<p>For instance, a dataset might contain 100 years worth of data, but only for the month of July. Using this dataset to predict rainfall in January would produce poor predictions. Conversely, a dataset might cover only a few years but contain every month. This dataset might produce poor predictions because it doesn’t contain enough years to account for variability.</p>
+</section>
+<section id="dataset-characteristics-2" class="slide level2">
+<h2>Dataset characteristics</h2>
+<p>A dataset can also be characterized by the number of its features. For example, some weather datasets might contain hundreds of features, ranging from satellite imagery to cloud coverage values. Other datasets might contain only three or four features, like humidity, atmospheric pressure, and temperature. Datasets with more features can help a model discover additional patterns and make better predictions. However, datasets with more features don’t always produce models that make better predictions because some features might have no causal relationship to the label.</p>
+</section>
+<section id="model" class="slide level2">
+<h2>Model</h2>
+<p>In supervised learning, a model is the complex collection of numbers that define the mathematical relationship from specific input feature patterns to specific output label values. The model discovers these patterns through training.</p>
+</section>
+<section id="training" class="slide level2">
+<h2>Training</h2>
+<p>Before a supervised model can make predictions, it must be trained. To train a model, we give the model a dataset with labeled examples. The model’s goal is to work out the best solution for predicting the labels from the features. The model finds the best solution by comparing its predicted value to the label’s actual value. Based on the difference between the predicted and actual values—defined as the loss—the model gradually updates its solution. In other words, the model learns the mathematical relationship between the features and the label so that it can make the best predictions on unseen data.</p>
+</section>
+<section id="training-1" class="slide level2">
+<h2>Training</h2>
+<p>For example, if the model predicted <code>1.15 inches</code> of rain, but the actual value was <code>0.75 inches</code>, the model modifies its solution so its prediction is closer to <code>0.75 inches</code>. After the model has looked at each example in the dataset—in some cases, multiple times—it arrives at a solution that makes the best predictions, on average, for each of the examples.</p>
+</section>
+<section id="training-2" class="slide level2">
+<h2>Training</h2>
+<p>The model takes in a single labeled example and provides a prediction.</p>
+
+<img data-src="..\ML/img/training-a-model-01.png" class="r-stretch quarto-figure-center"><p class="caption">An ML model making a prediction from a labeled example</p></section>
+<section id="training-3" class="slide level2">
+<h2>Training</h2>
+<p>The model compares its predicted value with the actual value and updates its solution.</p>
+
+<img data-src="..\ML/img/training-a-model-02.png" class="r-stretch quarto-figure-center"><p class="caption">An ML model updating its predicted value</p></section>
+<section id="training-4" class="slide level2">
+<h2>Training</h2>
+<p>The model repeats this process for each labeled example in the dataset.</p>
+
+<img data-src="..\ML/img/training-a-model-03.png" class="r-stretch quarto-figure-center"><p class="caption">An ML model updating its predictions for each labeled example in the training dataset.</p></section>
+<section id="training-5" class="slide level2">
+<h2>Training</h2>
+<p>In this way, the model gradually learns the correct relationship between the features and the label. This gradual understanding is also why large and diverse datasets produce a better model. The model has seen more data with a wider range of values and has refined its understanding of the relationship between the features and the label.</p>
+</section>
+<section id="training-6" class="slide level2">
+<h2>Training</h2>
+<p>During training, ML practitioners can make subtle adjustments to the configurations and features the model uses to make predictions. For example, certain features have more predictive power than others. Therefore, ML practitioners can select which features the model uses during training. For example, suppose a weather dataset contains <code>time_of_day</code> as a feature. In this case, an ML practitioner can add or remove <code>time_of_day</code> during training to see whether the model makes better predictions with or without it.</p>
+</section>
+<section id="evaluating" class="slide level2">
+<h2>Evaluating</h2>
+<p>We evaluate a trained model to determine how well it learned. When we evaluate a model, we use a labeled dataset, but we only give the model the dataset’s features. We then compare the model’s predictions to the label’s true values.</p>
+<p>Depending on the model’s predictions, we might do more training and evaluating before deploying the model in a real-world application.</p>
+</section>
+<section id="evaluating-1" class="slide level2">
+<h2>Evaluating</h2>
+
+<img data-src="..\ML/img/evaluating-a-model.png" class="r-stretch quarto-figure-center"><p class="caption">Evaluating an ML model by comparing its predictions to the actual values.</p></section>
+<section id="inference" class="slide level2">
+<h2>Inference</h2>
+<p>Once we’re satisfied with the results from evaluating the model, we can use the model to make predictions, called inferences, on unlabeled examples. In the weather app example, we would give the model the current weather conditions—like temperature, atmospheric pressure, and relative humidity—and it would predict the amount of rainfall.</p>
+<!-- ## References -->
+<!-- [Supervised Learning](https://developers.google.com/machine-learning/intro-to-ml/supervised) -->
 
 
-
-<img data-src="..\ML/img/clustering-04.png" class="r-stretch quarto-figure-center"><p class="caption">Figure 2. Groups of clusters with natural demarcations</p></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -547,7 +533,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/emilianodesu\.github\.io\/SIAFI-2026-1\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
