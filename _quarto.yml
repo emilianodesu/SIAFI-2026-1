@@ -16,8 +16,10 @@ website:
             text: "Dimensionality Reduction"
       - text: "Machine Learning"
         menu:
-          - file: ML/2_1_fundamentals.qmd
-            text: "Fundamentals"
+          - file: ML/2_1_intro.qmd
+            text: "Introduction to Machine Learning"
+          - file: ML/2_2_slf.qmd
+            text: "Supervised Learning Fundamentals"
       - text: "Deep Learning"
         menu:
           - file: DL/3_1_fundamentals.ipynb
