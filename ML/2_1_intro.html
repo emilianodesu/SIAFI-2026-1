@@ -199,17 +199,42 @@
 </section>
 <section id="what-is-ml" class="slide level2">
 <h2>What is ML?</h2>
-<p>ML offers a new way to solve problems, answer complex questions, and create new content. ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images.</p>
-<p>In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.</p>
+<p>Machine learning is the science (and art) of programming computers so they can learn from data.</p>
+<p>Here is a slightly more general definition:</p>
+<p>[Machine learning is the] field of study that gives computers the ability to learn without being explicitly programmed.</p>
+<ul>
+<li>Arthur Samuel, 1959</li>
+</ul>
 </section>
 <section id="what-is-ml-1" class="slide level2">
 <h2>What is ML?</h2>
-<p>For example, suppose we wanted to create an app to predict rainfall. We could use either a traditional approach or an ML approach. Using a traditional approach, we’d create a physics-based representation of the Earth’s atmosphere and surface, computing massive amounts of fluid dynamics equations. This is incredibly difficult.</p>
+<p>ML offers a new way to solve problems, answer complex questions, and create new content. ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images.</p>
+<p>In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.</p>
 </section>
 <section id="what-is-ml-2" class="slide level2">
 <h2>What is ML?</h2>
+<p>For example, suppose we wanted to create an app to predict rainfall. We could use either a traditional approach or an ML approach. Using a traditional approach, we’d create a physics-based representation of the Earth’s atmosphere and surface, computing massive amounts of fluid dynamics equations. This is incredibly difficult.</p>
+</section>
+<section id="what-is-ml-3" class="slide level2">
+<h2>What is ML?</h2>
 <p>Using an ML approach, we would give an ML model enormous amounts of weather data until the ML model eventually learned the mathematical relationship between weather patterns that produce differing amounts of rain. We would then give the model the current weather data, and it would predict the amount of rain.</p>
 </section>
+<section id="why-use-ml" class="slide level2">
+<h2>Why use ML?</h2>
+
+<img data-src="..\ML/img/trad.png" class="r-stretch quarto-figure-center"><p class="caption">The traditional approach requires explicitly programming a solution.</p></section>
+<section id="why-use-ml-1" class="slide level2">
+<h2>Why use ML?</h2>
+
+<img data-src="..\ML/img/ml.png" class="r-stretch quarto-figure-center"><p class="caption">The ML approach learns a solution from data.</p></section>
+<section id="why-use-ml-2" class="slide level2">
+<h2>Why use ML?</h2>
+
+<img data-src="..\ML/img/auto.png" class="r-stretch quarto-figure-center"><p class="caption">Automatically adapting to change.</p></section>
+<section id="why-use-ml-3" class="slide level2">
+<h2>Why use ML?</h2>
+
+<img data-src="..\ML/img/better.png" class="r-stretch quarto-figure-center"><p class="caption">Machine Learning can help humans learn</p></section>
 <section id="video-explanation" class="slide level2">
 <h2>Video Explanation</h2>
 <iframe width="800" height="450" src="https://www.youtube.com/embed/RdC7KZ6OFPA?si=g9WUEHE5ZxLiA1zn" title="What is ML?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
@@ -230,10 +255,15 @@
 <p>Supervised learning models can make predictions after seeing lots of data with the correct answers and then discovering the connections between the elements in the data that produce the correct answers. This is like a student learning new material by studying old exams that contain both questions and answers. Once the student has trained on enough old exams, the student is well prepared to take a new exam. These ML systems are “supervised” in the sense that a human gives the ML system data with the known correct results.</p>
 <p>Two of the most common use cases for supervised learning are regression and classification.</p>
 </section>
+<section id="supervised-learning-1" class="slide level2">
+<h2>Supervised Learning</h2>
+
+<img data-src="./img/sl_example.png" class="r-stretch quarto-figure-center"><p class="caption">A labeled training set for spam classification (an example of supervised learning)</p></section>
 <section id="regression" class="slide level2">
 <h2>Regression</h2>
-<p>A regression model predicts a numeric value. For example, a weather model that predicts the amount of rain, in inches or millimeters, is a regression model.</p>
-</section>
+<p>A regression model predicts a numeric value.</p>
+
+<img data-src="./img/reg_example.png" class="r-stretch quarto-figure-center"><p class="caption">A regression problem: predict a value, given an input feature (there are usually multiple input features, and sometimes multiple output values)</p></section>
 <section id="regression-1" class="slide level2">
 <h2>Regression</h2>
 <table class="caption-top">
@@ -326,6 +356,10 @@
 <p>Reinforcement learning is used to train robots to perform tasks, like walking around a room, and software programs like AlphaGo to play the game of Go.</p>
 </section>
 <section id="reinforcement-learning-1" class="slide level2">
+<h2>Reinforcement Learning</h2>
+
+<img data-src="..\ML/img/robot_rl.png" class="r-stretch quarto-figure-center"><p class="caption">A robot learning to walk through reinforcement learning.</p></section>
+<section id="reinforcement-learning-2" class="slide level2">
 <h2>Reinforcement Learning</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>

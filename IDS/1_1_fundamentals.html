@@ -182,6 +182,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../ML/2_2_slf.html">
  <span class="dropdown-text">Supervised Learning Fundamentals</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_3_classification.html">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -250,14 +254,14 @@ window.Quarto = {
 <p>Still, the attempt at definition is worthwhile. At its core, we can say that data science is about extracting insight from messy, real-world data. The people who do this go by many titles—data scientist, data analyst, machine learning engineer, statistician, or business intelligence analyst. Even software engineers, researchers, and domain experts frequently find themselves doing the work of data science, whether or not it appears in their job description.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_1/data_science_venn.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_1/data_science_venn.png" class="img-fluid figure-img"></p>
 <figcaption>Venn diagram showing overlap of skills in Data Science</figcaption>
 </figure>
 </div>
 <p>The first diagram helps explain why data science is so difficult to define. It shows that data science sits at the intersection of computer science, mathematics &amp; statistics, and domain knowledge. A successful data scientist combines all three: they need programming and software skills to manipulate data at scale, statistical and mathematical understanding to interpret results rigorously, and domain expertise to make those results meaningful in context. Add in machine learning, and you see how easily the field overlaps with multiple other disciplines.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_1/data_venn.jpg" class="img-fluid figure-img"></p>
+<p><img src="img/1_1/data_venn.jpg" class="img-fluid figure-img"></p>
 <figcaption>Venn diagram showing overlap of skills in Data Roles</figcaption>
 </figure>
 </div>
@@ -294,7 +298,7 @@ window.Quarto = {
 <p>A wide variety of tools exist for visualizing data. We will be using <strong>matplotlib</strong>, which is a popular Python library for creating visualizations. It provides a wide range of tools and functions to create various types of plots and charts. To install Matplotlib, you can use pip, the Python package manager. Open your terminal or command prompt and run the following command:</p>
 <pre class="shell"><code>pip install matplotlib</code></pre>
 <p>We will be using the <code>matplotlib.pyplot</code> module. In it’s simplest use, <code>pyplot</code> maintains an internal state in which you build up a visualization step by step. Once you’re done, you can save it with <code>savefig</code> or display it with <code>show</code>. For example, making simple plots is pretty simple:</p>
-<div id="e617b330" class="cell">
+<div id="e617b330" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">1950</span>,  <span class="dv">1960</span>,  <span class="dv">1970</span>,  <span class="dv">1980</span>,  <span class="dv">1990</span>,  <span class="dv">2000</span>,  <span class="dv">2010</span>]</span>
@@ -310,7 +314,7 @@ window.Quarto = {
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Billions of $"</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_gdp.png')</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_gdp.png')</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -324,7 +328,7 @@ window.Quarto = {
 <section id="bar-charts" class="level4">
 <h4 class="anchored" data-anchor-id="bar-charts"><strong>Bar Charts</strong></h4>
 <p>A bar chart is a good choice when you want to show how some quantity varies among some discrete set of items. For instance, the next figure shows how many Academy Awards were won by each of a variety of movies:</p>
-<div id="ef732a23" class="cell">
+<div id="ef732a23" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> [<span class="st">"Annie Hall"</span>, <span class="st">"Ben-Hur"</span>, <span class="st">"Casablanca"</span>, <span class="st">"Gandhi"</span>, <span class="st">"West Side Story"</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>num_oscars <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">10</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -338,7 +342,7 @@ window.Quarto = {
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="bu">len</span>(movies)), movies)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_movies.png')</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_movies.png')</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -349,7 +353,7 @@ window.Quarto = {
 </div>
 </div>
 <p>A bar chart can also be a good choice for plotting histograms of bucketed numeric values, as in the next figure , in order to visually explore how the values are distributed:</p>
-<div id="1bdb7c7d" class="cell">
+<div id="1bdb7c7d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [<span class="dv">83</span>, <span class="dv">95</span>, <span class="dv">91</span>, <span class="dv">87</span>, <span class="dv">70</span>, <span class="dv">0</span>, <span class="dv">85</span>, <span class="dv">82</span>, <span class="dv">100</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">77</span>, <span class="dv">0</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -370,7 +374,7 @@ window.Quarto = {
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Exam 1 Grades"</span>)</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_grades.png')</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_grades.png')</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -382,7 +386,7 @@ window.Quarto = {
 </div>
 <p>The third argument to <code>plt.bar</code> specifies the bar width. Here we chose a width of 10, to fill the entire decile. We also shifted the bars right by 5, so that, for example, the “10” bar (which corresponds to the decile 10–20) would have its center at 15 and hence occupy the correct range. We also added a black edge to eacch bar to make them visually distinct.</p>
 <p>The call to <code>plt.axis</code> indicates that we want the x-axis to range from –5 to 105 (just to leave a little space on the left and right), and that the y-axis should range from 0 to 5. And the call to <code>plt.xticks</code> puts x-axis labels at 0, 10, 20, …, 100. Be judicious when using <code>plt.axis</code>. When creating bar charts it is considered especially bad form for your y-axis not to start at 0, since this is an easy way to mislead people:</p>
-<div id="ab5be5e8" class="cell">
+<div id="ab5be5e8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mentions <span class="op">=</span> [<span class="dv">500</span>, <span class="dv">505</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">2017</span>, <span class="dv">2018</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -399,7 +403,7 @@ window.Quarto = {
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Look at the 'Huge' Increase!"</span>)</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_misleading_y_axis.png')</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_misleading_y_axis.png')</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -410,7 +414,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here we use more sensible axes, and it looks far less impressive:</p>
-<div id="a4c6cc82" class="cell">
+<div id="a4c6cc82" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.bar(years, mentions, <span class="fl">0.8</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(years)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"# of times I heard someone say 'data science'"</span>)</span>
@@ -420,7 +424,7 @@ window.Quarto = {
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Not So Huge Anymore"</span>)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_non_misleading_y_axis.png')</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_non_misleading_y_axis.png')</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -434,7 +438,7 @@ window.Quarto = {
 <section id="line-charts" class="level4">
 <h4 class="anchored" data-anchor-id="line-charts"><strong>Line Charts</strong></h4>
 <p>As we saw already, we can make line charts using <code>plt.plot</code>. These are a good choice for showing trends:</p>
-<div id="fe5d0de6" class="cell">
+<div id="fe5d0de6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>variance <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">64</span>, <span class="dv">128</span>, <span class="dv">256</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bias_squared <span class="op">=</span> [<span class="dv">256</span>, <span class="dv">128</span>, <span class="dv">64</span>, <span class="dv">32</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>total_error <span class="op">=</span> [x <span class="op">+</span> y <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(variance, bias_squared)]</span>
@@ -454,7 +458,7 @@ window.Quarto = {
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"The Bias-Variance Tradeoff"</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_line_chart.png')</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_line_chart.png')</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -468,7 +472,7 @@ window.Quarto = {
 <section id="scatterplots" class="level4">
 <h4 class="anchored" data-anchor-id="scatterplots"><strong>Scatterplots</strong></h4>
 <p>A scatterplot is the right choice for visualizing the relationship between two paired sets of data. For example, the next visualization illustrates the relationship between the number of friends your users have and the number of minutes they spend on the site every day:</p>
-<div id="5ec566f2" class="cell">
+<div id="5ec566f2" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>friends <span class="op">=</span> [ <span class="dv">70</span>,  <span class="dv">65</span>,  <span class="dv">72</span>,  <span class="dv">63</span>,  <span class="dv">71</span>,  <span class="dv">64</span>,  <span class="dv">60</span>,  <span class="dv">64</span>,  <span class="dv">67</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>minutes <span class="op">=</span> [<span class="dv">175</span>, <span class="dv">170</span>, <span class="dv">205</span>, <span class="dv">120</span>, <span class="dv">220</span>, <span class="dv">130</span>, <span class="dv">105</span>, <span class="dv">145</span>, <span class="dv">190</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span>  [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'e'</span>, <span class="st">'f'</span>, <span class="st">'g'</span>, <span class="st">'h'</span>, <span class="st">'i'</span>]</span>
@@ -487,7 +491,7 @@ window.Quarto = {
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"daily minutes spent on the site"</span>)</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot.png')</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_scatterplot.png')</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -498,7 +502,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If you’re scattering comparable variables, you might get a misleading picture if you let matplotlib choose the scale.</p>
-<div id="4c2176ee" class="cell">
+<div id="4c2176ee" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_1_grades <span class="op">=</span> [ <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">97</span>, <span class="dv">80</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>test_2_grades <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">90</span>, <span class="dv">70</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -508,7 +512,7 @@ window.Quarto = {
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"test 2 grade"</span>)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot_axes_not_comparable.png')</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_scatterplot_axes_not_comparable.png')</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -519,7 +523,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If we include a call to <code>plt.axis("equal")</code>, the plot more accurately shows that most of the variation occurs on test 2.</p>
-<div id="b66df963" class="cell">
+<div id="b66df963" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test_1_grades <span class="op">=</span> [<span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">97</span>, <span class="dv">80</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>test_2_grades <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">90</span>, <span class="dv">70</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -530,7 +534,7 @@ window.Quarto = {
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"test 2 grade"</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># save the plot as a PNG file</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/viz_scatterplot_axes_comparable.png')</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/viz_scatterplot_axes_comparable.png')</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1530,7 +1534,7 @@ Second PC explains 2.5% of variance</code></pre>
 </ol>
 <p><strong>Conditional Probability</strong>: P(A|B) = P(A ∩ B) / P(B) The probability of event A given that event B has occurred.</p>
 <p><strong>Independence</strong>: Two events A and B are independent if P(A|B) = P(A) Or equivalently: P(A ∩ B) = P(A) × P(B)</p>
-<div id="f8ab1f4e" class="cell">
+<div id="f8ab1f4e" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -1568,7 +1572,7 @@ Second PC explains 2.5% of variance</code></pre>
 <span id="cb73-35"><a href="#cb73-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Law of Large Numbers: Coin Flip Convergence'</span>)</span>
 <span id="cb73-36"><a href="#cb73-36" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb73-37"><a href="#cb73-37" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb73-38"><a href="#cb73-38" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/probability_convergence.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb73-38"><a href="#cb73-38" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/probability_convergence.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb73-39"><a href="#cb73-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coin Flip Simulation:
@@ -1586,7 +1590,7 @@ Expected Probability: 0.500</code></pre>
 </div>
 </div>
 </div>
-<div id="c795de21" class="cell">
+<div id="c795de21" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dice rolling example - multiple events</span></span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>dice_rolls <span class="op">=</span> np.random.randint(<span class="dv">1</span>, <span class="dv">7</span>, n_rolls)</span>
@@ -1629,7 +1633,7 @@ Expected Probability: 0.500</code></pre>
 <span id="cb75-40"><a href="#cb75-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb75-41"><a href="#cb75-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-42"><a href="#cb75-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/dice_probability.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/dice_probability.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb75-44"><a href="#cb75-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb75-45"><a href="#cb75-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-46"><a href="#cb75-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate P(sum = 7)</span></span>
@@ -1760,7 +1764,7 @@ Uniform Distribution:
   IQR: 48.21</code></pre>
 </div>
 </div>
-<div id="88e393b5" class="cell">
+<div id="88e393b5" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize distributions and their statistics</span></span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1785,7 +1789,7 @@ Uniform Distribution:
 <span id="cb80-22"><a href="#cb80-22" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, i].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb80-23"><a href="#cb80-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb80-24"><a href="#cb80-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb80-25"><a href="#cb80-25" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/descriptive_stats_distributions.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb80-25"><a href="#cb80-25" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/descriptive_stats_distributions.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb80-26"><a href="#cb80-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1823,7 +1827,7 @@ Uniform Distribution:
 <li><strong>Chi-square Distribution</strong>: Used in hypothesis testing</li>
 <li><strong>t-Distribution</strong>: Used when sample size is small</li>
 </ul>
-<div id="57d014f5" class="cell">
+<div id="57d014f5" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate various statistical distributions</span></span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">12</span>))</span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Common Statistical Distributions'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
@@ -1927,7 +1931,7 @@ Uniform Distribution:
 <span id="cb81-101"><a href="#cb81-101" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb81-102"><a href="#cb81-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb81-103"><a href="#cb81-103" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb81-104"><a href="#cb81-104" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/statistical_distributions.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb81-104"><a href="#cb81-104" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/statistical_distributions.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb81-105"><a href="#cb81-105" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1937,7 +1941,7 @@ Uniform Distribution:
 </div>
 </div>
 </div>
-<div id="938ab355" class="cell">
+<div id="938ab355" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Real-world applications of distributions with simulated data</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Distribution Applications in Data Science:"</span>)</span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">50</span>)</span>
@@ -2017,7 +2021,7 @@ Uniform Distribution:
 <span id="cb82-77"><a href="#cb82-77" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb82-78"><a href="#cb82-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-79"><a href="#cb82-79" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb82-80"><a href="#cb82-80" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/distribution_applications.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb82-80"><a href="#cb82-80" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/distribution_applications.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb82-81"><a href="#cb82-81" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Distribution Applications in Data Science:
@@ -2178,7 +2182,7 @@ P(spam | 'free'): 77.4%</code></pre>
 <li><strong>Non-spuriousness</strong>: Relationship isn’t due to third variable</li>
 <li><strong>Mechanism</strong>: Logical explanation for how cause leads to effect</li>
 </ol>
-<div id="31e97e87" class="cell">
+<div id="31e97e87" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data to demonstrate correlation vs causation</span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">500</span></span>
@@ -2299,7 +2303,7 @@ P(spam | 'free'): 77.4%</code></pre>
 <span id="cb86-118"><a href="#cb86-118" aria-hidden="true" tabindex="-1"></a>               <span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb86-119"><a href="#cb86-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-120"><a href="#cb86-120" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb86-121"><a href="#cb86-121" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/correlation_causation_analysis.png', dpi=150, bbox_inches='tight')</span></span>
+<span id="cb86-121"><a href="#cb86-121" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/correlation_causation_analysis.png', dpi=150, bbox_inches='tight')</span></span>
 <span id="cb86-122"><a href="#cb86-122" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb86-123"><a href="#cb86-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-124"><a href="#cb86-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Print correlation analysis</span></span>

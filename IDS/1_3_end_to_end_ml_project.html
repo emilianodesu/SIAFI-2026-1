@@ -185,6 +185,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../ML/2_2_slf.html">
  <span class="dropdown-text">Supervised Learning Fundamentals</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_3_classification.html">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -288,7 +292,7 @@ window.Quarto = {
 <p>In this example, we will use the California housing dataset, which contains information about various districts in California, including features such as median income, average house age, and average number of rooms. This dataset is available in the <a href="http://lib.stat.cmu.edu/datasets/">StatLib repository</a> and is also included in the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html">Scikit-learn library</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_2/california.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_3/california.png" class="img-fluid figure-img"></p>
 <figcaption>California housing prices</figcaption>
 </figure>
 </div>
@@ -304,7 +308,7 @@ window.Quarto = {
 <p>On the other hand, a broken component can go unnoticed for some time if proper monitoring is not implemented. The data gets stale and the overall system’s performance drops.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_2/ml_re_pl.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_3/ml_re_pl.png" class="img-fluid figure-img"></p>
 <figcaption>Machine learning real estate pipeline</figcaption>
 </figure>
 </div>
@@ -858,7 +862,7 @@ Name: count, dtype: float64</code></pre>
 <h4 class="anchored" data-anchor-id="visualizing-geographical-data">1.3.4.1 Visualizing Geographical Data</h4>
 <div id="3dd28d8d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>housing.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"longitude"</span>, y<span class="op">=</span><span class="st">"latitude"</span>, grid<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/1_2/bad_visualization.png')</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/1_2/bad_visualization.png')</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -870,7 +874,7 @@ Name: count, dtype: float64</code></pre>
 </div>
 <div id="d63dcefa" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>housing.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"longitude"</span>, y<span class="op">=</span><span class="st">"latitude"</span>, alpha<span class="op">=</span><span class="fl">0.2</span>, grid<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('im/1_2/better_visualization.png')</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig('img/1_2/better_visualization.png')</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -886,7 +890,7 @@ Name: count, dtype: float64</code></pre>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>             s<span class="op">=</span>housing[<span class="st">"population"</span>] <span class="op">/</span> <span class="dv">100</span>, label<span class="op">=</span><span class="st">"population"</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             c<span class="op">=</span><span class="st">"median_house_value"</span>, cmap<span class="op">=</span><span class="st">"jet"</span>, colorbar<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             legend<span class="op">=</span><span class="va">True</span>, sharex<span class="op">=</span><span class="va">False</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("im/1_2/housing_prices_scatterplot.png")</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("img/1_2/housing_prices_scatterplot.png")</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -902,7 +906,7 @@ Name: count, dtype: float64</code></pre>
 <h4 class="anchored" data-anchor-id="look-for-correlations">1.3.4.2 Look for Correlations</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="im/1_2/Correlation_examples2.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_3/Correlation_examples2.png" class="img-fluid figure-img"></p>
 <figcaption>Correlation examples</figcaption>
 </figure>
 </div>
@@ -930,7 +934,7 @@ Name: median_house_value, dtype: float64</code></pre>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> [<span class="st">"median_house_value"</span>, <span class="st">"median_income"</span>, <span class="st">"total_rooms"</span>,</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"housing_median_age"</span>]</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>scatter_matrix(housing[attributes], figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("im/1_2/scatter_matrix_plot.png")</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("img/1_2/scatter_matrix_plot.png")</span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -943,7 +947,7 @@ Name: median_house_value, dtype: float64</code></pre>
 <div id="5ded519a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>housing.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"median_income"</span>, y<span class="op">=</span><span class="st">"median_house_value"</span>,</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>             alpha<span class="op">=</span><span class="fl">0.1</span>, grid<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("im/1_2/income_vs_house_value_scatterplot.png")</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("img/1_2/income_vs_house_value_scatterplot.png")</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -7034,7 +7038,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                                    SimpleImputer(strategy='most_frequent')),
                                                                   ('onehotencoder',
                                                                    OneHotEncoder(handle_unknown='ignore'))]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CB9A9A6D50&gt;)])),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC265E50&gt;)])),
                 ('linearregression', LinearRegression())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox"><label for="sk-estimator-id-15" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
         <div class="estimator-table">
             <details>
@@ -7171,7 +7175,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -7196,7 +7200,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -7292,7 +7296,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -7317,7 +7321,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -7413,7 +7417,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -7438,7 +7442,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -7630,7 +7634,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-35" type="checkbox"><label for="sk-estimator-id-35" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CB9A9A6D50&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-36" type="checkbox"><label for="sk-estimator-id-36" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__simpleimputer__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-35" type="checkbox"><label for="sk-estimator-id-35" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC265E50&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-36" type="checkbox"><label for="sk-estimator-id-36" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__simpleimputer__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -8399,7 +8403,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                                    SimpleImputer(strategy='most_frequent')),
                                                                   ('onehotencoder',
                                                                    OneHotEncoder(handle_unknown='ignore'))]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CB9A9A6D50&gt;)])),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC265E50&gt;)])),
                 ('decisiontreeregressor',
                  DecisionTreeRegressor(random_state=42))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-42" type="checkbox"><label for="sk-estimator-id-42" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
         <div class="estimator-table">
@@ -8537,7 +8541,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -8562,7 +8566,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -8658,7 +8662,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -8683,7 +8687,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -8779,7 +8783,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -8804,7 +8808,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -8996,7 +9000,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-62" type="checkbox"><label for="sk-estimator-id-62" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CB9A9A6D50&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-63" type="checkbox"><label for="sk-estimator-id-63" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__simpleimputer__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-62" type="checkbox"><label for="sk-estimator-id-62" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC265E50&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-63" type="checkbox"><label for="sk-estimator-id-63" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="columntransformer__cat__simpleimputer__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -9292,7 +9296,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>A great alternative is to use Scikit-Learn’s <em>k-fold cross-validation</em> feature. You split the training set into k nonoverlapping subsets called folds, then you train and evaluate your model k times, picking a different fold for evaluation every time (i.e., the validation fold) and using the other k – 1 folds for training. This process produces k evaluation scores.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./im/1_2/k_fold.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_3/k_fold.png" class="img-fluid figure-img"></p>
 <figcaption>k-fold cross-validation, with k = 10</figcaption>
 </figure>
 </div>
@@ -9852,7 +9856,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                                                           SimpleImputer(strategy='median')),
                                                                                          ('functiontransformer',
                                                                                           FunctionTransformer(feature_names_out=&lt;f...
-                                                                         &lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CB9A9A6D50&gt;)])),
+                                                                         &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC265E50&gt;)])),
                                        ('random_forest',
                                         RandomForestRegressor(random_state=42))]),
              param_grid=[{'preprocessing__geo__n_clusters': [5, 8, 10],
@@ -10025,7 +10029,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -10050,7 +10054,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -10146,7 +10150,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -10171,7 +10175,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -10267,7 +10271,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -10292,7 +10296,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -10484,7 +10488,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-90" type="checkbox"><label for="sk-estimator-id-90" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CBFFD3DAF0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-91" type="checkbox"><label for="sk-estimator-id-91" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__simpleimputer__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-90" type="checkbox"><label for="sk-estimator-id-90" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC2E8BF0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-91" type="checkbox"><label for="sk-estimator-id-91" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__simpleimputer__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -11291,7 +11295,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                   Pipeline(steps=[('simpleimputer',
                                                                    SimpleImputer(strategy='median')),
                                                                   ('functiontransformer',
-                                                                   FunctionTransformer(feature_names_out=&lt;function ratio_name at 0x000002C...
+                                                                   FunctionTransformer(feature_names_out=&lt;function ratio_name at 0x0000025...
                                                   ClusterSimilarity(n_clusters=15,
                                                                     random_state=42),
                                                   ['latitude', 'longitude']),
@@ -11300,7 +11304,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                                    SimpleImputer(strategy='most_frequent')),
                                                                   ('onehotencoder',
                                                                    OneHotEncoder(handle_unknown='ignore'))]),
-                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CBFFD3DAF0&gt;)])),
+                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC2E8BF0&gt;)])),
                 ('random_forest',
                  RandomForestRegressor(max_features=6, random_state=42))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-97" type="checkbox"><label for="sk-estimator-id-97" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
         <div class="estimator-table">
@@ -11438,7 +11442,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -11463,7 +11467,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -11559,7 +11563,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -11584,7 +11588,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -11680,7 +11684,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -11705,7 +11709,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -11897,7 +11901,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-117" type="checkbox"><label for="sk-estimator-id-117" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CBFFD3DAF0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-118" type="checkbox"><label for="sk-estimator-id-118" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="preprocessing__cat__simpleimputer__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-117" type="checkbox"><label for="sk-estimator-id-117" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC2E8BF0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-118" type="checkbox"><label for="sk-estimator-id-118" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="preprocessing__cat__simpleimputer__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -12797,8 +12801,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                                                                 FunctionTransformer(feature_names_...
                                              ('random_forest',
                                               RandomForestRegressor(random_state=42))]),
-                   param_distributions={'preprocessing__geo__n_clusters': &lt;scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x000002CBFF4EAE40&gt;,
-                                        'random_forest__max_features': &lt;scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x000002CB9A9A4050&gt;},
+                   param_distributions={'preprocessing__geo__n_clusters': &lt;scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x0000025B96C7D550&gt;,
+                                        'random_forest__max_features': &lt;scipy.stats._distn_infrastructure.rv_discrete_frozen object at 0x0000025BFC266AD0&gt;},
                    random_state=42, scoring='neg_root_mean_squared_error')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-124" type="checkbox"><label for="sk-estimator-id-124" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomizedSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.model_selection.RandomizedSearchCV.html">?<span>Documentation for RandomizedSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
         <div class="estimator-table">
             <details>
@@ -12814,7 +12818,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">param_distributions&nbsp;</td>
-<td class="value">{'preprocessing__geo__n_clusters': &lt;scipy.stats....002CBFF4EAE40&gt;, 'random_forest__max_features': &lt;scipy.stats....002CB9A9A4050&gt;}</td>
+<td class="value">{'preprocessing__geo__n_clusters': &lt;scipy.stats....0025B96C7D550&gt;, 'random_forest__max_features': &lt;scipy.stats....0025BFC266AD0&gt;}</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -12975,7 +12979,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -13000,7 +13004,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -13096,7 +13100,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -13121,7 +13125,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -13217,7 +13221,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set odd">
 <td><em></em></td>
 <td class="param">func&nbsp;</td>
-<td class="value">&lt;function col...002CB9AA5D3A0&gt;</td>
+<td class="value">&lt;function col...0025BF9C1CA40&gt;</td>
 </tr>
 <tr class="default even">
 <td><em></em></td>
@@ -13242,7 +13246,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <tr class="user-set even">
 <td><em></em></td>
 <td class="param">feature_names_out&nbsp;</td>
-<td class="value">&lt;function rat...002CB9AA5D440&gt;</td>
+<td class="value">&lt;function rat...0025BF9C1CB80&gt;</td>
 </tr>
 <tr class="default odd">
 <td><em></em></td>
@@ -13434,7 +13438,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-145" type="checkbox"><label for="sk-estimator-id-145" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x000002CBFFD3D310&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-146" type="checkbox"><label for="sk-estimator-id-146" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__simpleimputer__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-145" type="checkbox"><label for="sk-estimator-id-145" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000025BFC2EBD70&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-146" type="checkbox"><label for="sk-estimator-id-146" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___preprocessing__cat__simpleimputer__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -13983,7 +13987,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Perhaps the model will be used within a website: the user will type in some data about a new district and click the Estimate Price button. This will send a query containing the data to the web server, which will forward it to your web application, and finally your code will simply call the model’s <code>predict()</code> method (you want to load the model upon server startup, rather than every time the model is used). Alternatively, you can wrap the model within a dedicated web service that your web application can query through a REST API. This makes it easier to upgrade your model to new versions without interrupting the main application. It also simplifies scaling, since you can start as many web services as needed and load-balance the requests coming from your web application across these web services. Moreover, it allows your web application to use any programming language, not just Python.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./im/1_2/mod_dep.png" class="img-fluid figure-img"></p>
+<p><img src="img/1_3/mod_dep.png" class="img-fluid figure-img"></p>
 <figcaption>A model deployed as a web service and used by a web application</figcaption>
 </figure>
 </div>
