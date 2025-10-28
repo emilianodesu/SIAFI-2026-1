@@ -20,6 +20,8 @@ website:
             text: "Introduction to Machine Learning"
           - file: ML/2_2_slf.qmd
             text: "Supervised Learning Fundamentals"
+          - file: ML/2_3_classification.ipynb
+            text: "Classification"
       - text: "Deep Learning"
         menu:
           - file: DL/3_1_fundamentals.ipynb

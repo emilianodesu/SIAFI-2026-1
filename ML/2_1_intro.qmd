@@ -6,6 +6,16 @@ theme: dark
 
 ## What is ML?
 
+Machine learning is the science (and art) of programming computers so they can learn from data.
+
+Here is a slightly more general definition:
+
+[Machine learning is the] field of study that gives computers the ability to learn without being explicitly programmed.
+
+- Arthur Samuel, 1959
+
+## What is ML?
+
 ML offers a new way to solve problems, answer complex questions, and create new content. ML can predict the weather, estimate travel times, recommend songs, auto-complete sentences, summarize articles, and generate never-seen-before images. 
 
 In basic terms, ML is the process of training a piece of software, called a model, to make useful predictions or generate content (like text, images, audio, or video) from data.
@@ -17,6 +27,22 @@ For example, suppose we wanted to create an app to predict rainfall. We could us
 ## What is ML?
 
 Using an ML approach, we would give an ML model enormous amounts of weather data until the ML model eventually learned the mathematical relationship between weather patterns that produce differing amounts of rain. We would then give the model the current weather data, and it would predict the amount of rain.
+
+## Why use ML?
+
+![The traditional approach requires explicitly programming a solution.](/ML/img/trad.png)
+
+## Why use ML?
+
+![The ML approach learns a solution from data.](/ML/img/ml.png)
+
+## Why use ML?
+
+![Automatically adapting to change.](/ML/img/auto.png)
+
+## Why use ML?
+
+![Machine Learning can help humans learn](/ML/img/better.png)
 
 ## Video Explanation
 
@@ -37,9 +63,15 @@ Supervised learning models can make predictions after seeing lots of data with t
 
 Two of the most common use cases for supervised learning are regression and classification.
 
+## Supervised Learning
+
+![A labeled training set for spam classification (an example of supervised learning)](./img/sl_example.png)
+
 ## Regression
 
-A regression model predicts a numeric value. For example, a weather model that predicts the amount of rain, in inches or millimeters, is a regression model.
+A regression model predicts a numeric value. 
+
+![A regression problem: predict a value, given an input feature (there are usually multiple input features, and sometimes multiple output values)](./img/reg_example.png)
 
 ## Regression
 
@@ -96,6 +128,10 @@ Clustering differs from classification because the categories aren't defined by 
 Reinforcement learning models make predictions by getting rewards or penalties based on actions performed within an environment. A reinforcement learning system generates a policy that defines the best strategy for getting the most rewards.
 
 Reinforcement learning is used to train robots to perform tasks, like walking around a room, and software programs like AlphaGo to play the game of Go.
+
+## Reinforcement Learning
+
+![A robot learning to walk through reinforcement learning.](/ML/img/robot_rl.png)
 
 ## Reinforcement Learning
 ![Atari breakout game where an ML model is playing the game.](/ML/vid/ppo-breakout-end-step-0-to-step-5000.mp4)
