@@ -2,34 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_3_classification.html</loc>
-    <lastmod>2025-11-09T13:05:26.956Z</lastmod>
+    <lastmod>2025-11-09T15:04:20.587Z</lastmod>
   </url>
   <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_1_intro.html</loc>
-    <lastmod>2025-10-28T17:45:17.440Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_4_dimensionality_reduction.html</loc>
-    <lastmod>2025-10-23T16:16:32.371Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_1_fundamentals.html</loc>
-    <lastmod>2025-10-28T17:27:07.542Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/DL/3_1_fundamentals.html</loc>
-    <lastmod>2025-09-26T15:32:58.830Z</lastmod>
-  </url>
-  <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_3_end_to_end_ml_project.html</loc>
-    <lastmod>2025-10-29T02:29:37.051Z</lastmod>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_2_slf.html</loc>
+    <lastmod>2025-10-23T18:05:14.651Z</lastmod>
   </url>
   <url>
     <loc>https://emilianodesu.github.io/SIAFI-2026-1/index.html</loc>
     <lastmod>2025-10-09T12:39:41.543Z</lastmod>
   </url>
   <url>
-    <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_2_slf.html</loc>
-    <lastmod>2025-10-23T18:05:14.651Z</lastmod>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_3_end_to_end_ml_project.html</loc>
+    <lastmod>2025-10-29T02:29:37.051Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/DL/3_1_fundamentals.html</loc>
+    <lastmod>2025-09-26T15:32:58.830Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_1_fundamentals.html</loc>
+    <lastmod>2025-10-28T17:27:07.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/IDS/1_4_dimensionality_reduction.html</loc>
+    <lastmod>2025-10-23T16:16:32.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_1_intro.html</loc>
+    <lastmod>2025-10-28T17:45:17.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://emilianodesu.github.io/SIAFI-2026-1/ML/2_3_2_classification_algorithms.html</loc>
+    <lastmod>2025-11-11T12:21:39.120Z</lastmod>
   </url>
 </urlset>
