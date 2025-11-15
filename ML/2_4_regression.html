@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2. Machine Learning – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
+<title>regression – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -226,7 +226,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#regression" id="toc-regression" class="nav-link active" data-scroll-target="#regression">2.3 Regression</a>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">2. Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">2.3 Regression</a>
   <ul class="collapse">
   <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">2.3.1 Linear Regression</a></li>
   <li><a href="#loss" id="toc-loss" class="nav-link" data-scroll-target="#loss">2.3.2 Loss</a></li>
@@ -234,31 +236,19 @@ window.Quarto = {
   <li><a href="#regularized-linear-models" id="toc-regularized-linear-models" class="nav-link" data-scroll-target="#regularized-linear-models">2.3.4 Regularized Linear Models</a></li>
   <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">2.3.5 Logistic Regression</a></li>
   </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">2. Machine Learning</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<p><a href="https://colab.research.google.com/github/emilianodesu/SIAFI-2026-1/blob/main/ML/2_4_regression.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<section id="machine-learning" class="level1">
+<h1>2. Machine Learning</h1>
 <section id="regression" class="level2">
 <h2 class="anchored" data-anchor-id="regression">2.3 Regression</h2>
 <section id="linear-regression" class="level3">
@@ -306,14 +296,14 @@ window.Quarto = {
 <p>If we plotted these points, we’d get the following graph:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/car-data-points.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/car-data-points.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Car heaviness (in pounds) versus miles per gallon rating. As a car gets heavier, its miles per gallon rating generally decreases.</figcaption>
 </figure>
 </div>
 <p>We could create our own model by drawing a best fit line through the points:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/car-data-points-with-model.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/car-data-points-with-model.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>A best fit line drawn through the data from the previous figure</figcaption>
 </figure>
 </div>
@@ -336,14 +326,14 @@ window.Quarto = {
 <p>During training, the model calculates the weight and bias that produce the best model.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/equation.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/equation.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Mathematical representation of a linear model.</figcaption>
 </figure>
 </div>
 <p>In our example, we’d calculate the weight and bias from the line we drew. The bias is 34 (where the line intersects the y-axis), and the weight is –4.6 (the slope of the line). The model would be defined as <span class="math inline">\(y' = 34 -4.6x_1\)</span>, and we could use it to make predictions. For instance, using this model, a 4,000-pound car would have a predicted fuel efficiency of 15.6 miles per gallon.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/model-prediction.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/model-prediction.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Using the model, a 4,000-pound car has a predicted fuel efficiency of 15.6 miles per gallon.</figcaption>
 </figure>
 </div>
@@ -360,20 +350,20 @@ window.Quarto = {
 <p>This model would be written as follows:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/equation-multiple-features.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/equation-multiple-features.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>A model with five features to predict a car’s miles per gallon rating.</figcaption>
 </figure>
 </div>
 <p>By graphing a couple of these additional features, we can see that they also have a linear relationship to the label, miles per gallon:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/displacement.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/displacement.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>A car’s displacement in cubic centimeters and its miles per gallon rating. As a car’s engine gets bigger, its miles per gallon rating generally decreases.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/acceleration.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/acceleration.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>A car’s acceleration in seconds and its miles per gallon rating. As a car’s acceleration time increases, its miles per gallon rating generally increases.</figcaption>
 </figure>
 </div>
@@ -398,7 +388,7 @@ window.Quarto = {
 <p><strong>Note</strong>: In machine learning, vectors are often represented as <em>column vectors</em>, which are 2D arrays with a single column. If 𝛉 and <span class="math inline">\(\mathbf{x}\)</span> are column vectors, then the prediction is <span class="math inline">\(\hat{y}=𝛉^T\mathbf{x}\)</span>, where <span class="math inline">\(𝛉^T\)</span> is the transpose of 𝛉 (a row vector instead of a column vector) and <span class="math inline">\(𝛉^T\mathbf{x}\)</span> is the matrix multiplication of <span class="math inline">\(𝛉^T\)</span> and <span class="math inline">\(\mathbf{x}\)</span>. It is of course the same prediction, except that it is now represented as a single-cell matrix rather than a scalar value.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/lin_reg.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/lin_reg.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Assumptions of Linear Regression</figcaption>
 </figure>
 </div>
@@ -422,7 +412,7 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> rng.random((m, <span class="dv">1</span>))  <span class="co"># column vector</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> X <span class="op">+</span> rng.standard_normal((m, <span class="dv">1</span>))  <span class="co"># column vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="04d4cc3a" class="cell" data-execution_count="2">
+<div id="04d4cc3a" class="cell" data-outputid="e84e138b-f45c-4705-e46e-f76391aaa199" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -449,7 +439,7 @@ window.Quarto = {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>theta_best <span class="op">=</span> np.linalg.inv(X_b.T <span class="op">@</span> X_b) <span class="op">@</span> X_b.T <span class="op">@</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The function that we used to generate the data is <span class="math inline">\(y = 4 + 3x_1 + \text{Gaussian noise}\)</span>. Let’s see what the equation found:</p>
-<div id="7205580e" class="cell" data-execution_count="4">
+<div id="7205580e" class="cell" data-outputid="9dc35cf3-b7a0-4b82-fa39-8e6a91c8ff91" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>theta_best</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>array([[3.69084138],
@@ -458,7 +448,7 @@ window.Quarto = {
 </div>
 <p>We would have hoped for <span class="math inline">\(\theta_0 = 4\)</span> and <span class="math inline">\(\theta_1 = 3\)</span> instead of <span class="math inline">\(\theta_0 = 3.6908\)</span> and <span class="math inline">\(\theta_1 = 3.3296\)</span>. Close enough, but the noise made it impossible to recover the exact parameters of the original function. The smaller and noisier the dataset, the harder it gets.</p>
 <p>Now we can make predictions using <span class="math inline">\(\hat{\mathbf{\theta}}\)</span>:</p>
-<div id="e62a0faa" class="cell" data-execution_count="5">
+<div id="e62a0faa" class="cell" data-outputid="dbd973de-4f55-4f58-a8d2-dcf85f5a2807" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.array([[<span class="dv">0</span>], [<span class="dv">2</span>]])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X_new_b <span class="op">=</span> add_dummy_feature(X_new)  <span class="co"># add x0 = 1 to each instance</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y_predict <span class="op">=</span> X_new_b <span class="op">@</span> theta_best</span>
@@ -469,7 +459,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Let’s plot this model’s predictions:</p>
-<div id="82a304fc" class="cell" data-execution_count="6">
+<div id="82a304fc" class="cell" data-outputid="fdc0c4c5-04a6-4c22-dc85-460b93ea4a5f" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))  <span class="co"># extra code – not needed, just formatting</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.plot(X_new, y_predict, <span class="st">"r-"</span>, label<span class="op">=</span><span class="st">"Predictions"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.plot(X, y, <span class="st">"b."</span>)</span>
@@ -491,7 +481,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Performing linear regression using Scikit-Learn is relatively straightforward:</p>
-<div id="2c96fc4d" class="cell" data-execution_count="7">
+<div id="2c96fc4d" class="cell" data-outputid="eafe72d9-7306-4b77-eecb-6e727a61df1a" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lin_reg <span class="op">=</span> LinearRegression()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lin_reg.fit(X, y)</span>
@@ -500,7 +490,7 @@ window.Quarto = {
 <pre><code>(array([3.69084138]), array([[3.32960458]]))</code></pre>
 </div>
 </div>
-<div id="288cf490" class="cell" data-execution_count="8">
+<div id="288cf490" class="cell" data-outputid="de83fc31-b984-4ca1-e7be-62d5712e4822" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lin_reg.predict(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([[ 3.69084138],
@@ -513,7 +503,7 @@ window.Quarto = {
 <section id="gradient-descent-regression" class="level4">
 <h4 class="anchored" data-anchor-id="gradient-descent-regression">2.3.1.2 Gradient Descent Regression</h4>
 <p>To perform linear regression using stochastic GD with Scikit-Learn, you can use the <code>SGDRegressor</code> class, which defaults to optimizing the MSE cost function. The following code runs for a maximum of 1,000 epochs (<code>max_iter</code>) or until the loss drops by less than <span class="math inline">\(10^{-5}\)</span> (<code>tol</code>) during 100 epochs (<code>n_iter_no_change</code>). It starts with a learning rate of 0.01 (<code>eta0</code>), using the default learning schedule. Lastly, it does not use any regularization (<code>penalty=None</code>; more details on this shortly):</p>
-<div id="136bfb2d" class="cell" data-execution_count="9">
+<div id="136bfb2d" class="cell" data-outputid="34f60234-b55e-4ab6-ce0f-d1ac7274bbd1" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> SGDRegressor</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sgd_reg <span class="op">=</span> SGDRegressor(max_iter<span class="op">=</span><span class="dv">1000</span>, tol<span class="op">=</span><span class="fl">1e-5</span>, penalty<span class="op">=</span><span class="va">None</span>, eta0<span class="op">=</span><span class="fl">0.01</span>,</span>
@@ -700,7 +690,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-1 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -726,9 +718,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -933,224 +925,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SGDRegressor(n_iter_no_change=100, penalty=None, random_state=42, tol=1e-05)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SGDRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.linear_model.SGDRegressor.html">?<span>Documentation for SGDRegressor</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">loss&nbsp;</td>
-<td class="value">'squared_error'</td>
-</tr>
-<tr class="user-set even">
-<td><em></em></td>
-<td class="param">penalty&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">alpha&nbsp;</td>
-<td class="value">0.0001</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">l1_ratio&nbsp;</td>
-<td class="value">0.15</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">fit_intercept&nbsp;</td>
-<td class="value">True</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">max_iter&nbsp;</td>
-<td class="value">1000</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">tol&nbsp;</td>
-<td class="value">1e-05</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">shuffle&nbsp;</td>
-<td class="value">True</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">verbose&nbsp;</td>
-<td class="value">0</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">epsilon&nbsp;</td>
-<td class="value">0.1</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">random_state&nbsp;</td>
-<td class="value">42</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">learning_rate&nbsp;</td>
-<td class="value">'invscaling'</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">eta0&nbsp;</td>
-<td class="value">0.01</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">power_t&nbsp;</td>
-<td class="value">0.25</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">early_stopping&nbsp;</td>
-<td class="value">False</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">validation_fraction&nbsp;</td>
-<td class="value">0.1</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_iter_no_change&nbsp;</td>
-<td class="value">100</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">warm_start&nbsp;</td>
-<td class="value">False</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">average&nbsp;</td>
-<td class="value">False</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SGDRegressor(n_iter_no_change=100, penalty=None, random_state=42, tol=1e-05)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SGDRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.SGDRegressor.html">?<span>Documentation for SGDRegressor</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>SGDRegressor(n_iter_no_change=100, penalty=None, random_state=42, tol=1e-05)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>Once again, you find a solution quite close to the one returned by the normal equation:</p>
-<div id="8e831139" class="cell" data-execution_count="10">
+<div id="8e831139" class="cell" data-outputid="4ac3af05-ad9c-4eef-f328-91ef5c111826" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sgd_reg.intercept_, sgd_reg.coef_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(array([3.68899733]), array([3.33054574]))</code></pre>
@@ -1165,7 +944,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>In the following image, you can visualize loss as arrows drawn from the data points to the model. The arrows show how far the model’s predictions are from the actual values.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/loss-lines.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/loss-lines.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>Loss is measured from the actual value to the predicted value.</figcaption>
 </figure>
 </div>
@@ -1229,13 +1008,13 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>When choosing the best loss function, consider how you want the model to treat outliers. For instance, MSE moves the model more toward the outliers, while MAE doesn’t. L2 loss incurs a much higher penalty for an outlier than L1 loss. For example, the following images show a model trained using MAE and a model trained using MSE. The red line represents a fully trained model that will be used to make predictions. The outliers are closer to the model trained with MSE than to the model trained with MAE.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/model-mse.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/model-mse.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>MSE loss moves the model closer to the outliers.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/model-mae.png" class="img-fluid figure-img"></p>
+<p><img src="https://github.com/emilianodesu/SIAFI-2026-1/blob/main/ML/img/model-mae.png?raw=1" class="img-fluid figure-img"></p>
 <figcaption>MAE loss keeps the model farther from the outliers.</figcaption>
 </figure>
 </div>
@@ -1266,7 +1045,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> <span class="dv">6</span> <span class="op">*</span> rng.random((m, <span class="dv">1</span>)) <span class="op">-</span> <span class="dv">3</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> X <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> X <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> rng.standard_normal((m, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="19820799" class="cell" data-execution_count="12">
+<div id="19820799" class="cell" data-outputid="3c6299b2-d129-4f2b-9f41-7a39a536e68d" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.plot(X, y, <span class="st">"b."</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x_1$"</span>)</span>
@@ -1284,7 +1063,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Clearly, a straight line will never fit this data properly. So let’s use Scikit-Learn’s <code>PolynomialFeatures</code> class to transform our training data, adding the square (second-degree polynomial) of each feature in the training set as a new feature (in this case there is just one feature):</p>
-<div id="832f89da" class="cell" data-execution_count="13">
+<div id="832f89da" class="cell" data-outputid="e0a04979-106f-400a-847b-492d51402465" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> PolynomialFeatures</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>poly_features <span class="op">=</span> PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>X_poly <span class="op">=</span> poly_features.fit_transform(X)</span>
@@ -1293,14 +1072,14 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <pre><code>array([1.64373629])</code></pre>
 </div>
 </div>
-<div id="d6c36c5a" class="cell" data-execution_count="14">
+<div id="d6c36c5a" class="cell" data-outputid="04f6c819-133c-4e86-896b-7f92552d7bf0" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X_poly[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>array([1.64373629, 2.701869  ])</code></pre>
 </div>
 </div>
 <p><code>X_poly</code> now contains the original feature of <code>X</code> plus the square of this feature. Now we can fit a <code>LinearRegression</code> model to this extended training data :</p>
-<div id="ab7e81cb" class="cell" data-execution_count="15">
+<div id="ab7e81cb" class="cell" data-outputid="aa86005c-3d9b-46bf-9060-efd4328d1637" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lin_reg <span class="op">=</span> LinearRegression()</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>lin_reg.fit(X_poly, y)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>lin_reg.intercept_, lin_reg.coef_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1308,7 +1087,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <pre><code>(array([2.00540719]), array([[1.11022126, 0.50526985]]))</code></pre>
 </div>
 </div>
-<div id="0b4e08d2" class="cell" data-execution_count="16">
+<div id="0b4e08d2" class="cell" data-outputid="28254238-75b8-42d1-b6b9-7acf925352e6" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>).reshape(<span class="dv">100</span>, <span class="dv">1</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>X_new_poly <span class="op">=</span> poly_features.transform(X_new)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>y_new <span class="op">=</span> lin_reg.predict(X_new_poly)</span>
@@ -1334,7 +1113,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Not bad: the model estimates <span class="math inline">\(\hat{y} = 0.56 x_1^2 + 0.93 x_1 + 1.78\)</span> when in fact the original function was <span class="math inline">\(y = 0.5 x_1^2 + 1.0 x_1 + 2.0 +\)</span> Gaussian noise.</p>
 <p>Note that when there are multiple features, polynomial regression is capable of finding relationships between features, which is something a plain linear regression model cannot do. This is made possible by the fact that <code>PolynomialFeatures</code> also adds all combinations of features up to the given degree. For example, if there were two features <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, <code>PolynomialFeatures</code> with <code>degree=3</code> would not only add the features <span class="math inline">\(a^2\)</span>, <span class="math inline">\(a^3\)</span>, <span class="math inline">\(b^2\)</span>, and <span class="math inline">\(b^3\)</span>, but also the combinations <span class="math inline">\(ab\)</span>, <span class="math inline">\(a^2b\)</span>, and <span class="math inline">\(ab^2\)</span>.</p>
 <p>If you perform high-degree polynomial regression, you will likely fit the training data much better than with plain linear regression. For example, in the next figure a 300-degree polynomial model is applied to the preceding training data, and compares the result with a pure linear model and a quadratic model (second-degree polynomial). Notice how the 300-degree polynomial model wiggles around to get as close as possible to the training instances.</p>
-<div id="a02b661e" class="cell" data-execution_count="17">
+<div id="a02b661e" class="cell" data-outputid="f4e3f7f8-278d-4bfd-c98d-eb129101dc4d" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1387,14 +1166,14 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>In this equation, <span class="math inline">\(\mathbf{A}\)</span> is an identity matrix with a zero in the top-left corner to avoid regularizing the bias term.</p>
 <p><strong>Warning</strong>: It is important to scale the data (e.g., using a <code>StandardScaler</code>) before performing ridge regression, as it is sensitive to the scale of the input features. This is true of most regularized models.</p>
 <p>Let’s generate a very small and noisy linear dataset:</p>
-<div id="d57feafb" class="cell" data-execution_count="19">
+<div id="d57feafb" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">20</span>  <span class="co"># number of instances</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> rng.random((m, <span class="dv">1</span>))</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> X <span class="op">+</span> rng.standard_normal((m, <span class="dv">1</span>)) <span class="op">/</span> <span class="fl">1.5</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">100</span>).reshape(<span class="dv">100</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="eb854b8f" class="cell" data-execution_count="20">
+<div id="eb854b8f" class="cell" data-outputid="aa9cb459-5fc2-40b6-cf41-46aa53f61bb3" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.plot(X, y, <span class="st">"."</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$x_1$"</span>)</span>
@@ -1411,18 +1190,18 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Here is how to perform ridge regression with Scikit-Learn using a closed-form solution:</p>
-<div id="bf906fd8" class="cell" data-execution_count="21">
+<div id="bf906fd8" class="cell" data-outputid="0a930e0f-876a-4edc-c352-6159a7b76806" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Ridge</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ridge_reg <span class="op">=</span> Ridge(alpha<span class="op">=</span><span class="fl">0.1</span>, solver<span class="op">=</span><span class="st">"cholesky"</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>ridge_reg.fit(X, y)</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>ridge_reg.predict([[<span class="fl">1.5</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>array([1.84414523])</code></pre>
 </div>
 </div>
 <p>The next figure shows several ridge models that were trained on some very noisy linear data using different <span class="math inline">\(\alpha\)</span> values. On the left, plain ridge models are used, leading to linear predictions. On the right, the data is first expanded using <code>PolynomialFeatures(degree=10)</code>, then it is scaled using a <code>StandardScaler</code>, and finally the ridge models are applied to the resulting features: this is polynomial regression with ridge regularization. Note how increasing α leads to flatter (i.e., less extreme, more reasonable) predictions, thus reducing the model’s variance but increasing its bias.</p>
-<div id="05a37ced" class="cell" data-execution_count="22">
+<div id="05a37ced" class="cell" data-outputid="7ae487ec-20fb-4064-fe50-8f7b4db67a65" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_model(model_class, polynomial, alphas, <span class="op">**</span>model_kwargs):</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    plt.plot(X, y, <span class="st">"b."</span>, linewidth<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> alpha, style <span class="kw">in</span> <span class="bu">zip</span>(alphas, (<span class="st">"b:"</span>, <span class="st">"g--"</span>, <span class="st">"r-"</span>)):</span>
@@ -1462,39 +1241,39 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>As with linear regression, we can perform ridge regression either by computing a closed-form equation or by performing gradient descent.</p>
-<div id="114ee1e5" class="cell" data-execution_count="23">
+<div id="114ee1e5" class="cell" data-outputid="f7770a98-9c19-4fc5-886c-c0a4932c1701" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sgd_reg <span class="op">=</span> SGDRegressor(penalty<span class="op">=</span><span class="st">"l2"</span>, alpha<span class="op">=</span><span class="fl">0.1</span> <span class="op">/</span> m, tol<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                       max_iter<span class="op">=</span><span class="dv">1000</span>, eta0<span class="op">=</span><span class="fl">0.01</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sgd_reg.fit(X, y.ravel())  <span class="co"># y.ravel() because fit() expects 1D targets</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>sgd_reg.predict([[<span class="fl">1.5</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([1.83659707])</code></pre>
 </div>
 </div>
-<div id="aa1b9caa" class="cell" data-execution_count="24">
+<div id="aa1b9caa" class="cell" data-outputid="bebf8dd5-bd31-463a-bafe-3e9d19e5f5c7" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ridge_reg <span class="op">=</span> Ridge(alpha<span class="op">=</span><span class="fl">0.1</span>, solver<span class="op">=</span><span class="st">"sag"</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ridge_reg.fit(X, y)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ridge_reg.predict([[<span class="fl">1.5</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([1.84415109])</code></pre>
 </div>
 </div>
 <p>The penalty hyperparameter sets the type of regularization term to use. Specifying <code>"l2"</code> indicates that you want SGD to add a regularization term to the MSE cost function equal to <code>alpha</code> times the square of the <span class="math inline">\(ℓ_2\)</span> norm of the weight vector. This is just like ridge regression, except there’s no division by <span class="math inline">\(m\)</span> in this case; that’s why we passed <code>alpha=0.1 / m</code>, to get the same result as <code>Ridge(alpha=0.1)</code>.</p>
-<div id="c5f885f3" class="cell" data-execution_count="27">
+<div id="c5f885f3" class="cell" data-outputid="7e597c63-60d6-4d2d-85d1-ea0ee1b6e760" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extra code – shows the closed form solution of Ridge regression,</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#              compare with the next Ridge model's learned parameters below</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">0.</span>], [<span class="fl">0.</span>, <span class="fl">1.</span>]])</span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>X_b <span class="op">=</span> np.c_[np.ones(m), X]</span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(X_b.T <span class="op">@</span> X_b <span class="op">+</span> alpha <span class="op">*</span> I) <span class="op">@</span> X_b.T <span class="op">@</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([[1.23749481],
        [0.40443361]])</code></pre>
 </div>
 </div>
-<div id="a385b6bd" class="cell" data-execution_count="26">
+<div id="a385b6bd" class="cell" data-outputid="15444d66-e116-45d1-ef73-cc7b50b0d329" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ridge_reg.intercept_, ridge_reg.coef_  <span class="co"># extra code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>(array([1.23754037]), array([0.40440715]))</code></pre>
 </div>
 </div>
@@ -1505,18 +1284,18 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p><em>Least absolute shrinkage and selection operator regression</em> (usually simply called <em>lasso regression</em>) is another regularized version of linear regression: just like ridge regression, it adds a regularization term to the cost function, but it uses the <span class="math inline">\(ℓ_1\)</span> norm of the weight vector instead of the square of the <span class="math inline">\(ℓ_2\)</span> norm. Notice that the <span class="math inline">\(ℓ_1\)</span> norm is multiplied by <span class="math inline">\(2\alpha\)</span>, whereas the <span class="math inline">\(ℓ_2\)</span> norm was multiplied by <span class="math inline">\(\alpha / m\)</span> in ridge regression. These factors were chosen to ensure that the optimal <span class="math inline">\(\alpha\)</span> value is independent from the training set size: different norms lead to different factors.</p>
 <p><strong>The lasso regression cost function</strong>:</p>
 <p><span class="math display">\[ J(𝛉) = MSE(𝛉) + 2\alpha \sum_{i=1}^{n} |\theta_i| \]</span></p>
-<div id="96f825d7" class="cell" data-execution_count="28">
+<div id="96f825d7" class="cell" data-outputid="bfe44f10-d097-47e5-c79a-7fe0e1e5e694" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Lasso</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>lasso_reg <span class="op">=</span> Lasso(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>lasso_reg.fit(X, y)</span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>lasso_reg.predict([[<span class="fl">1.5</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>array([1.87550211])</code></pre>
 </div>
 </div>
 <p>Note that you could instead use <code>SGDRegressor(penalty="l1", alpha=0.1)</code>.</p>
-<div id="9175a009" class="cell" data-execution_count="29">
+<div id="9175a009" class="cell" data-outputid="5be7fdc4-922c-4f5d-e0c4-8ad791a8a69f" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">3.5</span>))</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">121</span>)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plot_model(Lasso, polynomial<span class="op">=</span><span class="va">False</span>, alphas<span class="op">=</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">1</span>), random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -1543,13 +1322,13 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p><span class="math display">\[ J(𝛉) = MSE(𝛉) + r \left( 2\alpha \sum_{i=1}^{n} |\theta_i| \right) + \left(1 - r \right) \left( \frac{\alpha}{m} \sum_{i=1}^{n} \theta_i^2 \right) \]</span></p>
 <p>So when should you use elastic net regression, or ridge, lasso, or plain linear regression (i.e., without any regularization)? It is almost always preferable to have at least a little bit of regularization, so generally you should avoid plain linear regression. Ridge is a good default, but if you suspect that only a few features are useful, you should prefer lasso or elastic net because they tend to reduce the useless features’ weights down to zero, as discussed earlier. In general, elastic net is preferred over lasso because lasso may behave erratically when the number of features is greater than the number of training instances or when several features are strongly correlated.</p>
 <p>Here is a short example that uses Scikit-Learn’s <code>ElasticNet</code> (<code>l1_ratio</code> corresponds to the mix ratio <code>r</code>):</p>
-<div id="cf1a7b26" class="cell" data-execution_count="18">
+<div id="cf1a7b26" class="cell" data-outputid="177a4318-6fd4-4858-8d74-2b51812b5038" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>elastic_net <span class="op">=</span> ElasticNet(alpha<span class="op">=</span><span class="fl">0.1</span>, l1_ratio<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>elastic_net.fit(X, y)</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>elastic_net.predict([[<span class="fl">1.5</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>array([5.006944])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>array([1.8645014])</code></pre>
 </div>
 </div>
 </section>
@@ -1566,6 +1345,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </ul>
 
 
+</section>
 </section>
 </section>
 
