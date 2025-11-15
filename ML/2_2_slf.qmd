@@ -104,6 +104,6 @@ Depending on the model's predictions, we might do more training and evaluating b
 
 Once we're satisfied with the results from evaluating the model, we can use the model to make predictions, called inferences, on unlabeled examples. In the weather app example, we would give the model the current weather conditions—like temperature, atmospheric pressure, and relative humidity—and it would predict the amount of rainfall.
 
-<!-- ## References -->
+## References
 
-<!-- [Supervised Learning](https://developers.google.com/machine-learning/intro-to-ml/supervised) -->
+[Supervised Learning](https://developers.google.com/machine-learning/intro-to-ml/supervised)

@@ -209,6 +209,6 @@ To produce unique and creative outputs, generative models are initially trained 
 
 Generative AI is a quickly evolving technology with new use cases constantly being discovered. For example, generative models are helping businesses refine their ecommerce product images by automatically removing distracting backgrounds or improving the quality of low-resolution images.
 
-<!-- ## References -->
+## References
 
-<!-- [What is Machine Learning?](https://developers.google.com/machine-learning/intro-to-ml/what-is-ml) -->
+[What is Machine Learning?](https://developers.google.com/machine-learning/intro-to-ml/what-is-ml)

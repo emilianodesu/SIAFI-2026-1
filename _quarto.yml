@@ -24,6 +24,8 @@ website:
             text: "Classification Fundamentals"
           - file: ML/2_3_2_classification_algorithms.ipynb
             text: "Classification Algorithms"
+          - file: ML/2_4_regression.ipynb
+            text: "Regression"
       - text: "Deep Learning"
         menu:
           - file: DL/3_1_fundamentals.ipynb
