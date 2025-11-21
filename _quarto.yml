@@ -26,6 +26,10 @@ website:
             text: "Classification Algorithms"
           - file: ML/2_4_regression.ipynb
             text: "Regression"
+          - file: ML/2_5_decision_trees.ipynb
+            text: "Decision Trees and Random Forests"
+          - file: ML/2_6_unsupervised_learning.ipynb
+            text: "Unsupervised Learning"
       - text: "Deep Learning"
         menu:
           - file: DL/3_1_fundamentals.ipynb
