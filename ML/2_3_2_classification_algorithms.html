@@ -198,6 +198,14 @@ window.Quarto = {
     <a class="dropdown-item" href="../ML/2_4_regression.html">
  <span class="dropdown-text">Regression</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_5_decision_trees.html">
+ <span class="dropdown-text">Decision Trees and Random Forests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_6_unsupervised_learning.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -208,6 +216,14 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../DL/3_1_fundamentals.html">
  <span class="dropdown-text">Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../DL/3_2_ann.html">
+ <span class="dropdown-text">Artificial Neurons and the Perceptron</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../DL/3_3_pytorch.html">
+ <span class="dropdown-text">Building Neural Networks with PyTorch</span></a>
   </li>  
     </ul>
   </li>
@@ -246,7 +262,7 @@ window.Quarto = {
 
 
 <p><a href="https://colab.research.google.com/github/emilianodesu/SIAFI-2026-1/blob/main/ML/2_3_2_classification_algorithms.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
-<div id="RjLxX08R4pDh" class="cell">
+<div id="RjLxX08R4pDh" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -263,7 +279,7 @@ window.Quarto = {
 <section id="finding-an-observations-nearest-neighbors" class="level4">
 <h4 class="anchored" data-anchor-id="finding-an-observations-nearest-neighbors">2.3.8.1 Finding an Observation’s Nearest Neighbors</h4>
 <p>Use scikit-learn’s <code>NearestNeighbors</code></p>
-<div id="3b7956e8" class="cell" data-outputid="dc8022ee-8620-4895-86be-d9de22c65b15">
+<div id="3b7956e8" class="cell" data-outputid="dc8022ee-8620-4895-86be-d9de22c65b15" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span>
@@ -307,14 +323,14 @@ window.Quarto = {
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find two nearest neighbors based on Euclidean distance</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>nearestneighbors_euclidean <span class="op">=</span> NearestNeighbors(n_neighbors<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">'euclidean'</span>).fit(features_standardized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The distance variable we created contains the actual distance measurement to each of the two nearest neighbors:</p>
-<div id="c699c79a" class="cell" data-outputid="3c579661-aa6d-4418-d102-a423afdf163b">
+<div id="c699c79a" class="cell" data-outputid="3c579661-aa6d-4418-d102-a423afdf163b" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>distances</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>array([[0.49140089, 0.74294782]])</code></pre>
 </div>
 </div>
 <p>In addition, we can use <code>kneighbors_graph</code> to create a matrix indicating each observation’s nearest neighbors:</p>
-<div id="8d13d5cc" class="cell" data-outputid="1ba7bd59-e4a9-4de9-f1c7-d3cb8d64b3bc">
+<div id="8d13d5cc" class="cell" data-outputid="1ba7bd59-e4a9-4de9-f1c7-d3cb8d64b3bc" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find each observation's three nearest neighbors</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># based on Euclidean distance (including itself)</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>nearestneighbors_euclidean <span class="op">=</span> NearestNeighbors(</span>
@@ -348,7 +364,7 @@ window.Quarto = {
 <section id="creating-a-knn-classifier" class="level4">
 <h4 class="anchored" data-anchor-id="creating-a-knn-classifier">2.3.8.2 Creating a KNN Classifier</h4>
 <p>Given an observation of unknown class, you need to predict its class based on the class of its neighbors. If the dataset is not very large, use <code>KNeighborsClassifier</code>:</p>
-<div id="cb583f43" class="cell" data-outputid="0a4e6409-6cc4-4f46-e28b-e1a488a4024b">
+<div id="cb583f43" class="cell" data-outputid="0a4e6409-6cc4-4f46-e28b-e1a488a4024b" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
@@ -391,7 +407,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="5817d912" class="cell" data-outputid="493b9494-4392-4a6d-dc4b-c37c15c41b67">
+<div id="5817d912" class="cell" data-outputid="493b9494-4392-4a6d-dc4b-c37c15c41b67" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the effect of different k values on decision boundaries</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">15</span>]</span>
@@ -444,7 +460,7 @@ Observations:
 - k=15: Very smooth boundaries, may underfit (high bias)</code></pre>
 </div>
 </div>
-<div id="11a246c5" class="cell" data-outputid="15835f32-2f26-45a8-d8ad-bff22e5f8e65">
+<div id="11a246c5" class="cell" data-outputid="15835f32-2f26-45a8-d8ad-bff22e5f8e65" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train a KNN classifier with 5 neighbors</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>).fit(X_pca, y)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -484,7 +500,7 @@ Observations:
 <p>In KNN, given an observation, <span class="math inline">\(x_u\)</span>, with an unknown target class, the algorithm first identifies the k closest observations (sometimes called <span class="math inline">\(x_u\)</span>’s neighborhood) based on some distance metric (e.g., Euclidean distance), then these k observations “vote” based on their class, and the class that wins the vote is <span class="math inline">\(x_u\)</span>’s predicted class. More formally, the probability <span class="math inline">\(x_u\)</span> of some class <span class="math inline">\(j\)</span> is:</p>
 <p><span class="math display">\[ P(y=j|x_u) = \frac{1}{k} \sum_{i \in N_k(x_u)} I(y_i = j) \]</span></p>
 <p>where <span class="math inline">\(N_k(x_u)\)</span> is the set of k nearest neighbors of <span class="math inline">\(x_u\)</span>, <span class="math inline">\(y_i\)</span> is the class of observation <span class="math inline">\(i\)</span>, and <span class="math inline">\(I\)</span> is an indicator function that is 1 if <span class="math inline">\(y_i = j\)</span> and 0 otherwise. The predicted class for <span class="math inline">\(x_u\)</span> is the class that maximizes this probability.</p>
-<div id="7f4e2381" class="cell" data-outputid="6fa60a0c-e6ab-4964-86ed-c828503d7309">
+<div id="7f4e2381" class="cell" data-outputid="6fa60a0c-e6ab-4964-86ed-c828503d7309" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View probability that each observation is one of three classes</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>knn.predict_proba(new_observations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -493,7 +509,7 @@ Observations:
 </div>
 </div>
 <p>The class with the highest probability becomes the predicted class. For example, in the preceding output, the first observation should be class 0 <span class="math inline">\((P = 1)\)</span> while the second observation should be class 2 <span class="math inline">\((P = 1)\)</span>, and this is just what we see:</p>
-<div id="789ac6fd" class="cell" data-outputid="40ad2342-8439-40a1-f327-641ef7ee26d9">
+<div id="789ac6fd" class="cell" data-outputid="40ad2342-8439-40a1-f327-641ef7ee26d9" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>knn.predict(new_observations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([0, 2])</code></pre>
@@ -505,7 +521,7 @@ Observations:
 <section id="identifying-the-best-neighborhood-size-k" class="level4">
 <h4 class="anchored" data-anchor-id="identifying-the-best-neighborhood-size-k">2.3.8.3 Identifying the Best Neighborhood Size (k)</h4>
 <p>Use model selection techniques like <code>GridSearchCV</code>:</p>
-<div id="49f37486" class="cell">
+<div id="49f37486" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
@@ -534,7 +550,7 @@ Observations:
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> GridSearchCV(pipe, search_space, cv<span class="op">=</span><span class="dv">5</span>, verbose<span class="op">=</span><span class="dv">0</span>).fit(features, target)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The size of <span class="math inline">\(k\)</span> has real implications in KNN classifiers. In machine learning we are trying to find a balance between bias and variance, and in few places is that as explicit as the value of <span class="math inline">\(k\)</span>. If <span class="math inline">\(k = n\)</span>, where <span class="math inline">\(n\)</span> is the number of observations, then we have high bias but low variance. If <span class="math inline">\(k = 1\)</span>, we will have low bias but high variance. The best model will come from finding the value of <span class="math inline">\(k\)</span> that balances this bias-variance trade-off. In our solution, we used GridSearchCV to conduct five-fold cross-validation on KNN classifiers with different values of <span class="math inline">\(k\)</span>. When that is completed, we can see the k that produces the best model:</p>
-<div id="3e52c0ad" class="cell" data-outputid="6c45f434-3b75-4243-c7fb-73e6303858e1">
+<div id="3e52c0ad" class="cell" data-outputid="6c45f434-3b75-4243-c7fb-73e6303858e1" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Best neighborhood size (k)</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>classifier.best_estimator_.get_params()[<span class="st">"knn__n_neighbors"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -567,7 +583,7 @@ Observations:
 <p>The most common type of naive Bayes classifier is the Gaussian naive Bayes. In Gaussian naive Bayes, we assume that the likelihood of the feature values <span class="math inline">\(x\)</span>, given an observation is of class <span class="math inline">\(y\)</span>, follows a normal distribution:</p>
 <p><span class="math display">\[ P(x_j|y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_j - \mu_y)^2}{2\sigma_y^2}\right) \]</span></p>
 <p>Where <span class="math inline">\(\mu_y\)</span> and <span class="math inline">\(\sigma_y^2\)</span> are the mean and variance of feature <span class="math inline">\(x_j\)</span> for all observations in class <span class="math inline">\(y\)</span>. Because of the assumption of the normal distribution, Gaussian naive Bayes is best used in cases where all our features are continuous.</p>
-<div id="0b753336" class="cell" data-outputid="df9c457e-9d04-4b10-adb8-a0e57c796294">
+<div id="0b753336" class="cell" data-outputid="df9c457e-9d04-4b10-adb8-a0e57c796294" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(<span class="dv">100</span>, <span class="dv">2</span>, centers<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">2</span>, cluster_std<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'RdBu'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -580,7 +596,7 @@ Observations:
 </div>
 </div>
 <p>The simplest Gaussian model is to assume that the data is described by a Gaussian distribution with no covariance between dimensions. This model can be fit by computing the mean and standard deviation of the points within each label, which is all we need to define such a distribution. The result of this naive Gaussian assumption is shown in the following figure, where we see the contours of the Gaussian distributions fit to each class in the two-dimensional dataset:</p>
-<div id="fabe34c4" class="cell" data-outputid="fd93d677-d54f-4342-f814-5c392dd34a55">
+<div id="fabe34c4" class="cell" data-outputid="fd93d677-d54f-4342-f814-5c392dd34a55" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'RdBu'</span>)</span>
@@ -616,7 +632,7 @@ Observations:
 </div>
 <p>The ellipses here represent the Gaussian generative model for each label, with larger probability toward the center of the ellipses. With this generative model in place for each class, we have a simple recipe to compute the likelihood <span class="math inline">\(P(\text{features}|y)\)</span> for any data point, and thus we can quickly compute the posterior ratio and determine which label is the most probable for a given point.</p>
 <p>This procedure is implemented in Scikit-Learn’s <code>sklearn.naive_bayes.GaussianNB</code> estimator:</p>
-<div id="8685bc4a" class="cell" data-outputid="a185b667-191b-4493-b876-eddd34e5e77b">
+<div id="8685bc4a" class="cell" data-outputid="a185b667-191b-4493-b876-eddd34e5e77b" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> GaussianNB()</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1165,13 +1181,13 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </script>
 </div>
 </div>
-<div id="f9f29a03" class="cell">
+<div id="f9f29a03" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">0</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>Xnew <span class="op">=</span> [<span class="op">-</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">14</span>] <span class="op">+</span> [<span class="dv">14</span>, <span class="dv">18</span>] <span class="op">*</span> rng.rand(<span class="dv">2000</span>, <span class="dv">2</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>ynew <span class="op">=</span> model.predict(Xnew)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can plot this new data to get an idea of where the decision boundary is (see the following figure):</p>
-<div id="edeab5b8" class="cell" data-outputid="a8193ab9-e37e-462d-d2d4-6a4158e48051">
+<div id="edeab5b8" class="cell" data-outputid="a8193ab9-e37e-462d-d2d4-6a4158e48051" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'RdBu'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>lim <span class="op">=</span> plt.axis()</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(Xnew[:, <span class="dv">0</span>], Xnew[:, <span class="dv">1</span>], c<span class="op">=</span>ynew, s<span class="op">=</span><span class="dv">20</span>, cmap<span class="op">=</span><span class="st">'RdBu'</span>, alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
@@ -1186,7 +1202,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>We see a slightly curved boundary in the classifications—in general, the boundary produced by a Gaussian naive Bayes model will be quadratic.</p>
 <p>A nice aspect of this Bayesian formalism is that it naturally allows for probabilistic classification, which we can compute using the <code>predict_proba</code> method:</p>
-<div id="0e8f44e0" class="cell" data-outputid="b112d868-78b2-4ae1-a463-913611ca28de">
+<div id="0e8f44e0" class="cell" data-outputid="b112d868-78b2-4ae1-a463-913611ca28de" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>yprob <span class="op">=</span> model.predict_proba(Xnew)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>yprob[<span class="op">-</span><span class="dv">8</span>:].<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
@@ -1208,7 +1224,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>The Gaussian assumption just described is by no means the only simple assumption that could be used to specify the generative distribution for each label. Another useful example is multinomial naive Bayes, where the features are assumed to be generated from a simple multinomial distribution. The multinomial distribution describes the probability of observing counts among a number of categories, and thus multinomial naive Bayes is most appropriate for features that represent counts or count rates.</p>
 <p>The idea is precisely the same as before, except that instead of modeling the data distribution with the best-fit Gaussian, we model it with a best-fit multinomial distribution.</p>
 <p><strong>Example: Classifying Text</strong></p>
-<div id="2efabd9c" class="cell" data-outputid="33b66ea2-9866-4708-dacb-5887fb3e7917">
+<div id="2efabd9c" class="cell" data-outputid="33b66ea2-9866-4708-dacb-5887fb3e7917" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_20newsgroups</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> fetch_20newsgroups()</span>
@@ -1237,14 +1253,14 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>For simplicity here, we will select just a few of these categories and download the training and testing sets:</p>
-<div id="04494de3" class="cell">
+<div id="04494de3" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>categories <span class="op">=</span> [<span class="st">'talk.religion.misc'</span>, <span class="st">'soc.religion.christian'</span>,</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">'sci.space'</span>, <span class="st">'comp.graphics'</span>]</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> fetch_20newsgroups(subset<span class="op">=</span><span class="st">'train'</span>, categories<span class="op">=</span>categories)</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> fetch_20newsgroups(subset<span class="op">=</span><span class="st">'test'</span>, categories<span class="op">=</span>categories)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here is a representative entry from the data:</p>
-<div id="702404c7" class="cell" data-outputid="8a8c8874-d263-47ee-a4ba-1df31fcd59e4">
+<div id="702404c7" class="cell" data-outputid="8a8c8874-d263-47ee-a4ba-1df31fcd59e4" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(train.data[<span class="dv">5</span>][<span class="dv">48</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subject: Federal Hearing
@@ -1267,7 +1283,7 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 </div>
 </div>
 <p>In order to use this data for machine learning, we need to be able to convert the content of each string into a vector of numbers. For this we will use the TF-IDF vectorizer, and create a pipeline that attaches it to a multinomial naive Bayes classifier:</p>
-<div id="d5d73151" class="cell">
+<div id="d5d73151" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> MultinomialNB</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
@@ -1275,12 +1291,12 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(TfidfVectorizer(), MultinomialNB())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With this pipeline, we can apply the model to the training data and predict labels for the test data:</p>
-<div id="01c204a9" class="cell">
+<div id="01c204a9" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>model.fit(train.data, train.target)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> model.predict(test.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have predicted the labels for the test data, we can evaluate them to learn about the performance of the estimator. For example, let’s take a look at the confusion matrix between the true and predicted labels for the test data (see the following figure):</p>
-<div id="83ac7dac" class="cell" data-outputid="9e56f56e-17d0-4f75-d657-c8f788ab685c">
+<div id="83ac7dac" class="cell" data-outputid="9e56f56e-17d0-4f75-d657-c8f788ab685c" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> confusion_matrix(test.target, labels)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(mat, square<span class="op">=</span><span class="va">True</span>, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cbar<span class="op">=</span><span class="va">False</span>,</span>
@@ -1298,25 +1314,25 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 </div>
 <p>Evidently, even this very simple classifier can successfully separate space discussions from computer discussions, but it gets confused between discussions about religion and discussions about Christianity. This is perhaps to be expected!</p>
 <p>The cool thing here is that we now have the tools to determine the category for any string, using the predict method of this pipeline. Here’s a utility function that will return the prediction for a single string:</p>
-<div id="75dbdf6d" class="cell">
+<div id="75dbdf6d" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_category(s, train<span class="op">=</span>train, model<span class="op">=</span>model):</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    pred <span class="op">=</span> model.predict([s])</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> train.target_names[pred[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s try it out:</p>
-<div id="e4c0878f" class="cell" data-outputid="2c1723b3-2acd-494b-b2fa-0da29107da15">
+<div id="e4c0878f" class="cell" data-outputid="2c1723b3-2acd-494b-b2fa-0da29107da15" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>predict_category(<span class="st">'sending a payload to the ISS'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>'sci.space'</code></pre>
 </div>
 </div>
-<div id="e3d8ab0f" class="cell" data-outputid="7babb3c3-53e5-4bed-b1d6-5ba998446e58">
+<div id="e3d8ab0f" class="cell" data-outputid="7babb3c3-53e5-4bed-b1d6-5ba998446e58" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>predict_category(<span class="st">'discussing the existence of God'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>'soc.religion.christian'</code></pre>
 </div>
 </div>
-<div id="51597608" class="cell" data-outputid="67ac6607-9aec-405f-b487-23c0c7a9abae">
+<div id="51597608" class="cell" data-outputid="67ac6607-9aec-405f-b487-23c0c7a9abae" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>predict_category(<span class="st">'determining the screen resolution'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>'comp.graphics'</code></pre>
@@ -1352,7 +1368,7 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 <h4 class="anchored" data-anchor-id="how-svms-work">2.3.10.1 How SVMs Work?</h4>
 <p>As part of our discussion of Bayesian classification, we learned about a simple kind of model that describes the distribution of each underlying class, and experimented with using it to probabilistically determine labels for new points. That was an example of <strong>generative classification</strong>; here we will consider instead <strong>discriminative classification</strong>. That is, rather than modeling each class, we will simply find a line or curve (in two dimensions) or manifold (in multiple dimensions) that divides the classes from each other.</p>
 <p>As an example of this, consider the simple case of a classification task in which the two classes of points are well separated (see the following figure):</p>
-<div id="3759f838" class="cell" data-outputid="6d3e5d75-6fe6-42ce-b107-a03188f25b7b">
+<div id="3759f838" class="cell" data-outputid="6d3e5d75-6fe6-42ce-b107-a03188f25b7b" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">50</span>, centers<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">0</span>, cluster_std<span class="op">=</span><span class="fl">0.60</span>)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1366,7 +1382,7 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 </div>
 <p>A linear discriminative classifier would attempt to draw a straight line separating the two sets of data, and thereby create a model for classification. For two-dimensional data like that shown here, this is a task we could do by hand. But immediately we see a problem: there is more than one possible dividing line that can perfectly discriminate between the two classes!</p>
 <p>We can draw some of them as follows; the following figure shows the result:</p>
-<div id="9622a56d" class="cell" data-outputid="9e23ab3e-2995-4822-d138-898f45c251a2">
+<div id="9622a56d" class="cell" data-outputid="9e23ab3e-2995-4822-d138-898f45c251a2" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>xfit <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="fl">3.5</span>)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="fl">0.6</span>], [<span class="fl">2.1</span>], <span class="st">'x'</span>, color<span class="op">=</span><span class="st">'red'</span>, markeredgewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">10</span>)</span>
@@ -1386,7 +1402,7 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 <p>These are three very different separators which, nevertheless, perfectly discriminate between these samples. Depending on which you choose, a new data point (e.g., the one marked by the “X” in this plot) will be assigned a different label! Evidently our simple intuition of “drawing a line between classes” is not good enough, and we need to think a bit more deeply.</p>
 <p><strong>Maximizing the margin</strong></p>
 <p>Support vector machines offer one way to improve on this. The intuition is this: rather than simply drawing a zero-width line between the classes, we can draw around each line a margin of some width, up to the nearest point. Here is an example of how this might look (see the following figure):</p>
-<div id="e71df6fd" class="cell" data-outputid="019e82fe-56f5-4104-d77f-d0724e897cc1">
+<div id="e71df6fd" class="cell" data-outputid="019e82fe-56f5-4104-d77f-d0724e897cc1" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>xfit <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="fl">3.5</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1410,7 +1426,7 @@ then mail to Federal Communications Commission 1919 H Street Washington DC
 <section id="fitting-an-svm-model-with-scikit-learn" class="level4">
 <h4 class="anchored" data-anchor-id="fitting-an-svm-model-with-scikit-learn">2.3.10.2 Fitting an SVM Model with Scikit-Learn</h4>
 <p>Let’s see the result of an actual fit to this data: we will use Scikit-Learn’s support vector classifier (<code>SVC</code>) to train an SVM model on this data. For the time being, we will use a linear kernel and set the <code>C</code> parameter to a very large number (we’ll discuss the meaning of these in more depth momentarily):</p>
-<div id="67f6943a" class="cell" data-outputid="2bce9b9d-f935-4691-eadb-4192d28246cb">
+<div id="67f6943a" class="cell" data-outputid="2bce9b9d-f935-4691-eadb-4192d28246cb" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC <span class="co"># "Support vector classifier"</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SVC(kernel<span class="op">=</span><span class="st">'linear'</span>, C<span class="op">=</span><span class="fl">1E10</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2025,7 +2041,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>To better visualize what’s happening here, let’s create a quick convenience function that will plot SVM decision boundaries for us (see the following figure):</p>
-<div id="b1795b61" class="cell">
+<div id="b1795b61" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_svc_decision_function(model, ax<span class="op">=</span><span class="va">None</span>, plot_support<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Plot the decision function for a 2D SVC"""</span></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ax <span class="kw">is</span> <span class="va">None</span>:</span>
@@ -2054,7 +2070,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(xlim)</span>
 <span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(ylim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cdaf5c92" class="cell" data-outputid="a5309f4b-5f30-4b21-df66-643110a7c97d">
+<div id="cdaf5c92" class="cell" data-outputid="a5309f4b-5f30-4b21-df66-643110a7c97d" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>plot_svc_decision_function(model)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -2066,7 +2082,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>This is the dividing line that maximizes the margin between the two sets of points. Notice that a few of the training points just touch the margin: they are circled in the following figure. These points are the pivotal elements of this fit; they are known as the support vectors, and give the algorithm its name. In Scikit-Learn, the identities of these points are stored in the <code>support_vectors_</code> attribute of the classifier:</p>
-<div id="4345702c" class="cell" data-outputid="34db4aa8-8a18-415d-f0e6-122b6142a98f">
+<div id="4345702c" class="cell" data-outputid="34db4aa8-8a18-415d-f0e6-122b6142a98f" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>model.support_vectors_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>array([[0.44359863, 3.11530945],
@@ -2076,7 +2092,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>A key to this classifier’s success is that for the fit, only the positions of the support vectors matter; any points further from the margin that are on the correct side do not modify the fit. Technically, this is because these points do not contribute to the loss function used to fit the model, so their position and number do not matter so long as they do not cross the margin.</p>
 <p>We can see this, for example, if we plot the model learned from the first 60 points and first 120 points of this dataset (see the following figure):</p>
-<div id="143a74fa" class="cell" data-outputid="4043510e-d86e-4ed4-d94f-d906fb06c34a">
+<div id="143a74fa" class="cell" data-outputid="4043510e-d86e-4ed4-d94f-d906fb06c34a" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_svm(N<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    X, y <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">200</span>, centers<span class="op">=</span><span class="dv">2</span>,</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>                      random_state<span class="op">=</span><span class="dv">0</span>, cluster_std<span class="op">=</span><span class="fl">0.60</span>)</span>
@@ -2106,7 +2122,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>In the left panel, we see the model and the support vectors for 60 training points. In the right panel, we have doubled the number of training points, but the model has not changed: the three support vectors in the left panel are the same as the support vectors in the right panel. This insensitivity to the exact behavior of distant points is one of the strengths of the SVM model.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install ipywidgets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="20e75b67" class="cell" data-outputid="529cb9a6-4e19-4161-d8c8-a9de0dd59e45">
+<div id="20e75b67" class="cell" data-outputid="529cb9a6-4e19-4161-d8c8-a9de0dd59e45" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, Output</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> Output()</span>
@@ -2122,12 +2138,12 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"050bb0cdbaff41c7be7b6d69cd6fd86b","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"7bfe509be81944faa48f8414949c8e0f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3ac306ce30f241379c707ec890bdb7b6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"aff63934b269458c9d057f67f24b0e65","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -2136,7 +2152,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <h4 class="anchored" data-anchor-id="kernel-svm">2.3.10.3 Kernel SVM</h4>
 <p>Where SVM can become quite powerful is when it is combined with kernels. We have seen a version of kernels before. There we projected our data into a higher-dimensional space defined by polynomials and Gaussian basis functions, and thereby were able to reduce dimensionality and fit for nonlinear relationships with a linear classifier.</p>
 <p>In SVM models, we can use a version of the same idea. To motivate the need for kernels, let’s look at some data that is not linearly separable</p>
-<div id="86dce888" class="cell" data-outputid="35f71ec5-aed7-4ed1-d18e-57bba3664f38">
+<div id="86dce888" class="cell" data-outputid="35f71ec5-aed7-4ed1-d18e-57bba3664f38" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_circles</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_circles(<span class="dv">100</span>, factor<span class="op">=</span><span class="fl">.1</span>, noise<span class="op">=</span><span class="fl">.1</span>)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2153,11 +2169,11 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>It is clear that no linear discrimination will ever be able to separate this data. But we can draw a lesson from the radial basis function kernel in Introduction to Data Science: Dimensionality Reduction, and think about how we might project the data into a higher dimension such that a linear separator would be sufficient. For example, one simple projection we could use would be to compute a radial basis function (RBF) centered on the middle clump:</p>
-<div id="6f25dca1" class="cell">
+<div id="6f25dca1" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.exp(<span class="op">-</span>(X <span class="op">**</span> <span class="dv">2</span>).<span class="bu">sum</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can visualize this extra data dimension using a three-dimensional plot, as seen in the following figure:</p>
-<div id="ef092c6b" class="cell" data-outputid="4230caf4-1428-47bb-a460-29096859329b">
+<div id="ef092c6b" class="cell" data-outputid="4230caf4-1428-47bb-a460-29096859329b" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits <span class="im">import</span> mplot3d</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.subplot(projection<span class="op">=</span><span class="st">'3d'</span>)</span>
@@ -2179,7 +2195,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>One strategy to this end is to compute a basis function centered at every point in the dataset, and let the SVM algorithm sift through the results. This type of basis function transformation is known as a kernel transformation, as it is based on a similarity relationship (or kernel) between each pair of points.</p>
 <p>A potential problem with this strategy—projecting <span class="math inline">\(N\)</span> points into <span class="math inline">\(N\)</span> dimensions—is that it might become very computationally intensive as <span class="math inline">\(N\)</span> grows large. However, because of a neat little procedure known as the <a href="https://en.wikipedia.org/wiki/Kernel_trick">kernel trick</a>, a fit on kernel-transformed data can be done implicitly—that is, without ever building the full <span class="math inline">\(N\)</span>-dimensional representation of the kernel projection. This kernel trick is built into the SVM, and is one of the reasons the method is so powerful.</p>
 <p>In Scikit-Learn, we can apply kernelized SVM simply by changing our linear kernel to an RBF kernel, using the <code>kernel</code> model hyperparameter:</p>
-<div id="9a349b9c" class="cell" data-outputid="c6c52706-2c08-46fc-b990-96012aa83645">
+<div id="9a349b9c" class="cell" data-outputid="c6c52706-2c08-46fc-b990-96012aa83645" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> SVC(kernel<span class="op">=</span><span class="st">'rbf'</span>, C<span class="op">=</span><span class="fl">1E6</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>clf.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
@@ -2793,7 +2809,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Let’s use our previously defined function to visualize the fit and identify the support vectors (see the following figure):</p>
-<div id="e1006af6" class="cell" data-outputid="d43758ff-ff27-4ed3-cddb-a88bcbc1e09a">
+<div id="e1006af6" class="cell" data-outputid="d43758ff-ff27-4ed3-cddb-a88bcbc1e09a" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>plot_svc_decision_function(clf)</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(clf.support_vectors_[:, <span class="dv">0</span>], clf.support_vectors_[:, <span class="dv">1</span>],</span>
@@ -2811,7 +2827,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="tuning-the-svm-model-softening-margins-with-c" class="level4">
 <h4 class="anchored" data-anchor-id="tuning-the-svm-model-softening-margins-with-c">2.3.10.4 Tuning the SVM Model: Softening Margins with C</h4>
 <p>Our discussion thus far has centered around very clean datasets, in which a perfect decision boundary exists. But what if your data has some amount of overlap? For example, you may have data like this (see the following figure):</p>
-<div id="85ce4839" class="cell" data-outputid="caf944d8-c4a4-4b1c-a1b3-bd9e26942fb5">
+<div id="85ce4839" class="cell" data-outputid="caf944d8-c4a4-4b1c-a1b3-bd9e26942fb5" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">100</span>, centers<span class="op">=</span><span class="dv">2</span>,</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>                  random_state<span class="op">=</span><span class="dv">0</span>, cluster_std<span class="op">=</span><span class="fl">1.2</span>)</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">50</span>, cmap<span class="op">=</span><span class="st">'autumn'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2825,7 +2841,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>To handle this case, the SVM implementation has a bit of a fudge factor that “softens” the margin: that is, it allows some of the points to creep into the margin if that allows a better fit. The hardness of the margin is controlled by a tuning parameter, most often known as <code>C</code>. For a very large <code>C</code>, the margin is hard, and points cannot lie in it. For a smaller <code>C</code>, the margin is softer and can grow to encompass some points.</p>
 <p>The plot shown in the following figure gives a visual picture of how a changing <code>C</code> affects the final fit via the softening of the margin:</p>
-<div id="5abcd947" class="cell" data-outputid="5b677e9c-1937-4b46-9056-91095ff28620">
+<div id="5abcd947" class="cell" data-outputid="5b677e9c-1937-4b46-9056-91095ff28620" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">100</span>, centers<span class="op">=</span><span class="dv">2</span>,</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>                  random_state<span class="op">=</span><span class="dv">0</span>, cluster_std<span class="op">=</span><span class="fl">0.8</span>)</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2889,7 +2905,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="face-recognition-example" class="level4">
 <h4 class="anchored" data-anchor-id="face-recognition-example">2.3.10.5 Face recognition Example</h4>
 <p>As an example of support vector machines in action, let’s take a look at the facial recognition problem. We will use the Labeled Faces in the Wild dataset, which consists of several thousand collated photos of various public figures. A fetcher for the dataset is built into Scikit-Learn:</p>
-<div id="4eee7136" class="cell" data-outputid="7b036b97-41dd-4ba7-d033-83c70694dd0d">
+<div id="4eee7136" class="cell" data-outputid="7b036b97-41dd-4ba7-d033-83c70694dd0d" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_lfw_people</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>faces <span class="op">=</span> fetch_lfw_people(min_faces_per_person<span class="op">=</span><span class="dv">60</span>)</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(faces.target_names)</span>
@@ -2901,7 +2917,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Let’s plot a few of these faces to see what we’re working with (see the following figure):</p>
-<div id="e1d77286" class="cell" data-outputid="87ebc31d-e758-4608-c394-065d692abaef">
+<div id="e1d77286" class="cell" data-outputid="87ebc31d-e758-4608-c394-065d692abaef" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, axi <span class="kw">in</span> <span class="bu">enumerate</span>(ax.flat):</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    axi.imshow(faces.images[i], cmap<span class="op">=</span><span class="st">'bone'</span>)</span>
@@ -2916,7 +2932,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Each image contains <span class="math inline">\(62 \times 47\)</span>, or around <span class="math inline">\(3,000\)</span>, pixels. We could proceed by simply using each pixel value as a feature, but often it is more effective to use some sort of preprocessor to extract more meaningful features; here we will use principal component analysis (see PCA in Dimensionality Reduction) to extract <span class="math inline">\(150\)</span> fundamental components to feed into our support vector machine classifier. We can do this most straightforwardly by packaging the preprocessor and the classifier into a single pipeline:</p>
-<div id="b04c08db" class="cell">
+<div id="b04c08db" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
@@ -2927,13 +2943,13 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(pca, svc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For the sake of testing our classifier output, we will split the data into a training set and a testing set:</p>
-<div id="26f30f6c" class="cell">
+<div id="26f30f6c" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>Xtrain, Xtest, ytrain, ytest <span class="op">=</span> train_test_split(faces.data, faces.target,</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>                                                random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, we can use grid search cross-validation to explore combinations of parameters. Here we will adjust <code>C</code> (which controls the margin hardness) and <code>gamma</code> (which controls the size of the radial basis function kernel), and determine the best model:</p>
-<div id="345fdb92" class="cell" data-outputid="3e91d461-a6a3-4e39-deb8-7a641d2f1795">
+<div id="345fdb92" class="cell" data-outputid="3e91d461-a6a3-4e39-deb8-7a641d2f1795" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {<span class="st">'svc__C'</span>: [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">50</span>],</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'svc__gamma'</span>: [<span class="fl">0.0001</span>, <span class="fl">0.0005</span>, <span class="fl">0.001</span>, <span class="fl">0.005</span>]}</span>
@@ -2942,19 +2958,19 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>time grid.fit(Xtrain, ytrain)</span>
 <span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grid.best_params_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>CPU times: total: 1min 1s
-Wall time: 22.2 s
+<pre><code>CPU times: total: 2min 46s
+Wall time: 57.2 s
 {'svc__C': 5, 'svc__gamma': 0.001}</code></pre>
 </div>
 </div>
 <p>The optimal values fall toward the middle of our grid; if they fell at the edges, we would want to expand the grid to make sure we have found the true optimum.</p>
 <p>Now with this cross-validated model we can predict the labels for the test data, which the model has not yet seen:</p>
-<div id="0657adf8" class="cell">
+<div id="0657adf8" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> grid.best_estimator_</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>yfit <span class="op">=</span> model.predict(Xtest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s take a look at a few of the test images along with their predicted values (see the following figure):</p>
-<div id="6c7759aa" class="cell" data-outputid="aa674174-3cce-4f7e-adf1-483cc41e2511">
+<div id="6c7759aa" class="cell" data-outputid="aa674174-3cce-4f7e-adf1-483cc41e2511" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">4</span>, <span class="dv">6</span>)</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, axi <span class="kw">in</span> <span class="bu">enumerate</span>(ax.flat):</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    axi.imshow(Xtest[i].reshape(<span class="dv">62</span>, <span class="dv">47</span>), cmap<span class="op">=</span><span class="st">'bone'</span>)</span>
@@ -2971,7 +2987,7 @@ Wall time: 22.2 s
 </div>
 </div>
 <p>Out of this small sample, our optimal estimator mislabeled only two faces. We can get a better sense of our estimator’s performance using the classification report, which lists recovery statistics label by label:</p>
-<div id="9b02b983" class="cell" data-outputid="c8de662e-aae3-4cb5-f6dc-2d224d374ba3">
+<div id="9b02b983" class="cell" data-outputid="c8de662e-aae3-4cb5-f6dc-2d224d374ba3" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(ytest, yfit,</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>                            target_names<span class="op">=</span>faces.target_names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2994,7 +3010,7 @@ Junichiro Koizumi       0.86      1.00      0.92        12
 </div>
 </div>
 <p>We might also display the confusion matrix between these classes (see the following figure):</p>
-<div id="a3056067" class="cell" data-outputid="87b12a5f-dcb0-4dc9-9815-e58daf19af86">
+<div id="a3056067" class="cell" data-outputid="87b12a5f-dcb0-4dc9-9815-e58daf19af86" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> confusion_matrix(ytest, yfit)</span>
@@ -3025,6 +3041,19 @@ Junichiro Koizumi       0.86      1.00      0.92        12
 <li>Their integration with kernel methods makes them very versatile, able to adapt to many types of data.</li>
 </ul>
 <p>However, SVMs have several disadvantages as well: * The scaling with the number of samples <span class="math inline">\(N\)</span> is <span class="math inline">\(O(N^3)\)</span> at worst, or <span class="math inline">\(O(N^2)\)</span> for efficient implementations. For large numbers of training samples, this computational cost can be prohibitive. * The results are strongly dependent on a suitable choice for the softening parameter C. This must be carefully chosen via cross-validation, which can be expensive as datasets grow in size. * The results do not have a direct probabilistic interpretation. This can be estimated via an internal cross-validation (see the <code>probability</code> parameter of <code>SVC</code>), but this extra estimation is costly.</p>
+</section>
+<section id="for-further-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="for-further-exploration"><strong>For Further Exploration</strong></h4>
+<p>Check out these resources to deepen your understanding of classification algorithms:</p>
+<ul>
+<li><a href="https://youtu.be/HVXime0nQeI?si=S_cgU8xu6yyiUQSL">K-nearest neighbors, Clearly Explained</a></li>
+<li><a href="https://youtu.be/gs9E7E0qOIc?si=clOp6bDwCJcy3VMY">K-nearest Neighbors (KNN) in 3 min</a></li>
+<li><a href="https://youtu.be/O2L2Uv9pdDA?si=AsgTbI7o2JXAupgq">Naive Bayes, Clearly Explained!!!</a></li>
+<li><a href="https://youtu.be/H3EjCKtlVog?si=kUmnMO3orxd_LG0F">Gaussian Naive Bayes, Clearly Explained!!!</a></li>
+<li><a href="https://youtu.be/_YPScrckx28?si=Y4jnUSdxkM8FQofX">Support Vector Machine (SVM) in 2 minutes</a></li>
+<li><a href="https://youtu.be/efR1C6CvhmE?si=3iCtBlMPlNcsSbrk">Support Vector Machines Part 1 (of 3): Main Ideas!!!</a></li>
+<li><a href="https://youtu.be/Q7vT0--5VII?si=8boxSzgKOIdn0b9T">The Kernel Trick in Support Vector Machine (SVM)</a></li>
+</ul>
 <hr>
 <p><strong>References:</strong></p>
 <p>Disclaimer: Some of the material in this notebook is adapted from other sources. These references are provided for further reading and to acknowledge the original authors.</p>

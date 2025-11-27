@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ann – SIAFI Data Science and Machine Learning Handbook 2026-1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-299fde5381b5a602aab895950093955a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SIAFI Data Science and Machine Learning Handbook 2026-1</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-to-data-science" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction to Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-to-data-science">    
+        <li>
+    <a class="dropdown-item" href="../IDS/1_1_fundamentals.html">
+ <span class="dropdown-text">Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../IDS/1_3_end_to_end_ml_project.html">
+ <span class="dropdown-text">End to End Machine Learning Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../IDS/1_4_dimensionality_reduction.html">
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-machine-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-machine-learning">    
+        <li>
+    <a class="dropdown-item" href="../ML/2_1_intro.html">
+ <span class="dropdown-text">Introduction to Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_2_slf.html">
+ <span class="dropdown-text">Supervised Learning Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_3_classification.html">
+ <span class="dropdown-text">Classification Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_3_2_classification_algorithms.html">
+ <span class="dropdown-text">Classification Algorithms</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_4_regression.html">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_5_decision_trees.html">
+ <span class="dropdown-text">Decision Trees and Random Forests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ML/2_6_unsupervised_learning.html">
+ <span class="dropdown-text">Unsupervised Learning</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-deep-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-deep-learning">    
+        <li>
+    <a class="dropdown-item" href="../DL/3_1_fundamentals.html">
+ <span class="dropdown-text">Fundamentals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../DL/3_2_ann.html">
+ <span class="dropdown-text">Artificial Neurons and the Perceptron</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../DL/3_3_pytorch.html">
+ <span class="dropdown-text">Building Neural Networks with PyTorch</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link active" data-scroll-target="#deep-learning">3. Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#artificial-neurons-and-the-perceptron" id="toc-artificial-neurons-and-the-perceptron" class="nav-link" data-scroll-target="#artificial-neurons-and-the-perceptron">3.2 Artificial Neurons and the Perceptron</a>
+  <ul class="collapse">
+  <li><a href="#biological-neurons" id="toc-biological-neurons" class="nav-link" data-scroll-target="#biological-neurons">3.2.1 Biological Neurons</a></li>
+  <li><a href="#logical-computations-with-neurons" id="toc-logical-computations-with-neurons" class="nav-link" data-scroll-target="#logical-computations-with-neurons">3.2.2 Logical Computations with Neurons</a></li>
+  <li><a href="#the-perceptron" id="toc-the-perceptron" class="nav-link" data-scroll-target="#the-perceptron">3.2.3 The Perceptron</a></li>
+  <li><a href="#multi-layer-perceptron" id="toc-multi-layer-perceptron" class="nav-link" data-scroll-target="#multi-layer-perceptron">3.2.4 Multi-layer Perceptron</a></li>
+  <li><a href="#hyperparameter-tuning-guidelines" id="toc-hyperparameter-tuning-guidelines" class="nav-link" data-scroll-target="#hyperparameter-tuning-guidelines">3.2.5 Hyperparameter Tuning Guidelines</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p><a href="https://colab.research.google.com/github/emilianodesu/SIAFI-2026-1/blob/main/DL/3_2_perceptron.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<div id="3944288a" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'font'</span>, size<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'axes'</span>, labelsize<span class="op">=</span><span class="dv">14</span>, titlesize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'legend'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'xtick'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">'ytick'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="deep-learning" class="level1">
+<h1>3. Deep Learning</h1>
+<section id="artificial-neurons-and-the-perceptron" class="level2">
+<h2 class="anchored" data-anchor-id="artificial-neurons-and-the-perceptron">3.2 Artificial Neurons and the Perceptron</h2>
+<section id="biological-neurons" class="level3">
+<h3 class="anchored" data-anchor-id="biological-neurons">3.2.1 Biological Neurons</h3>
+<p>Before we discuss artificial neurons, let’s take a quick look at a biological neuron. It is an unusual-looking cell mostly found in animal brains. It’s composed of a <em>cell body</em> containing the nucleus and most of the cell’s complex components, many branching extensions called <em>dendrites</em>, plus one very long extension called the <em>axon</em>. The axon’s length may be just a few times longer than the cell body, or up to tens of thousands of times longer. Near its extremity the axon splits off into many branches called <em>telodendria</em>, and at the tip of these branches are minuscule structures called <em>synaptic</em> terminals (or simply <em>synapses</em>), which are connected to the dendrites or cell bodies of other neurons. Biological neurons produce short electrical impulses called <em>action potentials</em> (APs, or just <em>signals</em>), which travel along the axons and make the synapses release chemical signals called <em>neurotransmitters</em>. When a neuron receives a sufficient amount of these neurotransmitters within a few milliseconds, it fires its own electrical impulses (actually, it depends on the neurotransmitters, as some of them inhibit the neuron from firing).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/bioneuron.png" class="img-fluid figure-img"></p>
+<figcaption>A biological Neuron</figcaption>
+</figure>
+</div>
+<p>Thus, individual biological neurons seem to behave in a simple way, but they’re organized in a vast network of billions, with each neuron typically connected to thousands of other neurons. Highly complex computations can be performed by a network of fairly simple neurons, much like a complex anthill can emerge from the combined efforts of simple ants. The architecture of biological neural networks (BNNs) is the subject of active research, but some parts of the brain have been mapped. These efforts show that neurons are often organized in consecutive layers, especially in the cerebral cortex (the outer layer of the brain).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/layers.png" class="img-fluid figure-img"></p>
+<figcaption>Multiple layers in a biological neural network (human cortex)</figcaption>
+</figure>
+</div>
+</section>
+<section id="logical-computations-with-neurons" class="level3">
+<h3 class="anchored" data-anchor-id="logical-computations-with-neurons">3.2.2 Logical Computations with Neurons</h3>
+<p>McCulloch and Pitts proposed a very simple model of the biological neuron, which later became known as an <em>artificial neuron</em>: it has one or more binary (on/off) inputs and one binary output. The artificial neuron activates its output when more than a certain number of its inputs are active. In their paper, McCulloch and Pitts showed that even with such a simplified model it is possible to build a network of artificial neurons that can compute any logical proposition you want. To see how such a network works, let’s build a few ANNs that perform various logical computations, assuming that a neuron is activated when at least two of its input connections are active.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/ann.png" class="img-fluid figure-img"></p>
+<figcaption>ANNs performing simple logical computations</figcaption>
+</figure>
+</div>
+<p>Let’s see what these networks do:</p>
+<ul>
+<li><p>The first network on the left is the identity function: if neuron A is activated, then neuron C gets activated as well (since it receives two input signals from neuron A); but if neuron A is off, then neuron C is off as well.</p></li>
+<li><p>The second network performs a logical AND: neuron C is activated only when both neurons A and B are activated (a single input signal is not enough to activate neuron C).</p></li>
+<li><p>The third network performs a logical OR: neuron C gets activated if either neuron A or neuron B is activated (or both).</p></li>
+<li><p>Finally, if we suppose that an input connection can inhibit the neuron’s activity (which is the case with biological neurons), then the fourth network computes a slightly more complex logical proposition: neuron C is activated only if neuron A is active and neuron B is off. If neuron A is active all the time, then you get a logical NOT: neuron C is active when neuron B is off, and vice versa.</p></li>
+</ul>
+<p>You can imagine how these networks can be combined to compute complex logical expressions</p>
+</section>
+<section id="the-perceptron" class="level3">
+<h3 class="anchored" data-anchor-id="the-perceptron">3.2.3 The Perceptron</h3>
+<p>The <em>perceptron</em> is one of the simplest ANN architectures, invented in 1957 by Frank Rosenblatt. It is based on a slightly different artificial neuron called a <em>threshold logic unit</em> (TLU), or sometimes a <em>linear threshold unit</em> (LTU). The inputs and output are numbers (instead of binary on/off values), and each input connection is associated with a weight. The TLU first computes a linear function of its inputs: <span class="math inline">\(z = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b = \mathbf{w}^T \mathbf{x} + b\)</span>. Then it applies a <em>step function</em> to the result: <span class="math inline">\(h_{\mathbf{w}}(x) = \text{step}(z)\)</span>. So it’s almost like logistic regression, except it uses a step function instead of the logistic function.⁠ Just like in logistic regression, the model parameters are the input weights <span class="math inline">\(\mathbf{w}\)</span> and the bias term <span class="math inline">\(b\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/tlu.png" class="img-fluid figure-img"></p>
+<figcaption>TLU: an artificial neuron that computes a weighted sum of its inputs, plus a bias term, then applies a step function</figcaption>
+</figure>
+</div>
+<p>The most common step function used in perceptrons is the Heaviside step function. Sometimes the sign function is used instead.</p>
+<p><strong>Equation 1: Common step functions used in perceptrons (assumed threshold at zero)</strong></p>
+<p><span class="math display">\[ \text{Heaviside step function:} \quad \text{step}(z) = \begin{cases} 1 &amp; \text{if } z \geq 0 \\ 0 &amp; \text{if } z &lt; 0 \end{cases} \]</span></p>
+<p><span class="math display">\[ \text{Sign function:} \quad \text{sign}(z) = \begin{cases} 1 &amp; \text{if } z &gt; 0 \\ -1 &amp; \text{if } z &lt; 0 \\ 0 &amp; \text{if } z = 0 \end{cases} \]</span></p>
+<p>A single TLU can be used for simple linear binary classification. It computes a linear function of its inputs, and if the result exceeds a threshold, it outputs the positive class. Otherwise, it outputs the negative class. This may remind you of logistic regression. You could, for example, use a single TLU to classify iris flowers based on petal length and width. Training such a TLU would require finding the right values for <span class="math inline">\(w_1, w_2,\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>A perceptron is composed of one or more TLUs organized in a single layer, where every TLU is connected to every input. Such a layer is called a <em>fully connected layer</em>, or a <em>dense layer</em>. The inputs constitute the <em>input layer</em>. And since the layer of TLUs produces the final outputs, it is called the <em>output layer</em>. For example, a perceptron with two inputs and three outputs is represented as:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/perceptron.png" class="img-fluid figure-img"></p>
+<figcaption>Architecture of a perceptron with two inputs and three output neurons</figcaption>
+</figure>
+</div>
+<p>This perceptron can classify instances simultaneously into three different binary classes, which makes it a multilabel classifier. It may also be used for multiclass classification.</p>
+<p>Thanks to the magic of linear algebra, the next equation can be used to efficiently compute the outputs of a layer of artificial neurons for several instances at once.</p>
+<p><strong>Equation 2: Computing the outputs of a fully connected layer</strong></p>
+<p><span class="math display">\[ \hat{\mathbf{Y}} = \phi(\mathbf{X} \mathbf{W} + \mathbf{b}) \]</span></p>
+<p>In this equation:</p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{Y}}\)</span> is the output matrix. It has one row per instance and one column per neuron.</li>
+<li><span class="math inline">\(\mathbf{X}\)</span> is the input matrix. It has one row per instance and one column per input feature.</li>
+<li>The weight matrix <span class="math inline">\(\mathbf{W}\)</span> contains all the connection weights. It has one row per input feature and one column per neuron.</li>
+<li>The bias vector <span class="math inline">\(\mathbf{b}\)</span> contains the bias term for each neuron. It has one entry per neuron.</li>
+<li>The function <span class="math inline">\(\phi\)</span> is called the <em>activation function</em>: when the artificial neurons are TLUs, it is a step function (we will discuss other activation functions shortly).</li>
+</ul>
+<p>So, how is a perceptron trained? Perceptrons are trained using a learning rule that takes into account the error made by the network when it makes a prediction; the perceptron learning rule reinforces connections that help reduce the error. More specifically, the perceptron is fed one training instance at a time, and for each instance it makes its predictions. For every output neuron that produced a wrong prediction, it reinforces the connection weights from the inputs that would have contributed to the correct prediction.</p>
+<p><strong>Equation 3: Perceptron learning rule (weight update)</strong></p>
+<p><span class="math display">\[ w_{ij} \leftarrow w_{ij} + \eta (y_j - \hat{y}_j) x_i \]</span></p>
+<p>In this equation:</p>
+<ul>
+<li><span class="math inline">\(w_{ij}\)</span> is the connection weight between the <span class="math inline">\(i\)</span>-th input and the <span class="math inline">\(j\)</span>-th output neuron.</li>
+<li><span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i\)</span>-th input value of the current training instance.</li>
+<li><span class="math inline">\(\hat{y}_j\)</span> is the output of the <span class="math inline">\(j\)</span>-th output neuron for the current training instance.</li>
+<li><span class="math inline">\(y_j\)</span> is the target output of the <span class="math inline">\(j\)</span>-th output neuron for the current training instance.</li>
+<li><span class="math inline">\(\eta\)</span> is the learning rate.</li>
+</ul>
+<p>The decision boundary of each output neuron is linear, so perceptrons are incapable of learning complex patterns (just like logistic regression classifiers). However, if the training instances are linearly separable, Rosenblatt demonstrated that this algorithm will converge to a solution.⁠ This is called the <em>perceptron convergence theorem</em>.</p>
+<p>Scikit-Learn provides a <code>Perceptron</code> class that can be used pretty much as you would expect—for example, on the iris dataset:</p>
+<div id="73cbe1f8" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Perceptron</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris(as_frame<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> iris.data[[<span class="st">"petal length (cm)"</span>, <span class="st">"petal width (cm)"</span>]].values</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> (iris.target <span class="op">==</span> <span class="dv">0</span>)  <span class="co"># Iris setosa</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>per_clf <span class="op">=</span> Perceptron(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>per_clf.fit(X, y)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> [[<span class="dv">2</span>, <span class="fl">0.5</span>], [<span class="dv">3</span>, <span class="dv">1</span>]]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> per_clf.predict(X_new)  <span class="co"># predicts True and False for these 2 flowers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="48049755" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>array([ True, False])</code></pre>
+</div>
+</div>
+<p>The <code>Perceptron</code> is equivalent to a <code>SGDClassifier</code> with <code>loss="perceptron"</code>, no regularization, and a constant learning rate equal to 1:</p>
+</section>
+<section id="multi-layer-perceptron" class="level3">
+<h3 class="anchored" data-anchor-id="multi-layer-perceptron">3.2.4 Multi-layer Perceptron</h3>
+<p>In their 1969 monograph, <em>Perceptrons</em>, Marvin Minsky and Seymour Papert highlighted a number of serious weaknesses of perceptrons—in particular, the fact that they are incapable of solving some trivial problems (e.g., the <em>exclusive OR</em> (XOR) classification problem). This is true of any other linear classification model (such as logistic regression classifiers), but researchers had expected much more from perceptrons, and some were so disappointed that they dropped neural networks altogether in favor of more formal approaches such as logic, problem solving, and search. The lack of practical applications also didn’t help.</p>
+<p>It turns out that some of the limitations of perceptrons can be eliminated by stacking multiple perceptrons. The resulting ANN is called a <em>multilayer perceptron</em> (MLP). An MLP can solve the XOR problem: with inputs (0, 0) or (1, 1), the network outputs 0, and with inputs (0, 1) or (1, 0) it outputs 1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/xor.png" class="img-fluid figure-img"></p>
+<figcaption>XOR classification problem and an MLP that solves it</figcaption>
+</figure>
+</div>
+<p>An MLP is composed of one input layer, one or more layers of artificial neurons (originally TLUs) called <em>hidden layers</em>, and one final layer of artificial neurons called the output layer. The layers close to the input layer are usually called the <em>lower layers</em>, and the ones close to the outputs are usually called the <em>upper layers</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/mlp.png" class="img-fluid figure-img"></p>
+<figcaption>Architecture of a multilayer perceptron with two inputs, one hidden layer of four neurons, and three output neurons</figcaption>
+</figure>
+</div>
+<p><strong>Note</strong>: The signal flows only in one direction (from the inputs to the outputs), so this architecture is an example of a <em>feedforward neural network</em> (FNN).</p>
+<p>When an ANN contains a deep stack of hidden layers,⁠ it is called a <em>deep neural network</em> (DNN). The field of deep learning studies DNNs, and more generally it is interested in models containing deep stacks of computations. Even so, many people talk about deep learning whenever neural networks are involved (even shallow ones).</p>
+<section id="backpropagation" class="level4">
+<h4 class="anchored" data-anchor-id="backpropagation">3.2.4.1 Backpropagation</h4>
+<p>For many years researchers struggled to find a way to train MLPs, without success. In the early 1960s several researchers discussed the possibility of using gradient descent to train neural networks, but this requires computing the gradients of the model’s error with regard to the model parameters; it wasn’t clear at the time how to do this efficiently with such a complex model containing so many parameters, especially with the computers they had back then.</p>
+<p>Then, in 1970, a researcher named Seppo Linnainmaa introduced in his master’s thesis a technique to compute all the gradients automatically and efficiently. This algorithm is now called <em>reverse-mode automatic differentiation</em> (or <em>reverse-mode autodiff</em> for short). In just two passes through the network (one forward, one backward), it is able to compute the gradients of the neural network’s error with regard to every single model parameter. In other words, it can find out how each connection weight and each bias should be tweaked in order to reduce the neural network’s error. These gradients can then be used to perform a gradient descent step. If you repeat this process of computing the gradients automatically and taking a gradient descent step, the neural network’s error will gradually drop until it eventually reaches a minimum. This combination of reverse-mode autodiff and gradient descent is now called <em>backpropagation</em> (or <em>backprop</em> for short).</p>
+<p>Here’s an analogy: imagine you are learning to shoot a basketball into the hoop. You throw the ball (that’s the forward pass), and you observe that it went far off to the right side (that’s the error computation), then you consider how you can change your body position to throw the ball a bit less to the right next time (that’s the backward pass): you realize that your arm will need to rotate a bit counterclockwise, and probably your whole upper body as well, which in turn means that your feet should turn too (notice how we’re going down the “layers”). Once you’ve thought it through, you actually move your body: that’s the gradient descent step. The smaller the errors, the smaller the adjustments. As you repeat the whole process many times, the error gradually gets smaller, and after a few hours of practice, you manage to get the ball through the hoop every time. Good job!</p>
+<p>Let’s run through how backpropagation works again in a bit more detail:</p>
+<ul>
+<li>It handles one mini-batch at a time, and goes through the full training set multiple times. If each mini-batch contains 32 instances, and each instance has 100 features, then the mini-batch will be represented as a matrix with 32 rows and 100 columns. Each pass through the training set is called an <em>epoch</em>.</li>
+<li>For each mini-batch, the algorithm computes the output of all the neurons in the first hidden layer. If the layer has 50 neurons, then its output is a matrix with one row per sample in the mini-batch (e.g., 32), and 50 columns (i.e., one per neuron). This matrix is then passed on to the next layer, its output is computed and passed to the next layer, and so on until we get the output of the last layer, the output layer. This is the <em>forward pass</em>: it is exactly like making predictions, except all intermediate results are preserved since they are needed for the backward pass.</li>
+<li>Next, the algorithm measures the network’s output error (i.e., it uses a loss function that compares the desired output and the actual output of the network, and returns some measure of the error).</li>
+<li>Then it computes how much each output layer parameter contributed to the error. This is done analytically by applying the <em>chain rule</em> (one of the most fundamental rules in calculus), which makes this step fast and precise. The result is one gradient per parameter.</li>
+<li>The algorithm then measures how much of these error contributions came from each connection in the layer below, again using the chain rule, working backward until it reaches the input layer. As explained earlier, this reverse pass efficiently measures the error gradient across all the connection weights and biases in the network by propagating the error gradient backward through the network (hence the name of the algorithm).</li>
+<li>Finally, the algorithm performs a gradient descent step to tweak all the connection weights and bias terms in the network, using the error gradients it just computed.</li>
+</ul>
+<p><strong>Warning</strong>: It is important to initialize all the hidden layers’ connection weights randomly, or else training will fail. For example, if you initialize all weights and biases to zero, then all neurons in a given layer will be perfectly identical, and thus backpropagation will affect them in exactly the same way, so they will remain identical. In other words, despite having hundreds of neurons per layer, your model will act as if it had only one neuron per layer: it won’t be too smart. If instead you randomly initialize the weights, you <em>break the symmetry</em> and allow backpropagation to train a diverse team of neurons.</p>
+<p>In short, backpropagation makes predictions for a mini-batch (forward pass), measures the error, then goes through each layer in reverse to measure the error contribution from each parameter (reverse pass), and finally tweaks the connection weights and biases to reduce the error (gradient descent step).</p>
+</section>
+<section id="activation-functions" class="level4">
+<h4 class="anchored" data-anchor-id="activation-functions">3.2.4.2 Activation Functions</h4>
+<p>In order for backprop to work properly, Rumelhart and his colleagues made a key change to the MLP’s architecture: they replaced the step function with the <em>sigmoid</em> function. This was essential because the step function contains only flat segments, so there is no gradient to work with (gradient descent cannot move on a flat surface), while the sigmoid function has a well-defined nonzero derivative everywhere, allowing gradient descent to make some progress at every step. In fact, the backpropagation algorithm works well with many other activation functions, not just the sigmoid function. Here are two other popular choices:</p>
+<ul>
+<li><p><em>The hyperbolic tangent function</em>: <span class="math inline">\(\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}\)</span>. Just like the sigmoid function, this activation function is S-shaped, continuous, and differentiable, but its output value ranges from –1 to 1 (instead of 0 to 1 in the case of the sigmoid function). That range tends to make each layer’s output more or less centered around 0 at the beginning of training, which often helps speed up convergence.</p></li>
+<li><p><em>The rectified linear unit (ReLU)</em>: <span class="math inline">\(\text{ReLU}(z) = \max(0, z)\)</span>. The ReLU function is continuous but unfortunately not differentiable at <span class="math inline">\(z = 0\)</span> (the slope changes abruptly, which can make gradient descent bounce around), and its derivative is <span class="math inline">\(0\)</span> for <span class="math inline">\(z &lt; 0\)</span>. In practice, however, it works very well and has the advantage of being fast to compute, so it has become the default for most architectures.⁠ Importantly, the fact that it does not have a maximum output value helps reduce some issues during gradient descent</p></li>
+</ul>
+<p>These popular activation functions and their derivatives are represented in the next figure. But wait! Why do we need activation functions in the first place? Well, if you chain several linear transformations, all you get is a linear transformation. For example, if <span class="math inline">\(f(x) = 2x + 3\)</span> and <span class="math inline">\(g(x) = 5x – 1\)</span>, then chaining these two linear functions gives you another linear function: <span class="math inline">\(f(g(x)) = 2(5x – 1) + 3 = 10x + 1\)</span>. So if you don’t have some nonlinearity between layers, then even a deep stack of layers is equivalent to a single layer, and you can’t solve very complex problems with that. Conversely, a large enough DNN with nonlinear activations can theoretically approximate any continuous function.</p>
+<div id="20db1661" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> expit <span class="im">as</span> sigmoid</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> relu(z):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.maximum(<span class="dv">0</span>, z)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> derivative(f, z, eps<span class="op">=</span><span class="fl">0.000001</span>):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (f(z <span class="op">+</span> eps) <span class="op">-</span> f(z <span class="op">-</span> eps)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> eps)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>max_z <span class="op">=</span> <span class="fl">2.5</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.linspace(<span class="op">-</span>max_z, max_z, <span class="dv">200</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot([<span class="op">-</span>max_z, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], <span class="st">"m-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot(<span class="dv">0</span>, <span class="dv">0</span>, <span class="st">"mx"</span>, markersize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot(<span class="dv">0</span>, <span class="dv">1</span>, <span class="st">"mo"</span>, markersize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].plot([<span class="dv">0</span>, max_z], [<span class="dv">1</span>, <span class="dv">1</span>], <span class="st">"m-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">"Heaviside"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].plot(z, derivative(np.sign, z), <span class="st">"m-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].plot(<span class="dv">0</span>, <span class="dv">0</span>, <span class="st">"mx"</span>, markersize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">"Derivative"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].plot(z, relu(z), <span class="st">"g-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">"ReLU"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].plot([<span class="op">-</span>max_z, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], <span class="st">"g-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].plot([<span class="dv">0</span>, max_z], [<span class="dv">1</span>, <span class="dv">1</span>], <span class="st">"g-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].plot(<span class="dv">0</span>, <span class="dv">0</span>, <span class="st">"gx"</span>, markersize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].plot(<span class="dv">0</span>, <span class="dv">1</span>, <span class="st">"gx"</span>, markersize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].plot(z, sigmoid(z), <span class="st">"r-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">"Sigmoid"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].plot(z, derivative(sigmoid, z), <span class="st">"r-"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">3</span>].plot(z, np.tanh(z), <span class="st">"b-"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">3</span>].set_title(<span class="st">"Tanh"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">3</span>].plot(z, derivative(np.tanh, z), <span class="st">"b-"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        axes[row, col].grid(<span class="va">True</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_xticklabels([])</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> col <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_xlim(<span class="op">-</span>max_z, max_z)</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_xticks([<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_xlim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.3</span>)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_xticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> col <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> ((row, col) <span class="op">!=</span> (<span class="dv">0</span>, <span class="dv">3</span>)):</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_yticklabels([])</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (row, col) <span class="op">==</span> (<span class="dv">0</span>, <span class="dv">3</span>):</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_ylim(<span class="op">-</span><span class="fl">1.3</span>, <span class="fl">1.3</span>)</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_yticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>            axes[row, col].set_yticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_2_ann_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>OK! You know where neural nets came from, what the MLP architecture looks like, and how it computes its outputs. You’ve also learned about the backpropagation algorithm. It’s time to see MLPs in action!</p>
+</section>
+<section id="regression-mlps" class="level4">
+<h4 class="anchored" data-anchor-id="regression-mlps">3.2.4.3 Regression MLPs</h4>
+<p>How would you build an MLP for a regression task? Well, if you want to predict a single value (e.g., the price of a house, given many of its features), then you just need a single output neuron: its output is the predicted value. For multivariate regression (i.e., to predict multiple values at once), you need one output neuron per output dimension. For example, to locate the center of an object in an image, you need to predict 2D coordinates, so you need two output neurons. If you also want to place a bounding box around the object, then you need two more numbers: the width and the height of the object. So, you end up with four output neurons.</p>
+<p>Scikit-Learn includes an <code>MLPRegressor</code> class, so let’s use it to build an MLP with three hidden layers composed of 50 neurons each, and train it on the California housing dataset. For simplicity, we will use Scikit-Learn’s <code>fetch_california_housing()</code> function to load the data. Let’s start by importing everything we will need:</p>
+<div id="15051f4a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> root_mean_squared_error</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPRegressor</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, let’s fetch the California housing dataset and split it into a training set and a test set:</p>
+<div id="405f3a85" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>housing <span class="op">=</span> fetch_california_housing()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    housing.data, housing.target, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s create an <code>MLPRegressor</code> model with 3 hidden layers composed of 50 neurons each. The first hidden layer’s input size (i.e., the number of rows in its weights matrix) and the output layer’s output size (i.e., the number of columns in its weights matrix) will adjust automatically to the dimensionality of the inputs and targets, respectively, when training starts. The model uses the ReLU activation function in all hidden layers, and no activation function at all on the output layer. We also set verbose=True to get details on the model’s progress during training:</p>
+<div id="8042a356" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mlp_reg <span class="op">=</span> MLPRegressor(hidden_layer_sizes<span class="op">=</span>[<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">50</span>], early_stopping<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                       verbose<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since neural nets can have a lot of parameters, they have a tendency to overfit the training set. To reduce this risk, one option is to use early stopping: when we set <code>early_stopping=True</code>, the <code>MLPRegressor</code> class automatically sets aside 10% of the training data and uses it to evaluate the model at each epoch (you can adjust the validation set’s size by setting <code>validation_fraction</code>). If the validation score stops improving for 10 epochs, training automatically stops (you can tweak this number of epochs by setting <code>n_iter_no_change</code>).</p>
+<p>Now let’s create a pipeline to standardize the input features before sending them to the <code>MLPRegressor</code>. This is very important because gradient descent does not converge very well when the features have very different scales. We can then train the model! The <code>MLPRegressor</code> class uses a variant of gradient descent called <em>Adam</em> to minimize the mean squared error. It also uses a tiny bit of <span class="math inline">\(L_2\)</span> regularization (you can control its strength via the <code>alpha</code> hyperparameter, which defaults to 0.0001):</p>
+<div id="10395be6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(StandardScaler(), mlp_reg)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iteration 1, loss = 0.85190332
+Validation score: 0.534299
+Iteration 2, loss = 0.28288639
+Validation score: 0.651094
+Iteration 3, loss = 0.22884372
+Validation score: 0.699782
+Iteration 4, loss = 0.20746145
+Validation score: 0.720468
+Iteration 5, loss = 0.19649383
+Validation score: 0.724839
+Iteration 6, loss = 0.18928708
+Validation score: 0.740084
+Iteration 7, loss = 0.18132029
+Validation score: 0.747406
+Iteration 8, loss = 0.17556450
+Validation score: 0.753945
+Iteration 9, loss = 0.17190651
+Validation score: 0.760500
+Iteration 10, loss = 0.16687650
+Validation score: 0.759213
+Iteration 11, loss = 0.16329479
+Validation score: 0.761907
+Iteration 12, loss = 0.16054473
+Validation score: 0.768950
+Iteration 13, loss = 0.15690181
+Validation score: 0.762699
+Iteration 14, loss = 0.15630644
+Validation score: 0.766003
+Iteration 15, loss = 0.15712517
+Validation score: 0.778464
+Iteration 16, loss = 0.15155981
+Validation score: 0.774237
+Iteration 17, loss = 0.14957641
+Validation score: 0.778361
+Iteration 18, loss = 0.14728922
+Validation score: 0.780102
+Iteration 19, loss = 0.14536327
+Validation score: 0.780951
+Iteration 20, loss = 0.14563414
+Validation score: 0.776231
+Iteration 21, loss = 0.14425158
+Validation score: 0.783802
+Iteration 22, loss = 0.14417076
+Validation score: 0.779485
+Iteration 23, loss = 0.14505477
+Validation score: 0.781090
+Iteration 24, loss = 0.14213671
+Validation score: 0.778097
+Iteration 25, loss = 0.14193655
+Validation score: 0.784260
+Iteration 26, loss = 0.14049307
+Validation score: 0.784079
+Iteration 27, loss = 0.13866098
+Validation score: 0.780657
+Iteration 28, loss = 0.13808885
+Validation score: 0.786546
+Iteration 29, loss = 0.13754874
+Validation score: 0.788277
+Iteration 30, loss = 0.13686441
+Validation score: 0.785461
+Iteration 31, loss = 0.13801360
+Validation score: 0.781712
+Iteration 32, loss = 0.13660210
+Validation score: 0.786355
+Iteration 33, loss = 0.13560290
+Validation score: 0.776844
+Iteration 34, loss = 0.13509029
+Validation score: 0.791536
+Iteration 35, loss = 0.13429967
+Validation score: 0.788331
+Iteration 36, loss = 0.13504045
+Validation score: 0.776982
+Iteration 37, loss = 0.13304051
+Validation score: 0.785589
+Iteration 38, loss = 0.13274860
+Validation score: 0.787238
+Iteration 39, loss = 0.13230347
+Validation score: 0.778374
+Iteration 40, loss = 0.13260752
+Validation score: 0.791206
+Iteration 41, loss = 0.13076986
+Validation score: 0.786876
+Iteration 42, loss = 0.13270492
+Validation score: 0.783576
+Iteration 43, loss = 0.13024949
+Validation score: 0.790473
+Iteration 44, loss = 0.13194766
+Validation score: 0.791439
+Iteration 45, loss = 0.12960481
+Validation score: 0.788517
+Validation score did not improve more than tol=0.000100 for 10 consecutive epochs. Stopping.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  display: none;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left;
+}
+
+.user-set td.value pre {
+    color:rgb(255, 94, 0) !important;
+    background-color: transparent !important;
+}
+
+.default td {
+    color: black;
+    text-align: left;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('standardscaler', StandardScaler()),
+                ('mlpregressor',
+                 MLPRegressor(early_stopping=True,
+                              hidden_layer_sizes=[50, 50, 50], random_state=42,
+                              verbose=True))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param">steps&nbsp;</td>
+<td class="value">[('standardscaler', ...), ('mlpregressor', ...)]</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">transform_input&nbsp;</td>
+<td class="value">None</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">memory&nbsp;</td>
+<td class="value">None</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">verbose&nbsp;</td>
+<td class="value">False</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="standardscaler__">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">copy&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">with_mean&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">with_std&nbsp;</td>
+<td class="value">True</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>MLPRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.neural_network.MLPRegressor.html">?<span>Documentation for MLPRegressor</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="mlpregressor__">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">loss&nbsp;</td>
+<td class="value">'squared_error'</td>
+</tr>
+<tr class="user-set even">
+<td><em></em></td>
+<td class="param">hidden_layer_sizes&nbsp;</td>
+<td class="value">[50, 50, ...]</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">activation&nbsp;</td>
+<td class="value">'relu'</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">solver&nbsp;</td>
+<td class="value">'adam'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">alpha&nbsp;</td>
+<td class="value">0.0001</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">batch_size&nbsp;</td>
+<td class="value">'auto'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">learning_rate&nbsp;</td>
+<td class="value">'constant'</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">learning_rate_init&nbsp;</td>
+<td class="value">0.001</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">power_t&nbsp;</td>
+<td class="value">0.5</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">max_iter&nbsp;</td>
+<td class="value">200</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">shuffle&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="user-set even">
+<td><em></em></td>
+<td class="param">random_state&nbsp;</td>
+<td class="value">42</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">tol&nbsp;</td>
+<td class="value">0.0001</td>
+</tr>
+<tr class="user-set even">
+<td><em></em></td>
+<td class="param">verbose&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">warm_start&nbsp;</td>
+<td class="value">False</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">momentum&nbsp;</td>
+<td class="value">0.9</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">nesterovs_momentum&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="user-set even">
+<td><em></em></td>
+<td class="param">early_stopping&nbsp;</td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">validation_fraction&nbsp;</td>
+<td class="value">0.1</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">beta_1&nbsp;</td>
+<td class="value">0.9</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">beta_2&nbsp;</td>
+<td class="value">0.999</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">epsilon&nbsp;</td>
+<td class="value">1e-08</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">n_iter_no_change&nbsp;</td>
+<td class="value">10</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">max_fun&nbsp;</td>
+<td class="value">15000</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling.textContent.trim();
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+</script>
+</div>
+</div>
+<p>And there you go, you just trained your very first MLP! It required 45 epochs, and as you can see, the training loss went down at each epoch. The validation score generally went up at each epoch. Like every regressor in Scikit-Learn, <code>MLPRegressor</code> uses the R2 score by default for evaluation—that’s what the <code>score()</code> method returns. The R2 score measures the ratio of the variance that is explained by the model. In this case, it reaches close to 80% on the validation set, which is fairly good for this task:</p>
+<div id="a6e85efd" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mlp_reg.best_validation_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0.791536125425778</code></pre>
+</div>
+</div>
+<p>Let’s evaluate the RMSE on the test set:</p>
+<div id="86bfb6e5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> pipeline.predict(X_test)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> root_mean_squared_error(y_test, y_pred)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>rmse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0.5327699946812925</code></pre>
+</div>
+</div>
+<p>We get a test RMSE of about 0.53, which is comparable to what you would get with a random forest classifier. Not too bad for a first try! The next figure plots the model’s predictions versus the targets (on the test set). The dashed red line represents the ideal predictions (i.e., equal to the targets): most of the predictions are close to the targets, but there are still quite a few errors, especially for larger targets.</p>
+<div id="7ec7ed8c" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_test, y_pred, s<span class="op">=</span><span class="dv">5</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="fl">5.2</span>], [<span class="dv">0</span>, <span class="fl">5.2</span>], color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         label<span class="op">=</span><span class="st">"Ideal predictions = targets"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"equal"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Target"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Prediction"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_2_ann_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that this MLP does not use any activation function for the output layer, so it’s free to output any value it wants. This is generally fine, but if you want to guarantee that the output is always positive, then you should use the ReLU activation function on the output layer, or the <em>softplus</em> activation function, which is a smooth variant of ReLU: <span class="math inline">\(\text{softplus}(z) = \log(1 + e^{z})\)</span>. Softplus is close to 0 when <span class="math inline">\(z\)</span> is negative, and close to <span class="math inline">\(z\)</span> when <span class="math inline">\(z\)</span> is positive. Finally, if you want to guarantee that the predictions always fall within a given range of values, then you should use the sigmoid function or the hyperbolic tangent, and scale the targets to the appropriate range: 0 to 1 for sigmoid and –1 to 1 for tanh. Sadly, the <code>MLPRegressor</code> class does not support activation functions in the output layer.</p>
+<p><strong>Warning</strong>: Scikit-Learn does not offer GPU acceleration, and its neural net features are fairly limited. This is why we will switch to PyTorch. That said, it is quite convenient to be able to build and train a standard MLP in just a few lines of code using Scikit-Learn: it lets you tackle many complex tasks very quickly.</p>
+<p>In general, the mean squared error is the right loss to use for a regression tasks, but if you have a lot of outliers in the training set, you may sometimes prefer to use the mean absolute error instead, or preferably the <em>Huber loss</em>, which is a combination of both. Unfortunately, MLPRegressor only supports the MSE loss.</p>
+<p>The next table summarizes the typical architecture of a regression MLP.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hyperparameter</th>
+<th>Typical Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td># hidden layers</td>
+<td>Depends on the problem, but typically 1 to 5</td>
+</tr>
+<tr class="even">
+<td># neurons per hidden layer</td>
+<td>Depends on the problem, but typically 10 to 100</td>
+</tr>
+<tr class="odd">
+<td># output neurons</td>
+<td>1 per target variable</td>
+</tr>
+<tr class="even">
+<td>Activation function (hidden layers)</td>
+<td>ReLU (most common)</td>
+</tr>
+<tr class="odd">
+<td>Activation function (output layer)</td>
+<td>None, or ReLU/softplus (if positive outputs) or sigmoid/tanh (if bounded outputs)</td>
+</tr>
+<tr class="even">
+<td>Loss function</td>
+<td>Mean squared error (MSE), mean absolute error (MAE), or Huber loss</td>
+</tr>
+</tbody>
+</table>
+<p>All right, MLPs can tackle regression tasks. What else can they do?</p>
+</section>
+<section id="classification-mlps" class="level4">
+<h4 class="anchored" data-anchor-id="classification-mlps">3.2.4.4 Classification MLPs</h4>
+<p>MLPs can also be used for classification tasks. For a binary classification problem, you just need a single output neuron using the sigmoid activation function: the output will be a number between 0 and 1, which you can interpret as the estimated probability of the positive class. The estimated probability of the negative class is equal to one minus that number.</p>
+<p>MLPs can also easily handle multilabel binary classification tasks. For example, you could have an email classification system that predicts whether each incoming email is ham or spam, and simultaneously predicts whether it is an urgent or nonurgent email. In this case, you would need two output neurons, both using the sigmoid activation function: the first would output the probability that the email is spam, and the second would output the probability that it is urgent. More generally, you would dedicate one output neuron for each positive class. Note that the output probabilities do not necessarily add up to 1. This lets the model output any combination of labels: you can have nonurgent ham, urgent ham, nonurgent spam, and perhaps even urgent spam (although that would probably be an error).</p>
+<p>If each instance can belong only to a single class, out of three or more possible classes (e.g., classes 0 through 9 for digit image classification), then you need to have one output neuron per class, and you should use the softmax activation function for the whole output layer. The softmax function will ensure that all the estimated probabilities are between 0 and 1, and that they add up to 1, since the classes are exclusive. This is called multiclass classification.</p>
+<p>Regarding the loss function, since we are predicting probability distributions, the cross-entropy loss (or <em>x-entropy</em> or log loss for short) is generally a good choice.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/classification.png" class="img-fluid figure-img"></p>
+<figcaption>A modern MLP (including ReLU and softmax) for classification</figcaption>
+</figure>
+</div>
+<p>The next table summarizes the typical architecture of a classification MLP.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Hyperparameter</th>
+<th>Binary classification</th>
+<th>Multiclass classification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td># hidden layers</td>
+<td>Typically 1 to 5 layers</td>
+<td>Typically 1 to 5 layers</td>
+</tr>
+<tr class="even">
+<td># output neurons</td>
+<td>1</td>
+<td>1 per class</td>
+</tr>
+<tr class="odd">
+<td>Output activation function</td>
+<td>Sigmoid</td>
+<td>Softmax</td>
+</tr>
+<tr class="even">
+<td>Loss function</td>
+<td>Binary cross-entropy</td>
+<td>Categorical cross-entropy</td>
+</tr>
+</tbody>
+</table>
+<p>As you might expect, Scikit-Learn offers an <code>MLPClassifier</code> class in the <code>sklearn.neural_network</code> package, which you can use for binary or multiclass classification. It is almost identical to the <code>MLPRegressor</code> class, except that its output layer uses the softmax activation function, and it minimizes the cross-entropy loss rather than the MSE. Moreover, the <code>score()</code> method returns the model’s accuracy rather than the R2 score. Let’s try it out.</p>
+<p>We could tackle the iris dataset, but that task is too simple for a neural net: a linear model would do just as well and wouldn’t risk overfitting. So let’s instead tackle a more complex task: Fashion MNIST. This is a drop-in replacement of MNIST. It has the exact same format as MNIST (70,000 grayscale images of 28 × 28 pixels each, with 10 classes), but the images represent fashion items rather than handwritten digits, so each class is much more diverse, and the problem turns out to be significantly more challenging than MNIST. For example, a simple linear model reaches about 92% accuracy on MNIST, but only about 83% on Fashion MNIST. Let’s see if we can do better with an MLP.</p>
+<p>First, let’s load the dataset using the <code>fetch_openml()</code> function. Note that the targets are represented as strings <code>0'</code>, <code>'1'</code>, …​, <code>'9'</code>, so we convert them to integers:</p>
+<div id="1ea67e76" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_openml</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fashion_mnist <span class="op">=</span> fetch_openml(name<span class="op">=</span><span class="st">"Fashion-MNIST"</span>, as_frame<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>targets <span class="op">=</span> fashion_mnist.target.astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data is already shuffled, so we just take the first 60,000 images for training, and the last 10,000 for testing:</p>
+<div id="1aa47662" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X_train, y_train <span class="op">=</span> fashion_mnist.data[:<span class="dv">60_000</span>], targets[:<span class="dv">60_000</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>X_test, y_test <span class="op">=</span> fashion_mnist.data[<span class="dv">60_000</span>:], targets[<span class="dv">60_000</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each image is represented as a 1D integer array containing 784 pixel intensities ranging from 0 to 255. You can use the <code>plt.imshow()</code> function to plot an image, but first you need to reshape it to <code>[28, 28]</code>:</p>
+<div id="273113cb" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>X_sample <span class="op">=</span> X_train[<span class="dv">0</span>].reshape(<span class="dv">28</span>, <span class="dv">28</span>)  <span class="co"># first image in the training set</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>))  <span class="co"># reduce the figure size</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(X_sample, cmap<span class="op">=</span><span class="st">"binary"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)  <span class="co"># remove the axis</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_2_ann_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With MNIST, when the label is equal to 5, it means that the image represents the handwritten digit 5. Easy. For Fashion MNIST, however, we need the list of class names to know what we are dealing with. Scikit-Learn does not provide it, so let’s create it:</p>
+<div id="bb515065" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>class_names <span class="op">=</span> [<span class="st">"T-shirt/top"</span>, <span class="st">"Trouser"</span>, <span class="st">"Pullover"</span>, <span class="st">"Dress"</span>, <span class="st">"Coat"</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Sandal"</span>, <span class="st">"Shirt"</span>, <span class="st">"Sneaker"</span>, <span class="st">"Bag"</span>, <span class="st">"Ankle boot"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="77580d3f" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>class_names[y_train[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>'Ankle boot'</code></pre>
+</div>
+</div>
+<div id="0d4aedb5" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>n_rows <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, n_rows <span class="op">*</span> <span class="fl">1.2</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(n_rows):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> class_index <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        X_img <span class="op">=</span> X_train[y_train<span class="op">==</span>class_index][row].reshape(<span class="dv">28</span>, <span class="dv">28</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        y_img <span class="op">=</span> y_train[y_train<span class="op">==</span>class_index][row]</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        plt.subplot(n_rows, <span class="dv">10</span>, <span class="dv">10</span> <span class="op">*</span> row <span class="op">+</span> class_index <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        plt.imshow(X_img, cmap<span class="op">=</span><span class="st">"binary"</span>, interpolation<span class="op">=</span><span class="st">"nearest"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> row <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>            plt.title(class_names[y_img])</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(wspace<span class="op">=</span><span class="fl">0.2</span>, hspace<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_2_ann_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We’re ready to build the classification MLP:</p>
+<div id="5a977f39" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPClassifier</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> MinMaxScaler</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>mlp_clf <span class="op">=</span> MLPClassifier(hidden_layer_sizes<span class="op">=</span>[<span class="dv">200</span>, <span class="dv">100</span>], verbose<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                        early_stopping<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(MinMaxScaler(), mlp_clf)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, y_train)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> pipeline.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Iteration 1, loss = 0.57483807
+Validation score: 0.849333
+Iteration 2, loss = 0.39938584
+Validation score: 0.856833
+Iteration 3, loss = 0.35435272
+Validation score: 0.869333
+Iteration 4, loss = 0.32570927
+Validation score: 0.863833
+Iteration 5, loss = 0.30588352
+Validation score: 0.874167
+Iteration 6, loss = 0.29053832
+Validation score: 0.874000
+Iteration 7, loss = 0.27455976
+Validation score: 0.879333
+Iteration 8, loss = 0.26407281
+Validation score: 0.878500
+Iteration 9, loss = 0.25317835
+Validation score: 0.882167
+Iteration 10, loss = 0.24414312
+Validation score: 0.892833
+Iteration 11, loss = 0.23601645
+Validation score: 0.890000
+Iteration 12, loss = 0.23008384
+Validation score: 0.887333
+Iteration 13, loss = 0.22123722
+Validation score: 0.885167
+Iteration 14, loss = 0.21190658
+Validation score: 0.879333
+Iteration 15, loss = 0.20617121
+Validation score: 0.892667
+Iteration 16, loss = 0.19935674
+Validation score: 0.891667
+Iteration 17, loss = 0.19323595
+Validation score: 0.891667
+Iteration 18, loss = 0.19118498
+Validation score: 0.893000
+Iteration 19, loss = 0.18045888
+Validation score: 0.892167
+Iteration 20, loss = 0.17755098
+Validation score: 0.890167
+Iteration 21, loss = 0.17412956
+Validation score: 0.894333
+Iteration 22, loss = 0.16773934
+Validation score: 0.894500
+Iteration 23, loss = 0.16349204
+Validation score: 0.893667
+Iteration 24, loss = 0.16077870
+Validation score: 0.889833
+Iteration 25, loss = 0.14934062
+Validation score: 0.893333
+Iteration 26, loss = 0.14898857
+Validation score: 0.888167
+Iteration 27, loss = 0.14688411
+Validation score: 0.891000
+Iteration 28, loss = 0.14079827
+Validation score: 0.886667
+Iteration 29, loss = 0.14018731
+Validation score: 0.887500
+Iteration 30, loss = 0.13149282
+Validation score: 0.893667
+Iteration 31, loss = 0.13008545
+Validation score: 0.893500
+Iteration 32, loss = 0.12518664
+Validation score: 0.892167
+Iteration 33, loss = 0.12089552
+Validation score: 0.895500
+Iteration 34, loss = 0.11773432
+Validation score: 0.893167
+Iteration 35, loss = 0.11628895
+Validation score: 0.890167
+Iteration 36, loss = 0.11659955
+Validation score: 0.894000
+Iteration 37, loss = 0.11052450
+Validation score: 0.894833
+Iteration 38, loss = 0.10588123
+Validation score: 0.890833
+Iteration 39, loss = 0.10723340
+Validation score: 0.893333
+Iteration 40, loss = 0.10035025
+Validation score: 0.892667
+Iteration 41, loss = 0.09630797
+Validation score: 0.885500
+Iteration 42, loss = 0.09742254
+Validation score: 0.896500
+Iteration 43, loss = 0.09549099
+Validation score: 0.892333
+Iteration 44, loss = 0.08870345
+Validation score: 0.894500
+Iteration 45, loss = 0.08690074
+Validation score: 0.884833
+Iteration 46, loss = 0.08475217
+Validation score: 0.893333
+Iteration 47, loss = 0.08437929
+Validation score: 0.892667
+Iteration 48, loss = 0.08112109
+Validation score: 0.890167
+Iteration 49, loss = 0.08061024
+Validation score: 0.891500
+Iteration 50, loss = 0.07784474
+Validation score: 0.894333
+Iteration 51, loss = 0.07294891
+Validation score: 0.893167
+Iteration 52, loss = 0.07183896
+Validation score: 0.889500
+Iteration 53, loss = 0.07273444
+Validation score: 0.890333
+Validation score did not improve more than tol=0.000100 for 10 consecutive epochs. Stopping.</code></pre>
+</div>
+</div>
+<p>This code is very similar to the regression code we used earlier, but there are a few differences:</p>
+<ul>
+<li>Of course, it’s a classification task so we use an <code>MLPClassifier</code> rather than an <code>MLPRegressor</code>.</li>
+<li>We use just two hidden layers with 300 and 100 neurons, respectively. You can try a different number of hidden layers, and change the number of neurons as well if you want.</li>
+<li>We also use a <code>MinMaxScaler</code> instead of a <code>StandardScaler</code>. We need it to shrink the pixel intensities down to the 0–1 range rather than 0–255: having features in this range usually works better with the default hyperparameters used by <code>MLPClassifier</code>, such as its default learning rate and weight initialization scale. You might wonder why we didn’t use a <code>StandardScaler</code>? Well some pixels don’t vary much across images; for example, the pixels around the edges are almost always white. If we used the <code>StandardScaler</code>, these pixels would get scaled up to have the same variance as every other pixel: as a result, we would give more importance to these pixels than they probably deserve. Using the <code>MinMaxScaler</code> often works better than the <code>StandardScaler</code> for images (but your mileage may vary).</li>
+<li>Lastly, the <code>score()</code> function returns the model’s accuracy.</li>
+</ul>
+<div id="7bb57b82" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>0.891</code></pre>
+</div>
+</div>
+<div id="cfd2d2b0" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mlp_clf.best_validation_score_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>0.8965</code></pre>
+</div>
+</div>
+<div id="8a0a92cd" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mlp_clf.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>0.8722</code></pre>
+</div>
+</div>
+<p>You will find that the model reaches about 89.7% accuracy on the validation set during training (the exact value is given by <code>mlp_clf.best_validation_score_</code>), but it starts overfitting a bit toward the end, so it ends up at just 89.2% accuracy. When we evaluate the model on the test set, we get 87.2%, which is not bad for this task, although we can do better with other neural net architectures such as convolutional neural networks.</p>
+<p>You probably noticed that training was quite slow. That’s because the hidden layers have a lot of parameters, so there are many computations to run at each iteration. For example, the first hidden layer has 784 × 300 connection weights, plus 300 bias terms, which adds up to 235,500 parameters! All these parameters give the model quite a lot of flexibility to fit the training data, but it also means that there’s a high risk of overfitting, especially when you do not have a lot of training data. In this case, you may want to use regularization techniques such as early stopping and <span class="math inline">\(L_2\)</span> regularization.</p>
+<p>Once the model is trained, you can use it to classify new images:</p>
+<div id="c2629b55" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> X_test[:<span class="dv">15</span>]  <span class="co"># let's pretend these are 15 new images</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>mlp_clf.predict(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>array([9, 2, 1, 1, 0, 1, 4, 6, 5, 7, 4, 5, 8, 3, 4])</code></pre>
+</div>
+</div>
+<p>All these predictions are correct, except for the one at index 12, which should be a 7 (sneaker) instead of a 8 (bag). You might want to know how confident the model was about these predictions, especially the bad one. For this, you can use <code>model.predict_proba()</code> instead of <code>model.predict()</code>.</p>
+<div id="9b39c221" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>y_proba <span class="op">=</span> mlp_clf.predict_proba(X_new)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>y_proba[<span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>array([0., 0., 0., 0., 0., 0., 0., 0., 1., 0.])</code></pre>
+</div>
+</div>
+<p>Hmm, that’s not great: the model is telling us that it’s 100% confident that the image represents a bag (index 8). So not only is the model wrong, it’s 100% confident that it’s right. In fact, across all 10,000 images in the test set, there are only 16 images that the model is less than 99.9% confident about, despite the fact that its accuracy is about 90%. That’s why you should always treat estimated probabilities with a grain of salt: neural nets have a strong tendency to be overconfident, especially if they are trained for a bit too long.</p>
+<p>Still, getting 90% accuracy on Fashion MNIST is pretty good. You could get even better performance by fine-tuning the hyperparameters, for example using <code>RandomizedSearchCV</code>. However, the search space is quite large, so it helps to know roughly where to look.</p>
+</section>
+</section>
+<section id="hyperparameter-tuning-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="hyperparameter-tuning-guidelines">3.2.5 Hyperparameter Tuning Guidelines</h3>
+<p>The flexibility of neural networks is also one of their main drawbacks: there are many hyperparameters to tweak. Not only can you use any imaginable network architecture, but even in a basic MLP you can change the number of layers, the number of neurons and the type of activation function to use in each layer, the weight initialization logic, the type of optimizer to use, its learning rate, the batch size, and more. What are some good values for these hyperparameters?</p>
+<section id="number-of-hidden-layers" class="level4">
+<h4 class="anchored" data-anchor-id="number-of-hidden-layers">3.2.5.1 Number of Hidden Layers</h4>
+<p>For many problems, you can begin with a single hidden layer and get reasonable results. An MLP with just one hidden layer can theoretically model even the most complex functions, provided it has enough neurons. But deep networks have a much higher <em>parameter efficiency</em> than shallow ones: they can model complex functions using exponentially fewer neurons than shallow nets, allowing them to reach much better performance with the same amount of training data. This is because their layered structure enables them to reuse and compose features across multiple levels: for example, the first layer in a face classifier may learn to recognize low-level features such as dots, arcs, or straight lines; while the second layer may learn to combine these low-level features into higher-level features such as squares or circles; and the third layer may learn to combine these higher-level features into a mouth, an eye, or a nose; and the top layer would then be able to use these top-level features to classify faces.</p>
+<p>Not only does this hierarchical architecture help DNNs converge faster to a good solution, but it also improves their ability to generalize to new datasets. For example, if you have already trained a model to recognize faces in pictures and you now want to train a new neural network to recognize hairstyles, you can kickstart the training by reusing the lower layers of the first network. Instead of randomly initializing the weights and biases of the first few layers of the new neural network, you can initialize them to the values of the weights and biases of the lower layers of the first network. This way the network will not have to learn from scratch all the low-level structures that occur in most pictures; it will only have to learn the higher-level structures (e.g., hairstyles). This is called <em>transfer learning</em>.</p>
+<p>In summary, for many problems you can start with just one or two hidden layers, and the neural network will work pretty well. For instance, you can easily reach above 97% accuracy on the MNIST dataset using just one hidden layer with a few hundred neurons, and above 98% accuracy using two hidden layers with the same total number of neurons, in roughly the same amount of training time. For more complex problems, you can ramp up the number of hidden layers until you start overfitting the training set. Very complex tasks, such as large image classification or speech recognition, typically require networks with dozens of layers (or even hundreds, but not fully connected ones), and they need a huge amount of training data. You will rarely have to train such networks from scratch: it is much more common to reuse parts of a pretrained state-of-the-art network that performs a similar task. Training will then be a lot faster and require much less data.</p>
+</section>
+<section id="number-of-neurons-per-hidden-layer" class="level4">
+<h4 class="anchored" data-anchor-id="number-of-neurons-per-hidden-layer">3.2.5.2 Number of Neurons per Hidden Layer</h4>
+<p>The number of neurons in the input and output layers is determined by the type of input and output your task requires. For example, the MNIST task requires 28 × 28 = 784 inputs and 10 output neurons.</p>
+<p>As for the hidden layers, it used to be common to size them to form a pyramid, with fewer and fewer neurons at each layer—the rationale being that many low-level features can coalesce into far fewer high-level features. A typical neural network for MNIST might have 3 hidden layers, the first with 300 neurons, the second with 200, and the third with 100. However, this practice has been largely abandoned because it seems that using the same number of neurons in all hidden layers performs just as well in most cases, or even better; plus, there is only one hyperparameter to tune, instead of one per layer. That said, depending on the dataset, it can sometimes help to make the first hidden layer a bit larger than the others.</p>
+<p>Just like the number of layers, you can try increasing the number of neurons gradually until the network starts overfitting. Alternatively, you can try building a model with slightly more layers and neurons than you actually need, then use early stopping and other regularization techniques to prevent it from overfitting too much. Vincent Vanhoucke, a Waymo researcher and former Googler, has dubbed this the “stretch pants” approach: instead of wasting time looking for pants that perfectly match your size, just use large stretch pants that will shrink down to the right size. With this approach, you avoid bottleneck layers that could ruin your model. Indeed, if a layer has too few neurons, it will lack the computational capacity to model complex relationships, and it may not even have enough representational power to preserve all the useful information from the inputs. For example, if you apply PCA to the Fashion MNIST training set, you will find that you need 187 dimensions to preserve 95% of the variance in the data. So if you set the number of neurons in the first hidden layer to some greater number, say 200, you can be confident that this layer will not be a bottleneck. However, you don’t want to add too many neurons, or else the model will have too many parameters to optimize, and it will take more time and data to train.</p>
+<p><strong>Tip</strong>: In general, you will get more bang for your buck by increasing the number of layers rather than the number of neurons per layer.</p>
+</section>
+<section id="learning-rate" class="level4">
+<h4 class="anchored" data-anchor-id="learning-rate">3.2.5.3 Learning Rate</h4>
+<p>The learning rate is a hugely important hyperparameter. In general, the optimal learning rate is about half of the maximum learning rate (i.e., the learning rate above which the training algorithm diverges). One way to find a good learning rate is to train the model for a few hundred iterations, starting with a very low learning rate (e.g., <span class="math inline">\(10^{-5}\)</span>) and gradually increasing it up to a very large value (e.g., <span class="math inline">\(10\)</span>). This is done by multiplying the learning rate by a constant factor at each iteration (e.g., by <span class="math inline">\((10 / 10^{-5})^{1 / 500}\)</span> to go from <span class="math inline">\(10^{-5}\)</span> to <span class="math inline">\(10\)</span> in <span class="math inline">\(500\)</span> iterations). If you plot the loss as a function of the learning rate (using a log scale for the learning rate), you should see it dropping at first. But after a while, the learning rate will be too large, so the loss will shoot back up: the optimal learning rate is often a bit lower than the point at which the loss starts to climb (typically about 10 times lower than the turning point). You can then reinitialize your model and train it normally using this good learning rate.</p>
+<p><strong>Tip</strong>: To change the learning rate during training when using Scikit-Learn, you must set the MLP’s <code>warm_start</code> hyperparameter to <code>True</code>, and fit the model one batch at a time using <code>partial_fit()</code>. Simply update the learning rate at each iteration.</p>
+</section>
+<section id="batch-size" class="level4">
+<h4 class="anchored" data-anchor-id="batch-size">3.2.5.4 Batch Size</h4>
+<p>The batch size can have a significant impact on your model’s performance and training time. The main benefit of using large batch sizes is that hardware accelerators like GPUs can process them efficiently, so the training algorithm will see more instances per second. Therefore, many researchers and practitioners recommend using the largest batch size that can fit in VRAM (video RAM, i.e., the GPU’s memory). There’s a catch, though: large batch sizes can sometimes lead to training instabilities, especially with smaller models and at the beginning of training, and the resulting model may not generalize as well as a model trained with a small batch size.</p>
+<p>However, other research points have shown that it is possible to use very large batch sizes (up to 8,192), along with various techniques such as warming up the learning rate (i.e., starting training with a small learning rate, then ramping it up), to obtain very short training times, without any generalization gap.</p>
+<p>So one strategy is to use a large batch size, possibly with learning rate warmup, and if training is unstable or the final performance is disappointing, then try using a smaller batch size instead.</p>
+</section>
+<section id="other-hyperparameters" class="level4">
+<h4 class="anchored" data-anchor-id="other-hyperparameters">3.2.5.5 Other Hyperparameters</h4>
+<p>Here are two more hyperparameters you can tune if you have the computation budget and the time:</p>
+<ul>
+<li><p><strong>Optimizer</strong>: Choosing a better optimizer than plain old mini-batch gradient descent (and tuning its hyperparameters) can help speed up training and sometimes reach better performance.</p></li>
+<li><p><strong>Activation Function</strong>: We discussed how to choose the activation function earlier: in general, the ReLU activation function is a good default for all hidden layers. In some cases, replacing ReLU with another function can help.</p></li>
+</ul>
+<p><strong>Tip</strong>: The optimal learning rate depends on the other hyperparameters—especially the batch size—so if you modify any hyperparameter, make sure to tune the learning rate again.</p>
+<p>This concludes our introduction to artificial neural networks and their implementation with Scikit-Learn. In the next chapter, we will switch to PyTorch, the leading open source library for neural networks, and we will use it to train and run MLPs much faster by exploiting the power of graphical processing units (GPUs). We will also start building more complex models, with multiple inputs and outputs.</p>
+</section>
+<section id="for-further-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="for-further-exploration"><strong>For Further Exploration</strong></h4>
+<p>Check out these resources to deepen your understanding of neural networks and related concepts:</p>
+<p>Neural Network Playground:</p>
+<ul>
+<li><a href="https://playground.tensorflow.org/">This</a> is a great tool to build your intuitions without writing any code (it was built by the TensorFlow team, but there’s nothing TensorFlow-specific about it; in fact, it doesn’t even use TensorFlow).</li>
+</ul>
+<p>Videos:</p>
+<ul>
+<li><a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;si=9zaWZJRy2NmfM_uk">Neural Networks by 3Blue1Brown</a></li>
+</ul>
+<p>Google ML Crash Course Readings: * <a href="https://developers.google.com/machine-learning/crash-course/neural-networks">Neural Networks</a></p>
+<hr>
+<p><strong>References:</strong></p>
+<p>Disclaimer: Some of the material in this notebook is adapted from other sources. These references are provided for further reading and to acknowledge the original authors.</p>
+<ul>
+<li>Chapter 9 Hands-On Machine Learning with Scikit-Learn and PyTorch by Aurélien Géron, <a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9798341607972/">1st edition</a></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/emilianodesu\.github\.io\/SIAFI-2026-1\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
