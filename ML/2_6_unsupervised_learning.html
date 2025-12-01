@@ -277,7 +277,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="clustering-algorithms">2.6.1 Clustering Algorithms</h3>
 <p>As you enjoy a hike in the mountains, you stumble upon a plant you have never seen before. You look around and you notice a few more. They are not identical, yet they are sufficiently similar for you to know that they most likely belong to the same species (or at least the same genus). You may need a botanist to tell you what species that is, but you certainly don’t need an expert to identify groups of similar-looking objects. This is called <em>clustering</em>: it is the task of identifying similar instances and assigning them to <em>clusters</em>, or groups of similar instances.</p>
 <p>Just like in classification, each instance gets assigned to a group. However, unlike classification, clustering is an unsupervised task, there are no labels, so the algorithm needs to figure out on its own how to group instances. Consider the next figure: on the left is the iris dataset, where each instance’s species (i.e., its class) is represented with a different marker. It is a labeled dataset, for which classification algorithms such as logistic regression, SVMs, or random forest classifiers are well suited. On the right is the same dataset, but without the labels, so you cannot use a classification algorithm anymore. This is where clustering algorithms step in: many of them can easily detect the lower-left cluster. It is also quite easy to see with our own eyes, but it is not so obvious that the upper-right cluster is composed of two distinct subclusters. That said, the dataset has two additional features (sepal length and width) that are not represented here, and clustering algorithms can make good use of all features, so in fact they identify the three clusters fairly well (e.g., using a Gaussian mixture model, only 5 instances out of 150 are assigned to the wrong cluster).</p>
-<div id="972c22b2" class="cell" data-execution_count="2">
+<div id="972c22b2" class="cell" data-outputid="ba109239-60ec-4468-b595-a15fb5dfead7" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -314,7 +314,7 @@ window.Quarto = {
 </div>
 </div>
 <p><strong>Note</strong>: the next cell shows how a Gaussian mixture model can actually separate these clusters pretty well using all 4 features: petal length &amp; width, and sepal length &amp; width. This code maps each cluster to a class. Instead of hard coding the mapping, the code picks the most common class for each cluster using the <code>scipy.stats.mode()</code> function:</p>
-<div id="1f6522a7" class="cell" data-execution_count="3">
+<div id="1f6522a7" class="cell" data-outputid="2a0e7729-c81b-4005-ae34-f287572b88fb" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.mixture <span class="im">import</span> GaussianMixture</span>
@@ -345,7 +345,7 @@ window.Quarto = {
 </div>
 </div>
 <p>What’s the ratio of iris plants we assigned to the right cluster?</p>
-<div id="a5c86c0b" class="cell" data-execution_count="4">
+<div id="a5c86c0b" class="cell" data-outputid="c3e7eb1e-0654-4867-fb4e-d6be0da965fa" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(y_pred<span class="op">==</span>y).<span class="bu">sum</span>() <span class="op">/</span> <span class="bu">len</span>(y_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>np.float64(0.9666666666666667)</code></pre>
@@ -372,9 +372,9 @@ window.Quarto = {
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make the blobs: y contains the cluster IDs, but we</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># will not use them; that's what we want to predict</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">2000</span>, centers<span class="op">=</span>blob_centers, cluster_std<span class="op">=</span>blob_std,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                  random_state<span class="op">=</span><span class="dv">7</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                  random_state<span class="op">=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a82ff6b6" class="cell" data-execution_count="6">
+<div id="a82ff6b6" class="cell" data-outputid="f84312aa-a07f-4ce4-af82-87b3c544ce1e" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_clusters(X, y<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], c<span class="op">=</span>y, s<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"$x_1$"</span>)</span>
@@ -404,20 +404,20 @@ window.Quarto = {
 </div>
 <p>Note that you have to specify the number of clusters k that the algorithm must find. In this example, it is pretty obvious from looking at the data that k should be set to 5, but in general it is not that easy.</p>
 <p>Each instance will be assigned to one of the five clusters. In the context of clustering, an instance’s <em>label</em> is the index of the cluster to which the algorithm assigns this instance; this is not to be confused with the class labels in classification, which are used as targets (remember that clustering is an unsupervised learning task). The <code>KMeans</code> instance preserves the predicted labels of the instances it was trained on, available via the <code>labels_</code> instance variable:</p>
-<div id="4c542df7" class="cell" data-execution_count="8">
+<div id="4c542df7" class="cell" data-outputid="5d73245e-bdb1-4a63-fe90-74cc2c310e44" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>array([4, 0, 1, ..., 2, 1, 0], shape=(2000,), dtype=int32)</code></pre>
+<pre><code>array([4, 0, 1, ..., 2, 1, 0], dtype=int32)</code></pre>
 </div>
 </div>
-<div id="bfdc38d0" class="cell" data-execution_count="9">
+<div id="bfdc38d0" class="cell" data-outputid="8364d2da-af79-455c-9012-1d15703edb99" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="kw">is</span> kmeans.labels_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>And the following 5 <em>centroids</em> (i.e., cluster centers) were estimated:</p>
-<div id="09010a35" class="cell" data-execution_count="10">
+<div id="09010a35" class="cell" data-outputid="bac8550f-09d3-4eb7-d42c-670356dd756f" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kmeans.cluster_centers_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>array([[-2.80389616,  1.80117999],
@@ -428,7 +428,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Of course, we can predict the labels of new instances:</p>
-<div id="e85feca9" class="cell" data-execution_count="11">
+<div id="e85feca9" class="cell" data-outputid="999110ee-e710-4812-9307-9e57ff675522" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">2</span>], [<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>], [<span class="op">-</span><span class="dv">3</span>, <span class="fl">2.5</span>]])</span>
@@ -438,7 +438,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If you plot the cluster’s decision boundaries, you get a Voronoi tessellation, where each centroid is represented with an ⓧ.</p>
-<div id="2ab39cc9" class="cell" data-execution_count="12">
+<div id="2ab39cc9" class="cell" data-outputid="01878e55-5fcc-49da-aece-0f5e993e8a7f" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(X):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    plt.plot(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], <span class="st">'k.'</span>, markersize<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -492,7 +492,7 @@ window.Quarto = {
 </div>
 <p>Not bad! Some of the instances near the edges were probably assigned to the wrong cluster, but overall it looks pretty good.</p>
 <p>Rather than arbitrarily choosing the closest cluster for each instance, which is called <em>hard clustering</em>, it might be better to measure the distance of each instance to all 5 centroids. This is what the <code>transform()</code> method does:</p>
-<div id="9b2de23f" class="cell" data-execution_count="13">
+<div id="9b2de23f" class="cell" data-outputid="d744418b-74ac-47e1-b6a5-45fb48e7f5b7" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>kmeans.transform(X_new).<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>array([[2.81, 0.33, 2.9 , 1.49, 2.89],
@@ -514,7 +514,7 @@ window.Quarto = {
 <p>The algorithm is guaranteed to converge in a finite number of steps (usually quite small). That’s because the mean squared distance between the instances and their closest centroids can only go down at each step, and since it cannot be negative, it’s guaranteed to converge.</p>
 <p>The KMeans class uses an optimized initialization technique by default. To get the original K-Means algorithm (for educational purposes only), you must set <code>init="random"</code> and <code>n_init=1</code>.</p>
 <p>Let’s run the K-Means algorithm for 1, 2 and 3 iterations, to see how the centroids move around:</p>
-<div id="f3a5814f" class="cell" data-execution_count="14">
+<div id="f3a5814f" class="cell" data-outputid="655afaf4-616f-4b28-a323-ede7be6ca106" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>kmeans_iter1 <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, init<span class="op">=</span><span class="st">"random"</span>, n_init<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                      random_state<span class="op">=</span><span class="dv">18</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>kmeans_iter2 <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, init<span class="op">=</span><span class="st">"random"</span>, n_init<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">2</span>,</span>
@@ -568,7 +568,7 @@ window.Quarto = {
 <p><strong>K-means variability</strong>:</p>
 <p>In the original K-Means algorithm, the centroids are just initialized randomly, and the algorithm simply runs a single iteration to gradually improve the centroids, as we saw above.</p>
 <p>However, one major problem with this approach is that if you run K-Means multiple times (or with different random seeds), it can converge to very different solutions, as you can see below:</p>
-<div id="7b48da3d" class="cell" data-execution_count="15">
+<div id="7b48da3d" class="cell" data-outputid="5e5dc523-65d6-4786-c88e-e3bfe276ec19" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_clusterer_comparison(clusterer1, clusterer2, X, title1<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                              title2<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    clusterer1.fit(X)</span>
@@ -604,7 +604,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If you happen to know approximately where the centroids should be (e.g., if you ran another clustering algorithm earlier), then you can set the <code>init</code> hyperparameter to a NumPy array containing the list of centroids:</p>
-<div id="f2fc8532" class="cell" data-execution_count="16">
+<div id="f2fc8532" class="cell" data-outputid="b76634d4-bf41-43aa-a0b9-87793968f7a9" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>good_init <span class="op">=</span> np.array([[<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>], [<span class="op">-</span><span class="dv">3</span>, <span class="dv">2</span>], [<span class="op">-</span><span class="dv">3</span>, <span class="dv">1</span>], [<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">0</span>, <span class="dv">2</span>]])</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, init<span class="op">=</span>good_init, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>kmeans.fit(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -789,7 +789,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-1 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -815,9 +817,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -1022,178 +1024,20 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
 </style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(init=array([[-3,  3],
        [-3,  2],
        [-3,  1],
        [-1,  2],
        [ 0,  2]]),
-       n_clusters=5, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_clusters&nbsp;</td>
-<td class="value">5</td>
-</tr>
-<tr class="user-set even">
-<td><em></em></td>
-<td class="param">init&nbsp;</td>
-<td class="value">array([[-3, ... [ 0, 2]])</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">n_init&nbsp;</td>
-<td class="value">'auto'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">max_iter&nbsp;</td>
-<td class="value">300</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">tol&nbsp;</td>
-<td class="value">0.0001</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">verbose&nbsp;</td>
-<td class="value">0</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">random_state&nbsp;</td>
-<td class="value">42</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">copy_x&nbsp;</td>
-<td class="value">True</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">algorithm&nbsp;</td>
-<td class="value">'lloyd'</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+       n_clusters=5, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KMeans(init=array([[-3,  3],
+       [-3,  2],
+       [-3,  1],
+       [-1,  2],
+       [ 0,  2]]),
+       n_clusters=5, random_state=42)</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="f99af54d" class="cell" data-execution_count="17">
+<div id="f99af54d" class="cell" data-outputid="5faa46bb-12bb-4e97-857e-56ae8b509cec" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plot_decision_boundaries(kmeans, X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1207,35 +1051,35 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p><strong>Inertia</strong>:</p>
 <p>To select the best model, we will need a way to evaluate a K-Mean model’s performance. Unfortunately, clustering is an unsupervised task, so we do not have the targets. But at least we can measure the distance between each instance and its centroid. This is the idea behind the inertia metric:</p>
 <p><span class="math display">\[\text{inertia} = \sum_{i} \|\mathbf{x}^{(i)} - \mathbf{c}^{(i)}\|^2\]</span></p>
-<div id="833b08ab" class="cell" data-execution_count="18">
+<div id="833b08ab" class="cell" data-outputid="6c2bbb92-429c-48e0-b68e-38da02896a6b" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>kmeans.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>211.5985372581684</code></pre>
+<pre><code>211.59853725816828</code></pre>
 </div>
 </div>
-<div id="100420b7" class="cell" data-execution_count="19">
+<div id="100420b7" class="cell" data-outputid="2ee398dc-4fc1-4b34-d7db-4567b611fe8d" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>kmeans_rnd_init1.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>219.58201503602288</code></pre>
+<pre><code>219.58201503602285</code></pre>
 </div>
 </div>
-<div id="7e3dcc70" class="cell" data-execution_count="20">
+<div id="7e3dcc70" class="cell" data-outputid="6c6cee39-6012-4716-f2ac-0a19b9c148d1" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>kmeans_rnd_init2.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>600.3600713094237</code></pre>
+<pre><code>600.3600713094229</code></pre>
 </div>
 </div>
-<p>The <code>score()</code> method returns the negative inertia. Why negative? Well, it is because a predictor’s score() method must always respect the <em>“greater is better”</em> rule.</p>
-<div id="f30b5d6e" class="cell" data-execution_count="21">
+<p>The <code>score()</code> method returns the negative inertia. Why negative? Well, it is because a predictor’s <code>score()</code> method must always respect the <em>“greater is better”</em> rule.</p>
+<div id="f30b5d6e" class="cell" data-outputid="5228e06d-6a89-43c5-f950-78e457d93e07" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>kmeans.score(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>-211.5985372581684</code></pre>
+<pre><code>-211.59853725816828</code></pre>
 </div>
 </div>
 <p><strong>Multiple Initializations</strong>:</p>
 <p>So one approach to solve the variability issue is to simply run the K-Means algorithm multiple times with different random initializations, and select the solution that minimizes the inertia.</p>
 <p>Scikit-Learn runs the initialization algorithm <code>n_init</code> times, and selects the solution that minimizes the inertia. By default, Scikit-Learn sets <code>n_init=1</code> if <code>init="k-means++"</code> (which is the default) or if <code>init</code> is an array, or it sets <code>n_init=10</code> if <code>init="random"</code> or <code>init</code> is a callable.</p>
-<div id="3b9da5fc" class="cell" data-execution_count="22">
+<div id="3b9da5fc" class="cell" data-outputid="f5a8a8c3-24e9-40e8-ddaa-e160459abef7" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>kmeans_rnd_10_inits <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, init<span class="op">=</span><span class="st">"random"</span>, n_init<span class="op">=</span><span class="dv">10</span>,</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                             random_state<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>kmeans_rnd_10_inits.fit(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1420,7 +1264,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-2 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -1446,9 +1292,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -1653,174 +1499,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(init='random', n_clusters=5, n_init=10, random_state=2)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_clusters&nbsp;</td>
-<td class="value">5</td>
-</tr>
-<tr class="user-set even">
-<td><em></em></td>
-<td class="param">init&nbsp;</td>
-<td class="value">'random'</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_init&nbsp;</td>
-<td class="value">10</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">max_iter&nbsp;</td>
-<td class="value">300</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">tol&nbsp;</td>
-<td class="value">0.0001</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">verbose&nbsp;</td>
-<td class="value">0</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">random_state&nbsp;</td>
-<td class="value">2</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">copy_x&nbsp;</td>
-<td class="value">True</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">algorithm&nbsp;</td>
-<td class="value">'lloyd'</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(init='random', n_clusters=5, n_init=10, random_state=2)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KMeans(init='random', n_clusters=5, n_init=10, random_state=2)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>As you can see, we end up with the initial model, which is certainly the optimal K-Means solution (at least in terms of inertia, and assuming <span class="math inline">\(k=5\)</span>).</p>
-<div id="a14e6ad9" class="cell" data-execution_count="23">
+<div id="a14e6ad9" class="cell" data-outputid="ae97f58f-a7a9-47cd-f705-0523d30cc748" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>plot_decision_boundaries(kmeans_rnd_10_inits, X)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1832,10 +1515,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<div id="8c225c7a" class="cell" data-execution_count="24">
+<div id="8c225c7a" class="cell" data-outputid="7db15e80-ad30-4abd-caf3-7286d923cc90" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>kmeans_rnd_10_inits.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>211.59853725816834</code></pre>
+<pre><code>211.59853725816828</code></pre>
 </div>
 </div>
 <p><strong>Centroid Initialization Methods</strong>:</p>
@@ -1852,7 +1535,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>For Elkan’s variant of K-Means, use <code>algorithm="elkan"</code>. For regular KMeans, use <code>algorithm="lloyd"</code> (this is the default).</p>
 <p><strong>Finding the Optimal Number of Clusters</strong>:</p>
 <p>What if the number of clusters was set to a lower or greater value than 5?</p>
-<div id="62aa6a15" class="cell" data-execution_count="25">
+<div id="62aa6a15" class="cell" data-outputid="6f35b685-6ef0-4eca-e939-c4d15610559e" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>kmeans_k3 <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>kmeans_k8 <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1868,20 +1551,20 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>Ouch, these two models don’t look great. What about their inertias?</p>
-<div id="163c91e7" class="cell" data-execution_count="26">
+<div id="163c91e7" class="cell" data-outputid="140bf1d4-90ef-48f2-d725-84066200d8c1" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>kmeans_k3.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
-<pre><code>653.2167190021553</code></pre>
+<pre><code>653.2167190021554</code></pre>
 </div>
 </div>
-<div id="24af5cfe" class="cell" data-execution_count="27">
+<div id="24af5cfe" class="cell" data-outputid="f30ad3be-42cd-4847-b431-e725fdf879bd" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>kmeans_k8.inertia_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
-<pre><code>127.13141880461838</code></pre>
+<pre><code>127.13141880461835</code></pre>
 </div>
 </div>
 <p>No, we cannot simply take the value of <span class="math inline">\(k\)</span> that minimizes the inertia, since it keeps getting lower as we increase <span class="math inline">\(k\)</span>. Indeed, the more clusters there are, the closer each instance will be to its closest centroid, and therefore the lower the inertia will be. However, we can plot the inertia as a function of <span class="math inline">\(k\)</span> and analyze the resulting curve:</p>
-<div id="d5635382" class="cell" data-execution_count="28">
+<div id="d5635382" class="cell" data-outputid="c3c0d95c-5fad-4c4d-d39f-34599c65521f" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>kmeans_per_k <span class="op">=</span> [KMeans(n_clusters<span class="op">=</span>k, random_state<span class="op">=</span><span class="dv">43</span>).fit(X)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>)]</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>inertias <span class="op">=</span> [model.inertia_ <span class="cf">for</span> model <span class="kw">in</span> kmeans_per_k]</span>
@@ -1906,7 +1589,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>As you can see, there is an elbow at <span class="math inline">\(k=4\)</span>, which means that less clusters than that would be bad, and more clusters would not help much and might cut clusters in half. So <span class="math inline">\(k=4\)</span> is a pretty good choice. Of course in this example it is not perfect since it means that the two blobs in the lower left will be considered as just a single cluster, but it’s a pretty good clustering nonetheless.</p>
-<div id="331fcc71" class="cell" data-execution_count="29">
+<div id="331fcc71" class="cell" data-outputid="0fe2a39b-3cd6-455e-b3a9-4ddb6f71ac23" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>plot_decision_boundaries(kmeans_per_k[<span class="dv">4</span> <span class="op">-</span> <span class="dv">1</span>], X)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1919,15 +1602,15 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>Another approach is to look at the <em>silhouette score</em>, which is the mean <em>silhouette coefficient</em> over all the instances. An instance’s silhouette coefficient is equal to (<em>b</em> - <em>a</em>) / max(<em>a</em>, <em>b</em>) where <em>a</em> is the mean distance to the other instances in the same cluster (it is the <em>mean intra-cluster distance</em>), and <em>b</em> is the <em>mean nearest-cluster distance</em>, that is the mean distance to the instances of the next closest cluster (defined as the one that minimizes <em>b</em>, excluding the instance’s own cluster). The silhouette coefficient can vary between -1 and +1: a coefficient close to +1 means that the instance is well inside its own cluster and far from other clusters, while a coefficient close to 0 means that it is close to a cluster boundary, and finally a coefficient close to -1 means that the instance may have been assigned to the wrong cluster.</p>
 <p>Let’s plot the silhouette score as a function of <span class="math inline">\(k\)</span>:</p>
-<div id="9c3ee7c1" class="cell" data-execution_count="30">
+<div id="9c3ee7c1" class="cell" data-outputid="4fd38099-5abc-4659-9311-fb5421cdb720" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>silhouette_score(X, kmeans.labels_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>0.655517642572828</code></pre>
+<pre><code>np.float64(0.655517642572828)</code></pre>
 </div>
 </div>
-<div id="9f6d4201" class="cell" data-execution_count="31">
+<div id="9f6d4201" class="cell" data-outputid="75246fc6-c4f6-4f17-ebb4-ec1d18c53615" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>silhouette_scores <span class="op">=</span> [silhouette_score(X, model.labels_)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                     <span class="cf">for</span> model <span class="kw">in</span> kmeans_per_k[<span class="dv">1</span>:]]</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1950,7 +1633,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>As you can see, this visualization is much richer than the previous one: in particular, although it confirms that <span class="math inline">\(k=4\)</span> is a very good choice, but it also underlines the fact that <span class="math inline">\(k=5\)</span> is quite good as well.</p>
 <p>An even more informative visualization is given when you plot every instance’s silhouette coefficient, sorted by the cluster they are assigned to and by the value of the coefficient. This is called a <em>silhouette diagram</em>. Each diagram contains one knife shape per cluster. The shape’s height indicates the number of instances in the cluster, and its width represents the sorted silhouette coefficients of the instances in the cluster (wider is better).</p>
 <p>The vertical dashed lines represent the mean silhouette score for each number of clusters. When most of the instances in a cluster have a lower coefficient than this score (i.e., if many of the instances stop short of the dashed line, ending to the left of it), then the cluster is rather bad since this means its instances are much too close to other clusters. Here we can see that when <span class="math inline">\(k = 3\)</span> or <span class="math inline">\(6\)</span>, we get bad clusters. But when <span class="math inline">\(k = 4\)</span> or <span class="math inline">\(5\)</span>, the clusters look pretty good: most instances extend beyond the dashed line, to the right and closer to <span class="math inline">\(1.0\)</span>. When <span class="math inline">\(k = 4\)</span>, the cluster at index 0 (at the bottom) is rather big. When <span class="math inline">\(k = 5\)</span>, all clusters have similar sizes. So, even though the overall silhouette score from <span class="math inline">\(k = 4\)</span> is slightly greater than for <span class="math inline">\(k = 5\)</span>, it seems like a good idea to use <span class="math inline">\(k = 5\)</span> to get clusters of similar sizes.</p>
-<div id="a32b4525" class="cell" data-execution_count="32">
+<div id="a32b4525" class="cell" data-outputid="dc62735f-3805-4209-f3e6-d0d19393f173" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_samples</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FixedLocator, FixedFormatter</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2001,7 +1684,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p><strong>Limits of K-Means</strong>:</p>
 <p><em>k-means</em> does not behave very well when the clusters have varying sizes, different densities, or nonspherical shapes. Let’s generate a more difficult dataset, with elongated blobs and varying densities, and show that K-Means struggles to cluster it correctly:</p>
-<div id="6b16c387" class="cell" data-execution_count="33">
+<div id="6b16c387" class="cell" data-outputid="e31e0969-3d31-44dc-9fe4-d961bc58379d" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X1, y1 <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">1000</span>, centers<span class="op">=</span>((<span class="dv">4</span>, <span class="op">-</span><span class="dv">4</span>), (<span class="dv">0</span>, <span class="dv">0</span>)), random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> X1.dot(np.array([[<span class="fl">0.374</span>, <span class="fl">0.95</span>], [<span class="fl">0.732</span>, <span class="fl">0.598</span>]]))</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>X2, y2 <span class="op">=</span> make_blobs(n_samples<span class="op">=</span><span class="dv">250</span>, centers<span class="op">=</span><span class="dv">1</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -2049,7 +1732,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <li>Any instance that is not a core instance and does not have one in its neighborhood is considered an anomaly.</li>
 <li>This algorithm works well if all the clusters are well separated by low-density regions. The DBSCAN class in Scikit-Learn is as simple to use as you might expect. Let’s test it on the moons dataset</li>
 </ul>
-<div id="065bbcf9" class="cell" data-execution_count="34">
+<div id="065bbcf9" class="cell" data-outputid="0118fa2e-a2f4-4042-9029-857e1a2ef770" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> DBSCAN</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_moons</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2237,7 +1920,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-3 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -2263,9 +1948,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -2470,182 +2155,24 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DBSCAN(eps=0.05)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked=""><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DBSCAN</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.cluster.DBSCAN.html">?<span>Documentation for DBSCAN</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">eps&nbsp;</td>
-<td class="value">0.05</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">min_samples&nbsp;</td>
-<td class="value">5</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">metric&nbsp;</td>
-<td class="value">'euclidean'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">metric_params&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">algorithm&nbsp;</td>
-<td class="value">'auto'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">leaf_size&nbsp;</td>
-<td class="value">30</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">p&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">n_jobs&nbsp;</td>
-<td class="value">None</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DBSCAN(eps=0.05)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked=""><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DBSCAN</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.cluster.DBSCAN.html">?<span>Documentation for DBSCAN</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>DBSCAN(eps=0.05)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>The labels of all the instances are now available in the <code>labels_</code> instance variable:</p>
-<div id="368ce623" class="cell" data-execution_count="35">
+<div id="368ce623" class="cell" data-outputid="5786a283-a204-45fe-a154-71eb57fccca3" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dbscan.labels_[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>array([ 0,  2, -1, -1,  1,  0,  0,  0,  2,  5])</code></pre>
 </div>
 </div>
 <p>Notice that some instances have a cluster index equal to –1, which means that they are considered as anomalies by the algorithm. The indices of the core instances are available in the <code>core_sample_indices_</code> instance variable, and the core instances themselves are available in the <code>components_</code> instance variable:</p>
-<div id="c066f2a9" class="cell" data-execution_count="36">
+<div id="c066f2a9" class="cell" data-outputid="105946fd-aab2-4891-8007-f22c41b11c90" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>dbscan.core_sample_indices_[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([ 0,  4,  5,  6,  7,  8, 10, 11, 12, 13])</code></pre>
 </div>
 </div>
-<div id="788fbdbe" class="cell" data-execution_count="37">
+<div id="788fbdbe" class="cell" data-outputid="569530ef-1d7a-4492-8291-29fd55c478e4" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>dbscan.components_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>array([[-0.02137124,  0.40618608],
@@ -2654,11 +2181,11 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
        ...,
        [ 1.66258462, -0.3079193 ],
        [-0.94355873,  0.3278936 ],
-       [ 0.79419406,  0.60777171]], shape=(808, 2))</code></pre>
+       [ 0.79419406,  0.60777171]])</code></pre>
 </div>
 </div>
 <p>This clustering is represented in the lefthand plot. As you can see, it identified quite a lot of anomalies, plus seven different clusters. How disappointing! Fortunately, if we widen each instance’s neighborhood by increasing <code>eps</code> to 0.2, we get the clustering on the right, which looks perfect. Let’s continue with this model.</p>
-<div id="0c06f368" class="cell" data-execution_count="38">
+<div id="0c06f368" class="cell" data-outputid="25fdabf7-e45b-4c85-8059-9452334ecb6b" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_dbscan(dbscan, X, size, show_xlabels<span class="op">=</span><span class="va">True</span>, show_ylabels<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    core_mask <span class="op">=</span> np.zeros_like(dbscan.labels_, dtype<span class="op">=</span><span class="bu">bool</span>)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    core_mask[dbscan.core_sample_indices_] <span class="op">=</span> <span class="va">True</span></span>
@@ -2711,10 +2238,10 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div id="bf9bdc7f" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>dbscan <span class="op">=</span> dbscan2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>dbscan <span class="op">=</span> dbscan2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Surprisingly, the DBSCAN class does not have a <code>predict()</code> method, although it has a <code>fit_predict()</code> method. In other words, it cannot predict which cluster a new instance belongs to. This decision was made because different classification algorithms can be better for different tasks, so the authors decided to let the user choose which one to use. Moreover, it’s not hard to implement. For example, let’s train a <code>KNeighborsClassifier</code>:</p>
-<div id="7f0511dd" class="cell" data-execution_count="40">
+<div id="7f0511dd" class="cell" data-outputid="91d9e058-e384-4df4-d418-6d57a3e9912b" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">50</span>)</span>
@@ -2900,7 +2427,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-4 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -2926,9 +2455,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -3133,176 +2662,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=50)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_neighbors&nbsp;</td>
-<td class="value">50</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">weights&nbsp;</td>
-<td class="value">'uniform'</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">algorithm&nbsp;</td>
-<td class="value">'auto'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">leaf_size&nbsp;</td>
-<td class="value">30</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">p&nbsp;</td>
-<td class="value">2</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">metric&nbsp;</td>
-<td class="value">'minkowski'</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">metric_params&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">n_jobs&nbsp;</td>
-<td class="value">None</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=50)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=50)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>Now, given a few new instances, we can predict which clusters they most likely belong to and even estimate a probability for each cluster:</p>
-<div id="2ac916db" class="cell" data-execution_count="41">
+<div id="2ac916db" class="cell" data-outputid="f71aa50e-ea18-45c7-a768-3fd60e744336" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.array([[<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="fl">0.5</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="fl">0.1</span>], [<span class="dv">2</span>, <span class="dv">1</span>]])</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>knn.predict(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>array([1, 0, 1, 0])</code></pre>
 </div>
 </div>
-<div id="d927221a" class="cell" data-execution_count="42">
+<div id="d927221a" class="cell" data-outputid="9fc2a3cf-2a82-4065-c9ba-24cede380a70" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>knn.predict_proba(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>array([[0.18, 0.82],
@@ -3313,7 +2684,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <p>Note that we only trained the classifier on the core instances, but we could also have chosen to train it on all the instances, or all but the anomalies: this choice depends on the final task.</p>
 <p>The decision boundary is represented in the following plot (the crosses represent the four instances in <code>X_new</code>). Notice that since there is no anomaly in the training set, the classifier always chooses a cluster, even when that cluster is far away. It is fairly straightforward to introduce a maximum distance, in which case the two instances that are far away from both clusters are classified as anomalies. To do this, use the <code>kneighbors()</code> method of the <code>KNeighborsClassifier</code>. Given a set of instances, it returns the distances and the indices of the k-nearest neighbors in the training set (two matrices, each with k columns):</p>
-<div id="bb1c88f4" class="cell" data-execution_count="43">
+<div id="bb1c88f4" class="cell" data-outputid="60e938f6-530d-4feb-b00a-a70a2bc4eb60" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">3</span>))</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>plot_decision_boundaries(knn, X, show_centroids<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_new[:, <span class="dv">0</span>], X_new[:, <span class="dv">1</span>], c<span class="op">=</span><span class="st">"b"</span>, marker<span class="op">=</span><span class="st">"+"</span>, s<span class="op">=</span><span class="dv">200</span>, zorder<span class="op">=</span><span class="dv">10</span>)</span>
@@ -3327,7 +2698,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<div id="6cf7bdd4" class="cell" data-execution_count="44">
+<div id="6cf7bdd4" class="cell" data-outputid="4b1cfaf5-e761-452c-b52d-268c9d60eeb3" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>y_dist, y_pred_idx <span class="op">=</span> knn.kneighbors(X_new, n_neighbors<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> dbscan.labels_[dbscan.core_sample_indices_][y_pred_idx]</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>y_pred[y_dist <span class="op">&gt;</span> <span class="fl">0.2</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
@@ -3357,7 +2728,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.r_[X1, X2]</span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.r_[y1, y2]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b07def01" class="cell" data-execution_count="46">
+<div id="b07def01" class="cell" data-outputid="87927e7e-9a51-45c9-d8ad-66fb35c82987" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.mixture <span class="im">import</span> GaussianMixture</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>gm <span class="op">=</span> GaussianMixture(n_components<span class="op">=</span><span class="dv">3</span>, n_init<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
@@ -3543,7 +2914,9 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-5 div.sk-toggleable__content {
-  display: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -3569,9 +2942,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  display: block;
-  width: 100%;
-  overflow: visible;
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 #sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -3776,205 +3149,17 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-
-.estimator-table summary {
-    padding: .5rem;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.estimator-table details[open] {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-    padding-bottom: 0.3rem;
-}
-
-.estimator-table .parameters-table {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.estimator-table .parameters-table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-.estimator-table .parameters-table tr:nth-child(even) {
-    background-color: #f6f6f6;
-}
-
-.estimator-table .parameters-table tr:hover {
-    background-color: #e0e0e0;
-}
-
-.estimator-table table td {
-    border: 1px solid rgba(106, 105, 104, 0.232);
-}
-
-.user-set td {
-    color:rgb(255, 94, 0);
-    text-align: left;
-}
-
-.user-set td.value pre {
-    color:rgb(255, 94, 0) !important;
-    background-color: transparent !important;
-}
-
-.default td {
-    color: black;
-    text-align: left;
-}
-
-.user-set td i,
-.default td i {
-    color: black;
-}
-
-.copy-paste-icon {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
-    background-repeat: no-repeat;
-    background-size: 14px 14px;
-    background-position: 0;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-}
-</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianMixture(n_components=3, n_init=10, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked=""><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GaussianMixture</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.7/modules/generated/sklearn.mixture.GaussianMixture.html">?<span>Documentation for GaussianMixture</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
-        <div class="estimator-table">
-            <details>
-                <summary>Parameters</summary>
-                
-<table class="parameters-table caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">n_components&nbsp;</td>
-<td class="value">3</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">covariance_type&nbsp;</td>
-<td class="value">'full'</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">tol&nbsp;</td>
-<td class="value">0.001</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">reg_covar&nbsp;</td>
-<td class="value">1e-06</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">max_iter&nbsp;</td>
-<td class="value">100</td>
-</tr>
-<tr class="user-set even">
-<td><em></em></td>
-<td class="param">n_init&nbsp;</td>
-<td class="value">10</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">init_params&nbsp;</td>
-<td class="value">'kmeans'</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">weights_init&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">means_init&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">precisions_init&nbsp;</td>
-<td class="value">None</td>
-</tr>
-<tr class="user-set odd">
-<td><em></em></td>
-<td class="param">random_state&nbsp;</td>
-<td class="value">42</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">warm_start&nbsp;</td>
-<td class="value">False</td>
-</tr>
-<tr class="default odd">
-<td><em></em></td>
-<td class="param">verbose&nbsp;</td>
-<td class="value">0</td>
-</tr>
-<tr class="default even">
-<td><em></em></td>
-<td class="param">verbose_interval&nbsp;</td>
-<td class="value">10</td>
-</tr>
-</tbody>
-</table>
-
-            </details>
-        </div>
-    </div></div></div></div></div><script>function copyToClipboard(text, element) {
-    // Get the parameter prefix from the closest toggleable content
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
-
-    const originalStyle = element.style;
-    const computedStyle = window.getComputedStyle(element);
-    const originalWidth = computedStyle.width;
-    const originalHTML = element.innerHTML.replace('Copied!', '');
-
-    navigator.clipboard.writeText(fullParamName)
-        .then(() => {
-            element.style.width = originalWidth;
-            element.style.color = 'green';
-            element.innerHTML = "Copied!";
-
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy:', err);
-            element.style.color = 'red';
-            element.innerHTML = "Failed!";
-            setTimeout(() => {
-                element.innerHTML = originalHTML;
-                element.style = originalStyle;
-            }, 2000);
-        });
-    return false;
-}
-
-document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
-    const toggleableContent = element.closest('.sk-toggleable__content');
-    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
-    const paramName = element.parentElement.nextElementSibling.textContent.trim();
-    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
-
-    element.setAttribute('title', fullParamName);
-});
-</script>
+</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianMixture(n_components=3, n_init=10, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked=""><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GaussianMixture</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.mixture.GaussianMixture.html">?<span>Documentation for GaussianMixture</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GaussianMixture(n_components=3, n_init=10, random_state=42)</pre></div> </div></div></div></div>
 </div>
 </div>
 <p>Let’s look at the parameters that the algorithm estimated:</p>
-<div id="431688c1" class="cell" data-execution_count="47">
+<div id="431688c1" class="cell" data-outputid="18ec78f8-d224-4e2f-88b2-61b93a2f3133" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>gm.weights_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>array([0.40005972, 0.20961444, 0.39032584])</code></pre>
 </div>
 </div>
-<div id="d34d0a01" class="cell" data-execution_count="48">
+<div id="d34d0a01" class="cell" data-outputid="7da34b04-167f-4ccd-b138-8472d93b045e" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>gm.means_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>array([[-1.40764129,  1.42712848],
@@ -3982,7 +3167,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
        [ 0.05145113,  0.07534576]])</code></pre>
 </div>
 </div>
-<div id="d8cd10cb" class="cell" data-execution_count="49">
+<div id="d8cd10cb" class="cell" data-outputid="b43ae1be-41e0-478e-adba-0e6f9536c2f2" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>gm.covariances_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>array([[[ 0.63478217,  0.72970097],
@@ -3998,21 +3183,21 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Great, it worked fine! Indeed, two of the three clusters were generated with 500 instances each, while the third cluster only contains 250 instances. So the true cluster weights are 0.4, 0.4, and 0.2, respectively, and that’s roughly what the algorithm found (in a different order). Similarly, the true means and covariance matrices are quite close to those found by the algorithm. But how? This class relies on the <em>expectation-maximization</em> (EM) algorithm, which has many similarities with the <em>k</em>-means algorithm: it also initializes the cluster parameters randomly, then it repeats two steps until convergence, first assigning instances to clusters (this is called the <em>expectation step</em>) and then updating the clusters (this is called the <em>maximization step</em>). Sounds familiar, right? In the context of clustering, you can think of EM as a generalization of <em>k</em>-means that not only finds the cluster centers <span class="math inline">\((\mu^{(1)}\)</span> to <span class="math inline">\(μ(k))\)</span>, but also their size, shape, and orientation <span class="math inline">\((\Sigma^{(1)}\)</span> to <span class="math inline">\(\Sigma^{(k)})\)</span>, as well as their relative weights <span class="math inline">\((\phi^{(1)}\)</span> to <span class="math inline">\(\phi^{(k)})\)</span>. Unlike <em>k</em>-means, though, EM uses soft cluster assignments, not hard assignments. For each instance, during the expectation step, the algorithm estimates the probability that it belongs to each cluster (based on the current cluster parameters). Then, during the maximization step, each cluster is updated using all the instances in the dataset, with each instance weighted by the estimated probability that it belongs to that cluster. These probabilities are called the responsibilities of the clusters for the instances. During the maximization step, each cluster’s update will mostly be impacted by the instances it is most responsible for.</p>
 <p><strong>Warning</strong>: Unfortunately, just like <em>k</em>-means, EM can end up converging to poor solutions, so it needs to be run several times, keeping only the best solution. This is why we set <code>n_init</code> to 10. Be careful: by default <code>n_init</code> is set to 1.</p>
 <p>Did the algorithm actually converge?</p>
-<div id="b31c3864" class="cell" data-execution_count="50">
+<div id="b31c3864" class="cell" data-outputid="fd654d7b-a0f9-476d-8c18-849b53c18daa" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>gm.converged_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>Yes, good. How many iterations did it take?</p>
-<div id="4e0efd7c" class="cell" data-execution_count="51">
+<div id="4e0efd7c" class="cell" data-outputid="3951bbec-1f45-41d6-f39e-2ec8736138f5" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>gm.n_iter_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>4</code></pre>
 </div>
 </div>
 <p>A Gaussian mixture model is a <em>generative model</em>, meaning you can sample new instances from it (note that they are ordered by cluster index):</p>
-<div id="e32b1ab7" class="cell" data-execution_count="52">
+<div id="e32b1ab7" class="cell" data-outputid="a6ae4b2b-d6e7-48c0-8415-253cf6c4c2f8" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>X_new, y_new <span class="op">=</span> gm.sample(<span class="dv">6</span>)</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>X_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
@@ -4025,15 +3210,15 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>It is also possible to estimate the density of the model at any given location. This is achieved using the <code>score_samples()</code> method: for each instance it is given, this method estimates the log of the <em>probability density function</em> (PDF) at that location. The greater the score, the higher the density:</p>
-<div id="2d0b29d4" class="cell" data-execution_count="53">
+<div id="2d0b29d4" class="cell" data-outputid="c2ca78c0-895c-474f-98e4-1d4c4c1fd202" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>gm.score_samples(X).<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
-<pre><code>array([-2.61, -3.57, -3.33, ..., -3.51, -4.4 , -3.81], shape=(1250,))</code></pre>
+<pre><code>array([-2.61, -3.57, -3.33, ..., -3.51, -4.4 , -3.81])</code></pre>
 </div>
 </div>
 <p>If you compute the exponential of these scores, you get the value of the PDF at the location of the given instances. These are not probabilities, but probability <em>densities</em>: they can take on any positive value, not just a value between 0 and 1. To estimate the probability that an instance will fall within a particular region, you would have to integrate the PDF over that region (if you do so over the entire space of possible instance locations, the result will be 1).</p>
 <p>Let’s check that the PDF integrates to 1 over the whole space. We just take a large square around the clusters, and chop it into a grid of tiny squares, then we compute the approximate probability that the instances will be generated in each tiny square (by multiplying the PDF at one corner of the tiny square by the area of the square), and finally summing all these probabilities). The result is very close to 1:</p>
-<div id="4b99b8ba" class="cell" data-execution_count="54">
+<div id="4b99b8ba" class="cell" data-outputid="e4a8d40b-a246-46e0-8489-a69c15e18f27" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>resolution <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1</span> <span class="op">/</span> resolution)</span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(grid, grid)</span>
@@ -4043,11 +3228,11 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>pdf_probas <span class="op">=</span> pdf <span class="op">*</span> (<span class="dv">1</span> <span class="op">/</span> resolution) <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>pdf_probas.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="54">
-<pre><code>np.float64(0.9999999999225094)</code></pre>
+<pre><code>np.float64(0.9999999999225088)</code></pre>
 </div>
 </div>
 <p>The following plot shows the cluster means, the decision boundaries (dashed lines), and the density contours of this model.</p>
-<div id="0f412b80" class="cell" data-execution_count="55">
+<div id="0f412b80" class="cell" data-outputid="e71875dd-bfb7-445b-9abb-eea53261332b" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LogNorm</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gaussian_mixture(clusterer, X, resolution<span class="op">=</span><span class="dv">1000</span>, show_ylabels<span class="op">=</span><span class="va">True</span>):</span>
@@ -4102,7 +3287,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <li><code>"full"</code> (default): no constraint, all clusters can take on any ellipsoidal shape of any size.</li>
 </ul>
 <p>By default, <code>covariance_type</code> is equal to <code>"full"</code>, which means that each cluster can take on any shape, size, and orientation (it has its own unconstrained covariance matrix). The next figures plot the solutions found by the EM algorithm when <code>covariance_type</code> is set to <code>"tied"</code>, <code>"spherical"</code>, <code>"full"</code> and <code>"diag"</code>.</p>
-<div id="34634df1" class="cell" data-execution_count="56">
+<div id="34634df1" class="cell" data-outputid="563767b5-6acc-4031-b10a-f5a7da8c887c" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>gm_full <span class="op">=</span> GaussianMixture(n_components<span class="op">=</span><span class="dv">3</span>, n_init<span class="op">=</span><span class="dv">10</span>,</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>                          covariance_type<span class="op">=</span><span class="st">"full"</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>gm_tied <span class="op">=</span> GaussianMixture(n_components<span class="op">=</span><span class="dv">3</span>, n_init<span class="op">=</span><span class="dv">10</span>,</span>
@@ -4139,7 +3324,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 </div>
-<div id="1b76adaa" class="cell" data-execution_count="57">
+<div id="1b76adaa" class="cell" data-outputid="d94cd142-9412-425a-805f-1f97b83f2e15" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>compare_gaussian_mixtures(gm_full, gm_diag, X)</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4159,7 +3344,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>density_threshold <span class="op">=</span> np.percentile(densities, <span class="dv">2</span>)</span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>anomalies <span class="op">=</span> X[densities <span class="op">&lt;</span> density_threshold]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b74369f1" class="cell" data-execution_count="59">
+<div id="b74369f1" class="cell" data-outputid="341ab556-9315-4a4b-89ec-e540bb5b8c14" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>plot_gaussian_mixture(gm, X)</span>
@@ -4191,7 +3376,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Both BIC and AIC penalize models that have more parameters to learn (e.g., more clusters), and reward models that fit the data well (i.e., models that give a high likelihood to the observed data). They often end up selecting the same model. When they differ, the model selected by the BIC tends to be simpler (fewer parameters) than the one selected by the AIC, but tends to not fit the data quite as well (this is especially true for larger datasets).</p>
 <p><strong>Likelihood function</strong>: The terms “probability” and “likelihood” are often used interchangeably in everyday language, but they have very different meanings in statistics. Given a statistical model with some parameters <span class="math inline">\(\mathbf{\theta}\)</span>, the word “probability” is used to describe how plausible a future outcome <span class="math inline">\(\mathbf{x}\)</span> is (knowing the parameter values <span class="math inline">\(\mathbf{\theta}\)</span>), while the word “likelihood” is used to describe how plausible a particular set of parameter values <span class="math inline">\(\mathbf{\theta}\)</span> are, after the outcome <span class="math inline">\(\mathbf{x}\)</span> is known.</p>
 <p>Consider a 1D mixture model of two Gaussian distributions centered at –4 and +1. For simplicity, this toy model has a single parameter <span class="math inline">\(\theta\)</span> that controls the standard deviations of both distributions. The top-left contour plot shows the entire model <span class="math inline">\(f(x; \theta)\)</span> as a function of both <span class="math inline">\(x\)</span> and <span class="math inline">\(\theta\)</span>. To estimate the probability distribution of a future outcome <span class="math inline">\(x\)</span>, you need to set the model parameter <span class="math inline">\(\theta\)</span>. For example, if you set <span class="math inline">\(\theta\)</span> to 1.3 (the horizontal line), you get the probability density function <span class="math inline">\(f(x; \theta = 1.3)\)</span> shown in the lower-left plot. Say you want to estimate the probability that <span class="math inline">\(x\)</span> will fall between –2 and +2. You must calculate the integral of the PDF on this range (i.e., the surface of the shaded region). But what if you don’t know <span class="math inline">\(\theta\)</span>, and if instead you have observed a single instance <span class="math inline">\(x = 2.5\)</span> (the vertical line in the upper-left plot)? In this case, you get the likelihood function <span class="math inline">\(L(\theta|x = 2.5) = f(x = 2.5; \theta)\)</span>, represented in the upper-right plot.</p>
-<div id="02157c7c" class="cell" data-execution_count="60">
+<div id="02157c7c" class="cell" data-outputid="470e3df7-d958-43e8-ddbd-61f8de5ba8fc" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>x_val <span class="op">=</span> <span class="fl">2.5</span></span>
@@ -4215,7 +3400,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <span id="cb88-21"><a href="#cb88-21" aria-hidden="true" tabindex="-1"></a>log_max_idx <span class="op">=</span> np.log(Z[:, x_example_idx]).argmax()</span>
 <span id="cb88-22"><a href="#cb88-22" aria-hidden="true" tabindex="-1"></a>log_max_val <span class="op">=</span> np.log(Z[:, x_example_idx]).<span class="bu">max</span>()</span>
 <span id="cb88-23"><a href="#cb88-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-24"><a href="#cb88-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">7</span>))</span>
+<span id="cb88-24"><a href="#cb88-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">7</span>))</span>
 <span id="cb88-25"><a href="#cb88-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb88-26"><a href="#cb88-26" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
 <span id="cb88-27"><a href="#cb88-27" aria-hidden="true" tabindex="-1"></a>plt.contourf(Xs, Stds, Z, cmap<span class="op">=</span><span class="st">"GnBu"</span>)</span>
@@ -4276,20 +3461,20 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <p>Notice that maximizing the likelihood function is equivalent to maximizing its logarithm (represented in the lower-right plot). Indeed, the logarithm is a strictly increasing function, so if <span class="math inline">\(\theta\)</span> maximizes the log likelihood, it also maximizes the likelihood. It turns out that it is generally easier to maximize the log likelihood. For example, if you observed several independent instances <span class="math inline">\(x^{(1)}\)</span> to <span class="math inline">\(x^{(m)}\)</span>, you would need to find the value of <span class="math inline">\(\theta\)</span> that maximizes the product of the individual likelihood functions. But it is equivalent, and much simpler, to maximize the sum (not the product) of the log likelihood functions, thanks to the magic of the logarithm which converts products into sums: <span class="math inline">\(\log(ab) = \log(a) + \log(b)\)</span>.</p>
 <p>Once you have estimated <span class="math inline">\(\hat{\theta}\)</span>, the value of <span class="math inline">\(\theta\)</span> that maximizes the likelihood function, then you are ready to compute <span class="math inline">\(\hat{\mathcal{L}} = \mathcal{L}(\hat{\theta}|\mathbf{X})\)</span>, which is the value used to compute the AIC and BIC; you can think of it as a measure of how well the model fits the data.</p>
 <p>To compute the BIC and AIC, call the <code>bic()</code> and <code>aic()</code> methods:</p>
-<div id="cd7b9e59" class="cell" data-execution_count="61">
+<div id="cd7b9e59" class="cell" data-outputid="2a26fa03-dc97-407e-d7dd-f71d0a95e741" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>gm.bic(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
-<pre><code>np.float64(8189.733705221638)</code></pre>
+<pre><code>np.float64(8189.733705221636)</code></pre>
 </div>
 </div>
-<div id="2f9a4c85" class="cell" data-execution_count="62">
+<div id="2f9a4c85" class="cell" data-outputid="9db921ee-1803-47b2-d2ad-853109168bdc" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>gm.aic(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
-<pre><code>np.float64(8102.5084251066)</code></pre>
+<pre><code>np.float64(8102.508425106598)</code></pre>
 </div>
 </div>
 <p>The next plot shows the BIC for different numbers of clusters <span class="math inline">\(k\)</span>. As you can see, both the BIC and the AIC are lowest when <span class="math inline">\(k = 3\)</span>, so it is most likely the best choice.</p>
-<div id="b13b3c94" class="cell" data-execution_count="63">
+<div id="b13b3c94" class="cell" data-outputid="cc26bc6a-5cdf-4c23-8e6b-99dd911c776c" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>gms_per_k <span class="op">=</span> [GaussianMixture(n_components<span class="op">=</span>k, n_init<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(X)</span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>             <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>)]</span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>bics <span class="op">=</span> [model.bic(X) <span class="cf">for</span> model <span class="kw">in</span> gms_per_k]</span>
@@ -4320,7 +3505,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <section id="bayesian-gaussian-mixture-models" class="level4">
 <h4 class="anchored" data-anchor-id="bayesian-gaussian-mixture-models">2.6.2.3 Bayesian Gaussian Mixture Models</h4>
 <p>Rather than manually searching for the optimal number of clusters, you can use the <code>BayesianGaussianMixture</code> class, which is capable of giving weights equal (or close) to zero to unnecessary clusters. Set the number of clusters <code>n_components</code> to a value that you have good reason to believe is greater than the optimal number of clusters (this assumes some minimal knowledge about the problem at hand), and the algorithm will eliminate the unnecessary clusters automatically. For example, let’s set the number of clusters to 10 and see what happens:</p>
-<div id="a4471b8e" class="cell" data-execution_count="64">
+<div id="a4471b8e" class="cell" data-outputid="258c3305-a22b-40a0-8fed-b57ff60824c9" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.mixture <span class="im">import</span> BayesianGaussianMixture</span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>bgm <span class="op">=</span> BayesianGaussianMixture(n_components<span class="op">=</span><span class="dv">10</span>, n_init<span class="op">=</span><span class="dv">10</span>, max_iter<span class="op">=</span><span class="dv">500</span>,</span>
@@ -4332,7 +3517,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>The algorithm automatically detected that only 3 components are needed!</p>
-<div id="a61e45f0" class="cell" data-execution_count="65">
+<div id="a61e45f0" class="cell" data-outputid="59ee151d-055a-4a71-dbc9-55a9a9e4380e" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>plot_gaussian_mixture(bgm, X)</span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4345,7 +3530,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <p>A final note about Gaussian mixture models: although they work great on clusters with ellipsoidal shapes, they don’t do so well with clusters of very different shapes. For example, let’s see what happens if we use a Bayesian Gaussian mixture model to cluster the moons dataset:</p>
-<div id="04dba101" class="cell" data-execution_count="66">
+<div id="04dba101" class="cell" data-outputid="bde65dae-d147-4a86-da7d-13f055286a30" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>X_moons, y_moons <span class="op">=</span> make_moons(n_samples<span class="op">=</span><span class="dv">1000</span>, noise<span class="op">=</span><span class="fl">0.05</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>bgm <span class="op">=</span> BayesianGaussianMixture(n_components<span class="op">=</span><span class="dv">10</span>, n_init<span class="op">=</span><span class="dv">10</span>, max_iter<span class="op">=</span><span class="dv">500</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
