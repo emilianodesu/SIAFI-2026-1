@@ -2,3 +2,4 @@
 /.quarto/
 /IDS/datasets/*.tgz
 /.idea/
+/DL/datasets/
