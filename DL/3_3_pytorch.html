@@ -2357,6 +2357,17 @@ Epoch 1/1, train loss: 0.2195, train metric: 0.9193, valid metric: 0.8900</code>
 <ul>
 <li>Chapter 10 Hands-On Machine Learning with Scikit-Learn and PyTorch by Aurélien Géron, <a href="https://learning.oreilly.com/library/view/hands-on-machine-learning/9798341607972/">1st edition</a></li>
 </ul>
+<hr>
+<p><strong>Assignment 3 (final project)</strong>:</p>
+<p>It’s time to show off your skills! Build, train, and evaluate a neural network model using PyTorch on a dataset of your choice. You can use any dataset available online or one from your previous assignments. Make sure to preprocess the data appropriately, define a suitable architecture, and implement training and evaluation loops. Remember to document your code and explain your choices. You ought to follow a Data Science workflow, check the suggested workflow in Introduction to Data Science Course or develop your own (recommended minimal steps include data exploration, preprocessing, model building, training, evaluation, and fine-tuning). Submit your code along with a brief report summarizing your approach and findings (the format is free). Remember that a good Data Science project is not just about getting high accuracy but also about understanding the data and the model’s behavior. Make sure to highlight any challenges you faced and how you overcame them. Pinpoint areas for future improvement or exploration. Use clear visualizations to support your analysis where appropriate. And remember to make communications clear and concise. If you need inspiration, you can use the following idea:</p>
+<p>Build and train a classification MLP on the CoverType dataset:</p>
+<ol type="1">
+<li>Load the dataset using <code>sklearn.datasets.fetch_covtype()</code> and create a custom PyTorch <code>Dataset</code> for this data.</li>
+<li>Create data loaders for training, validation, and testing.</li>
+<li>Build a custom MLP module to tackle this classification task.</li>
+<li>Train this model on the GPU, and try to reach 93% accuracy on the test set. For this, you will likely have to perform hyperparameter search to find the right number of layers and neurons per layer, a good learning rate and batch size, and so on. You can optionally use Optuna for this.</li>
+</ol>
+<p>Good luck!</p>
 
 
 </section>
